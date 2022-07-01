@@ -1,0 +1,57 @@
+header {
+    background-color: var(--headerBG);
+    color: var(--header);
+    height: auto;
+    width: 100vw;
+    padding: .3rem 0rem;
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    font-family: var(--headerTitle);
+    font-size: 1.6rem;
+    padding-left: .6rem;
+}
+
+header > nav {
+    font-size: var(--stdSize);
+    display: flex;
+    flex-direction: horizonal;
+}
+
+.saberMas {
+    display: flex;
+    flex-direction: horizontal;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .35rem 0 .3rem;
+    border: 1px solid hsl(360, 78%, 70%);
+    border-radius: .3rem;
+    transition: .1s;
+    cursor: pointer;
+    margin-right:.3rem;
+}
+
+.saberMas:hover {
+    border: 1px solid hsl(360, 78%, 70%);
+}
+
+.saberMas:active {
+    background-color: hsl(360, 78%, 70%);
+    border: 1px solid white;
+}
+
+.saberMas div+div {
+    margin-left: 0.5rem;
+}
+
+#saberMasIcon {
+    transform: translateY(.15rem);
+}
