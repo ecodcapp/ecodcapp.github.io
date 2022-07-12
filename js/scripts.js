@@ -62,10 +62,6 @@ function setEventListeners() {
     })
 }
 
-function updatePotencia(value) {
-    document.getElementById('potenciaDisplay').textContent = value;
-}
-
 function loadSection(e) {
 
     e.preventDefault();
@@ -221,10 +217,12 @@ function buscarProducto(formAnswers) {
     formAnswers.preventDefault();
 
     let data = Object.fromEntries(new FormData(formAnswers.target).entries());
-    console.log(data.seccionadores) // 'on' OR undefined
     let formData = { ...data };
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
-    if ('seccionadores' in data) {
+
+    // if(formData.proteccion === 'DC') {};
+
+    if (formData.proteccion === 'DC' && 'seccionadores' in data) {
         formData.seccionadores = true;
     } else {
         formData.seccionadores = false;
@@ -232,12 +230,36 @@ function buscarProducto(formAnswers) {
 
     console.log(formData);
 
-    let resultado = jsonDB.productos.filter(
-        x => x.strings == formData.strings &&
+    // FILTRADO DE LA BASE DE DATOS
+    // let resultado = jsonDB.productos.filter(
+    //     x => x.strings == formData.strings &&
+    //         x.mppt == formData.MPPT &&
+    //         x.proteccion === formData.proteccion &&
+    //         x.seccionadores === formData.seccionadores
+    // );
+    let resultado = jsonDB.productos.filter(x => x.proteccion === formData.proteccion);
+    
+    if(formData.proteccion === 'DC') {
+        resultado = resultado.filter(x =>
+            x.strings == formData.strings &&
             x.mppt == formData.MPPT &&
-            x.proteccion === formData.proteccion &&
             x.seccionadores === formData.seccionadores
-    );
+        )
+    }
+
+    if(formData.proteccion === 'AC') {
+        
+        const minP = 5;
+        const maxP = 70;
+        
+        resultado = resultado.filter(x =>
+            x.fases === formData.fases
+        )
+        
+        let indexPower = Math.floor((formData.potencia - minP)/(maxP - minP)*(resultado.length - 1));
+        
+        resultado = resultado[indexPower];
+    }
 
     if (resultado.length === 0) {
         let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
@@ -255,11 +277,15 @@ function buscarProducto(formAnswers) {
         specList.innerHTML = '';
         
         return
-    }
+    } //RETURN
 
-    resultado = resultado[0];
-    // console.log(resultado)
+    if(Array.isArray(resultado) && resultado.length === 1) {resultado = resultado[0]}
+    
+    formatResultado(resultado)
 
+}
+
+function formatResultado(resultado) {
     const firstBlockImg = document.getElementById('firstBlockImg');
     // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
     let imageSrc = jsonDB.familias.filter(x => x.familia === resultado.familia)[0].imagen;
@@ -297,4 +323,8 @@ function buscarProducto(formAnswers) {
 
 function buzz(ms) {
     window.navigator.vibrate ? navigator.vibrate(ms) : console.log('APPLE PLS, STOP BITCHING PWA DEVELOPERS');
+}
+
+function updatePotencia(value) {
+    document.getElementById('potenciaDisplay').textContent = value;
 }
