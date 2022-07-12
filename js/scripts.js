@@ -1,4 +1,4 @@
-window.addEventListener('load', afterLoad); 
+window.addEventListener('load', afterLoad);
 
 function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -49,20 +49,24 @@ function setEventListeners() {
         buzz(20)
     });
 
-    document.querySelector('form').addEventListener('submit', buscarProducto);
+    const forms = Array.from(document.getElementsByTagName('form'));
+    forms.forEach(x => x.addEventListener('submit', buscarProducto));
+    // .addEventListener('submit', buscarProducto);
 
     document.getElementById('formResultsDivBack')
-    .addEventListener('click', function(event) {
-        let results = document.getElementById('formResultsDiv');
-        results.style.top = "110%"
-        results.style.bottom = "-110%"
+        .addEventListener('click', function (event) {
+            let results = document.getElementById('formResultsDiv');
+            buzz(20);
+            results.style.top = "110%";
+            results.style.bottom = "-110%";
     })
-
 }
 
 function loadSection(e) {
 
     e.preventDefault();
+    
+    window.history.pushState(e.view.history.state, null, '');
     const sectionId = `seccion${e.currentTarget.classList[1]}`;
     const selectedSection = document.getElementById(sectionId);
 
@@ -208,12 +212,17 @@ function setMPPT(numStrIndx) {
 
 function buscarProducto(formAnswers) {
 
+    console.log(formAnswers)
+
     formAnswers.preventDefault();
 
     let data = Object.fromEntries(new FormData(formAnswers.target).entries());
     let formData = { ...data };
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
-    if ('seccionadores' in data) {
+
+    // if(formData.proteccion === 'DC') {};
+
+    if (formData.proteccion === 'DC' && 'seccionadores' in data) {
         formData.seccionadores = true;
     } else {
         formData.seccionadores = false;
@@ -221,33 +230,102 @@ function buscarProducto(formAnswers) {
 
     console.log(formData);
 
-    let resultado = jsonDB.productos.filter(
-        x => x.strings == formData.strings &&
-             x.MPPT == formData.MPPT &&
-             x.proteccion === formData.proteccion
-    );
-    resultado = resultado[0];
+    // FILTRADO DE LA BASE DE DATOS
+    // let resultado = jsonDB.productos.filter(
+    //     x => x.strings == formData.strings &&
+    //         x.mppt == formData.MPPT &&
+    //         x.proteccion === formData.proteccion &&
+    //         x.seccionadores === formData.seccionadores
+    // );
+    let resultado = jsonDB.productos.filter(x => x.proteccion === formData.proteccion);
+    
+    if(formData.proteccion === 'DC') {
+        resultado = resultado.filter(x =>
+            x.strings == formData.strings &&
+            x.mppt == formData.MPPT &&
+            x.seccionadores === formData.seccionadores
+        )
+    }
 
-    console.log(resultado);
+    if(formData.proteccion === 'AC') {
+        
+        const minP = 5;
+        const maxP = 70;
+        
+        resultado = resultado.filter(x =>
+            x.fases === formData.fases
+        )
+        
+        let indexPower = Math.floor((formData.potencia - minP)/(maxP - minP)*(resultado.length - 1));
+        
+        resultado = resultado[indexPower];
+    }
+
+    if (resultado.length === 0) {
+        let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
+        resultDiv.style.top = 0;
+        resultDiv.style.bottom = 0;
+
+        const firstBlockImg = document.getElementById('firstBlockImg');
+        // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
+        let imageSrc = 'resources/productos/salta-el-diferencial.webp';
+        if (firstBlockImg) {
+            firstBlockImg.src = imageSrc;
+        }
+        document.getElementById('secondBlockh1').textContent = 'Sigue buscando';
+        const specList = document.getElementById('secondBlockListItems');
+        specList.innerHTML = '';
+        
+        return
+    } //RETURN
+
+    if(Array.isArray(resultado) && resultado.length === 1) {resultado = resultado[0]}
+    
+    formatResultado(resultado)
+
+}
+
+function formatResultado(resultado) {
+    const firstBlockImg = document.getElementById('firstBlockImg');
+    // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
+    let imageSrc = jsonDB.familias.filter(x => x.familia === resultado.familia)[0].imagen;
+    if (firstBlockImg) {
+        firstBlockImg.src = imageSrc;
+    }
+
+    document.getElementById('secondBlockh1').textContent = resultado.Referencia;
+
+    // let fields = Object.entries(resultado).filter(x => x[0] === x[0].toUpperCase());
+    
+    const specsEntries = Object.entries(resultado).filter(x => x[0][0] === x[0][0].toUpperCase());
+    // console.log(specsEntries)
+    let specs = specsEntries.filter(x => x[0] !== 'Referencia');
+    specs = Object.fromEntries(specs);
+    specsKeys = Object.keys(specs);
+    specsValues = Object.values(specs);
+
+    const specList = document.getElementById('secondBlockListItems');
+    specList.innerHTML = '';
+    // console.log(specList)
+    for(i = 0; i < specsKeys.length; i++) {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${specsKeys[i]}: `;
+        let listItemValue = document.createElement('span');
+        listItemValue.textContent = `${specsValues[i]}`;
+        listItem.appendChild(listItemValue);
+        specList.appendChild(listItem);
+    }
 
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
     resultDiv.style.bottom = 0;
-    
-    const firstBlockImg = document.getElementById('firstBlockImg');
-    let imageSrc = jsonDB.familias.filter(x => x.familia === resultado.familia)[0].imagen;
-    if(firstBlockImg) {
-        firstBlockImg.src = imageSrc;
-    }
-    document.getElementById('secondBlockh1').textContent = resultado.Referencia;
-    document.getElementById('spanCodigo').textContent = resultado.Código;
-    document.getElementById('spanEntraSali').textContent = resultado['Entrada-Salida'];
-    resultado["Amperaje seccionador"] ? 
-        document.getElementById('spanAmpSec').textContent = resultado["Amperaje seccionador"] :
-        document.getElementById('spanAmpSec').parentElement.style.display = 'none';
-    document.getElementById('spanPVP').textContent = resultado.PVP;
 }
 
 function buzz(ms) {
     window.navigator.vibrate ? navigator.vibrate(ms) : console.log('APPLE PLS, STOP BITCHING PWA DEVELOPERS');
+}
+
+function updatePotencia(value) {
+    if(value % 10 === 0) {buzz(40)} else {buzz(10)};
+    document.getElementById('potenciaDisplay').textContent = value;
 }

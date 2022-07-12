@@ -175,7 +175,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--headerBG);
     justify-content: space-between;
     padding: .5rem 0;
 }
@@ -293,7 +293,7 @@ input {
 .radio-toolbar label {
     display: inline-block;
     width: fit-content;
-    border: 2px solid red;
+    border: 2px solid var(--headerBG);
     background-color: hsl(0, 0%, 95%);
     padding: 4px 11px;
     font-family: monospace;
@@ -339,28 +339,19 @@ input {
 
 /* --------------------------------------------------------- */
 
-/* #formResultsDiv,
-#formResultsDiv * {
-    border: 1px solid red;
-} */
-
 #formResultsDiv {
+    margin: calc(1rem + 39px) 1rem 1rem;
     position: absolute;
     left: 0vw;
     right: 0vw;
     top: 110%;
     bottom: -110%;
     background-color: white;
-    /* padding: -1rem; */
+    /* padding: 1rem; */
     z-index: 1;
     border-radius: 1rem;
     transition: 0.4s;
     box-shadow: 0 0px 5px 2px lightcoral;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch; */
-
 }
 
 #formResultsDivBack {
@@ -406,4 +397,60 @@ input {
     margin: .5rem;
     font-size: 1rem;
     font-weight: 500
+}
+
+/* ------------------------------------------ */
+
+.inversorMonoTri label {
+    font-size: 1.5rem;
+}
+
+/* .potencia,
+.potencia * {
+    border: 1px solid red;
+} */
+
+.potencia {
+    padding: 1rem 1rem 1rem 0 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid red;
+}
+
+.potenciaLabel {
+    margin: 0;
+}
+
+.potenciaDisplay,
+.potenciaDisplay * {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: monospace;
+    margin-right: .3rem;
+
+}
+
+.potenciaDisplay {
+    padding: 0.2rem 0.4rem;
+    margin-right: 1rem;
+    border: 2px solid var(--headerBG);
+    border-radius: 0.3rem;
+    background-color: hsl(0, 0%, 95%);
+    box-shadow: 0 2px 4px lightcoral;
+}
+
+label[for="potencia"] {
+    margin: 0;
+    margin-top: .4rem;
+}
+
+.potenciaInput {
+    display: flex;
+    align-items: center !important;
+}
+
+.range-label {
+    accent-color: var(--headerBG);
 }

@@ -17,6 +17,11 @@ const resourcesToPrecache = [
   'resources/icons/maskable_icon_x384.png',
   'resources/icons/maskable_icon_x512.png',
   'resources/icons/maskable_icon.png',
+  'resources/productos/eco-ac.webp',
+  'resources/productos/eco-dc-inv-s.webp',
+  'resources/productos/eco-dc-inv.webp',
+  'resources/productos/eco-dc.webp',
+  'resources/productos/salta-el-diferencial.webp',
   'hcdb.json'
 ];
 
@@ -35,8 +40,8 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
     .then(function(cachedResponse) {
-      // return cachedResponse || fetch(event.request);
-      return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
+      return cachedResponse || fetch(event.request);
+      // return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
     })
   );
 });

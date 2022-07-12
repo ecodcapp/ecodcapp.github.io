@@ -126,26 +126,33 @@
 
                         <div class="inputMain radio-toolbar MPPTinversor">
                             <!-- <div class="radio-toolbar"> -->
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor1" value="1">
-                                <label for="MPPTinversor1">1</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor2" value="2" checked>
-                                <label for="MPPTinversor2">2</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor3" value="3" disabled>
-                                <label for="MPPTinversor3">3</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor4" value="4" disabled>
-                                <label for="MPPTinversor4">4</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor5" value="5" disabled>
-                                <label for="MPPTinversor5">5</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor6" value="6" disabled>
-                                <label for="MPPTinversor6">6</label>
-        
-                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor7" value="8" disabled>
-                                <label for="MPPTinversor7">8</label>
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor1" value="1">
+                            <label for="MPPTinversor1">1</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor2" value="2" checked>
+                            <label for="MPPTinversor2">2</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor3" value="3" disabled>
+                            <label for="MPPTinversor3">3</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor4" value="4" disabled>
+                            <label for="MPPTinversor4">4</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor5" value="5" disabled>
+                            <label for="MPPTinversor5">5</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor6" value="6" disabled>
+                            <label for="MPPTinversor6">6</label>
+
+                            <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
+                                id="MPPTinversor7" value="8" disabled>
+                            <label for="MPPTinversor7">8</label>
                         </div>
                     </div>
 
@@ -161,29 +168,26 @@
                     </div>
 
                     <div class="btnContainer mostrarProductos">
-                        <button class="btn proteccionDC" form="proteccionDC" type="submit"
-                            onclick="buzz(20)">Mostrar productos</button>
+                        <button class="btn proteccionDC" form="proteccionDC" type="submit" onclick="buzz(20)">Mostrar
+                            productos</button>
                     </div>
 
                 </form>
 
-                <div id="formResultsDiv">
+                <!-- <div id="formResultsDiv">
                     <div id="resultParent">
                         <div id="firstBlock">
                             <img id="firstBlockImg" src="" alt="">
                         </div>
                         <div id="secondBlock">
                             <h1 class="logo" id="secondBlockh1"></h1>
-                            <ul>
-                                <li>Código: <span id="spanCodigo"></span></li>
-                                <li>Entradas/Salidas: <span id="spanEntraSali"></span></li>
-                                <li>Amperaje seccionador: <span id="spanAmpSec"></span></li>
-                                <li>PVP: <span id="spanPVP"></span></li>
+                            <ul id="secondBlockListItems">
                             </ul>
                         </div>
                     </div>
                     <div id="formResultsDivBack">VOLVER</div>
-                </div>
+                    
+                </div> -->
 
             </div>
         </section>
@@ -198,8 +202,41 @@
 
                     <div class="back seccionAC">VOLVER</div>
                 </div>
-                <form action="">
-                    <!-- <input type="text"> -->
+                <form id="proteccionAC" name="proteccionAC" action="">
+
+                    <div class="inputParent inversorMonoTri">
+
+                        <h2 class="inversorMonoTri noselect">Inversor para corriente:</h2>
+
+                        <div class="inputMain radio-toolbar inversorMonoTri">
+                            <!-- <div class="radio-toolbar"> -->
+                            <input type="radio" onclick="buzz(20)" class="inversorMonoTri Option" name="fases"
+                                id="inversorMono" value="1">
+                            <label for="inversorMono">Monofásica</label>
+
+                            <input type="radio" onclick="buzz(20)" class="inversorMonoTri Option" name="fases"
+                                id="inversorTri" value="3" checked>
+                            <label for="inversorTri">Trifásica</label>
+                        </div>
+                    </div>
+
+                    <div class="inputParent potencia">
+                        <div class="potenciaLabel noselect"><b>Potencia</b>:</div>
+                        <div class="potenciaInput noselect">
+                            <div class="potenciaDisplay"><span id="potenciaDisplay">20</span>kW</div>
+                            <!-- <div class="potenciaLabelLabel"> -->
+                                <label for="potencia" class="range-label noselect">
+                                    <input id="potencia" class="range-input noselect" type="range" min="5" max="70" step="5" name="potencia" value="20" oninput="updatePotencia(this.value)">
+                                </label>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                    <div class="btnContainer mostrarProductos">
+                        <button class="btn proteccionAC" form="proteccionAC" type="submit" onclick="buzz(20)">Mostrar
+                            productos</button>
+                    </div>
+
                 </form>
 
             </div>
@@ -221,7 +258,22 @@
 
             </div>
         </section>
-test
+
+        <div id="formResultsDiv">
+            <div id="resultParent">
+                <div id="firstBlock">
+                    <img id="firstBlockImg" src="" alt="">
+                </div>
+                <div id="secondBlock">
+                    <h1 class="logo" id="secondBlockh1"></h1>
+                    <ul id="secondBlockListItems">
+                    </ul>
+                </div>
+            </div>
+            <div id="formResultsDivBack">VOLVER</div>
+
+        </div>
+
     </main>
 
     <script src="js/scripts.js"></script>
