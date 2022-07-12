@@ -1,15 +1,42 @@
+
+const cacheName = 'cache-v1';
+const resourcesToPrecache = [
+  '/',
+  'index.html',
+  'css/style.css',
+  'css/main.css',
+  'css/header.css',
+  'js/scripts.js',
+  'resources/ac_current.svg',
+  'resources/acdc_current.svg',
+  'resources/arrow_up.svg',
+  'resources/bannerECODC.svg',
+  'resources/dc_current.svg',
+  'resources/toscano-logo-blanco.svg',
+  'resources/icons/maskable_icon_x192.png',
+  'resources/icons/maskable_icon_x384.png',
+  'resources/icons/maskable_icon_x512.png',
+  'resources/icons/maskable_icon.png',
+  'hcdb.json'
+];
+
+
 self.addEventListener('install', function(event) {
+  console.log('Service worker install event');
   event.waitUntil(
-    caches.open('simple-sw-v1').then(function(cache) {
-      return cache.add('index.html');
+    caches.open(cacheName)
+      .then(function(cache) {
+        return cache.addAll(resourcesToPrecache);
     })
   );
 });
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
+    caches.match(event.request)
+    .then(function(cachedResponse) {
+      // return cachedResponse || fetch(event.request);
+      return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
     })
   );
 });

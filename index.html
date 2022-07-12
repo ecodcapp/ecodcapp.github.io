@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#E52A2A">
+    <meta name="description"
+        content="Aplicación para seleccionar productos de la gama ECO-FV de toscano. Todos los derechos resevados.">
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!-- <meta name="apple-mobile-app-capable" content="yes"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Document</title>
 
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="apple-touch-icon" href="/resources/icons/maskable_icon_x192.png">
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -32,7 +39,7 @@
 
         <div id="bannerTitle">
             <h1 class="ecoDcTitle">GAMA ECO-DC</h1>
-            <h1 class="ecoDcSubTitle">GUIA DE SELECCIÓN</h1>
+            <h1 class="ecoDcSubTitle">GUÍA DE SELECCIÓN</h1>
         </div>
         <img id="loadingBannerDoodle" src="resources/bannerECODC.svg" alt="Dibujo panel solar">
     </div>
@@ -60,21 +67,24 @@
             <div class="subsection">
                 <h1>Seleccione el tipo de protección</h1>
                 <div class="seleccionACDC DC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/dc_current.svg" alt="icono corriente continua" srcset=""></div>
+                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/dc_current.svg"
+                            alt="icono corriente continua" srcset=""></div>
                     <div class="tipo-de-proteccion-texto">
                         <h3>ECO-DC</h3>
                         <div class="seleccionContent">Protección para <b>corriente continua</b></div>
                     </div>
                 </div>
                 <div class="seleccionACDC AC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/ac_current.svg" alt="icono corriente alterna" srcset=""></div>
+                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/ac_current.svg"
+                            alt="icono corriente alterna" srcset=""></div>
                     <div class="tipo-de-proteccion-texto">
                         <h3>ECO-AC</h3>
                         <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
                     </div>
                 </div>
                 <div class="seleccionACDC ACDC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/acdc_current.svg" alt="icono corriente continua y alterna" srcset=""></div>
+                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/acdc_current.svg"
+                            alt="icono corriente continua y alterna" srcset=""></div>
                     <div class="tipo-de-proteccion-texto">
                         <h3>ECO-DC-AC</h3>
                         <div class="seleccionContent">Protección para <b>corriente continua y alterna</b></div>
@@ -87,47 +97,128 @@
         <section id="seccionDC" data-onDisplay="0">
             <div class="subsection">
                 <div class="sectionHeader">
-                    <div class="sectionSubtitle">
+                    <div class="sectionSubtitle noselect">
                         <h2>Seleccionar parámetros para continua</h2>
                     </div>
-                    
-                    <div class="back seccionDC">VOLVER</div>
+
+                    <div class="back seccionDC noselect">VOLVER</div>
                 </div>
-                <form action=""><input type="text">
+                <form id="proteccionDC" name="proteccionDC" action="">
+                    <div class="inputParent strings">
+                        <label for="DCNStrings" class="noselect">Nº de <b>strings de entrada</b></label>
+
+                        <div class="inputMain">
+                            <div class="inputMain-input">
+                                <input id="DCNStrings" class="noselect" type="number" name="strings" min="1" max="8"
+                                    step="1" value="2" readonly required />
+                            </div>
+                            <div class="flechasSelectoras">
+                                <img class="DCNStrings arrow up noselect" src="resources/arrow_up.svg" alt="" srcset="">
+                                <img class="DCNStrings arrow down noselect" src="resources/arrow_up.svg" alt=""
+                                    srcset="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent MPPT">
+
+                        <h2 class="MPPTinversor noselect">Nº de <b>MPPT por inversor</b></h2>
+
+                        <div class="inputMain radio-toolbar MPPTinversor">
+                            <!-- <div class="radio-toolbar"> -->
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor1" value="1">
+                                <label for="MPPTinversor1">1</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor2" value="2" checked>
+                                <label for="MPPTinversor2">2</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor3" value="3" disabled>
+                                <label for="MPPTinversor3">3</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor4" value="4" disabled>
+                                <label for="MPPTinversor4">4</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor5" value="5" disabled>
+                                <label for="MPPTinversor5">5</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor6" value="6" disabled>
+                                <label for="MPPTinversor6">6</label>
+        
+                                <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT" id="MPPTinversor7" value="8" disabled>
+                                <label for="MPPTinversor7">8</label>
+                        </div>
+                    </div>
+
+                    <div class="inputParent seccionadores">
+                        <div class="seccionadoresLabel noselect">Incluir <b>seccionadores de corriente</b></div>
+                        <div class="seccionadoresInput noselect">
+                            <label class="switch-label noselect">
+                                <input id="seccionadores" class="switch-input noselect" type="checkbox"
+                                    name="seccionadores" checked="true">
+                                <span class="slider round noselect"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="btnContainer mostrarProductos">
+                        <button class="btn proteccionDC" form="proteccionDC" type="submit"
+                            onclick="buzz(20)">Mostrar productos</button>
+                    </div>
+
                 </form>
-                
+
+                <div id="formResultsDiv">
+                    <div id="resultParent">
+                        <div id="firstBlock">
+                            <img id="firstBlockImg" src="" alt="">
+                        </div>
+                        <div id="secondBlock">
+                            <h1 class="logo" id="secondBlockh1"></h1>
+                            <ul>
+                                <li>Código: <span id="spanCodigo"></span></li>
+                                <li>Entradas/Salidas: <span id="spanEntraSali"></span></li>
+                                <li>Amperaje seccionador: <span id="spanAmpSec"></span></li>
+                                <li>PVP: <span id="spanPVP"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="formResultsDivBack">VOLVER</div>
+                </div>
+
             </div>
         </section>
 
-        <!-- SECCIÓN: SELECTOR PARÁMETROS DC -->
+        <!-- SECCIÓN: SELECTOR PARÁMETROS AC -->
         <section id="seccionAC" data-onDisplay="0">
             <div class="subsection">
                 <div class="sectionHeader">
                     <div class="sectionSubtitle">
                         <h2>Seleccionar parámetros para alterna</h2>
                     </div>
-                    
+
                     <div class="back seccionAC">VOLVER</div>
                 </div>
-                <form action=""><input type="text">
+                <form action="">
+                    <!-- <input type="text"> -->
                 </form>
-                
+
             </div>
         </section>
 
-        <!-- SECCIÓN: SELECTOR PARÁMETROS DC -->
+        <!-- SECCIÓN: SELECTOR PARÁMETROS ACDC -->
         <section id="seccionACDC" data-onDisplay="0">
             <div class="subsection">
                 <div class="sectionHeader">
                     <div class="sectionSubtitle">
                         <h2>Seleccionar parámetros para continua y alterna</h2>
                     </div>
-                    
+
                     <div class="back seccionACDC">VOLVER</div>
                 </div>
-                <form action=""><input type="text">
+                <form action="">
+                    <!-- <input type="text"> -->
                 </form>
-                
+
             </div>
         </section>
 
@@ -136,8 +227,14 @@
     <script src="js/scripts.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function () { console.log("Service worker registered"); });
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => {
+                        console.log('Service worker registered!', reg);
+                    }).catch(err => {
+                        console.log('Registration of sw.js FAILED', err);
+                    })
+            });
         }
     </script>
 </body>
