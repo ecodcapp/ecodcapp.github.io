@@ -1,0 +1,66 @@
+{
+  "name": "ECO-DC",
+  "short_name": "ECO-DC",
+  "description": "Asistente de selección de productos de la gama ECO-DC de Toscano. \n Introduce las características de tu instalación, y nosotros te ayudaremos a encontrar el producto que más se ajuste a tus necesidades.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#E52A2A",
+  "background_color": "#E52A2A",
+  "orientation": "portrait",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "resources/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "resources/icons/maskable_icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "resources/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "resources/icons/maskable_icon_x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "resources/icons/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/resources/screenshots/screenShot1.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Pantalla de carga"
+    },
+    {
+      "src": "/resources/screenshots/screenShot2.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Selecciona el tipo de protección"
+    },
+    {
+      "src": "/resources/screenshots/screenShot3.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Customiza tu equipo de protección contra sobretensiones"
+    }
+  ]
+}
