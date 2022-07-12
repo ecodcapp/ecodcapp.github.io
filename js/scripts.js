@@ -326,6 +326,6 @@ function buzz(ms) {
 }
 
 function updatePotencia(value) {
-    if(value % 10 === 0) {buzz(20)} else {buzz(1)};
+    if(value % 10 === 0) {buzz(20)} else {buzz(5)};
     document.getElementById('potenciaDisplay').textContent = value;
 }
