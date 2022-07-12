@@ -233,6 +233,7 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003617,
             "Referencia": "ECO-AC-1Nx1030T15",
             "Amperaje": "1P+N x 10A",
@@ -241,6 +242,7 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003618,
             "Referencia": "ECO-AC-1Nx1630T15",
             "Amperaje": "1P+N x 16A",
@@ -249,6 +251,7 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003619,
             "Referencia": "ECO-AC-1Nx2030T15",
             "Amperaje": "1P+N x 20A",
@@ -257,6 +260,7 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003620,
             "Referencia": "ECO-AC-1Nx2530T15",
             "Amperaje": "1P+N x 25A",
@@ -265,6 +269,7 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003621,
             "Referencia": "ECO-AC-1Nx3230T15",
             "Amperaje": "1P+N x 32A",
@@ -273,10 +278,83 @@
         {
             "familia": "eco-ac-1nt15",
             "proteccion": "AC",
+            "fases": "1",
             "Código": 10003622,
             "Referencia": "ECO-AC-1Nx4030T15",
             "Amperaje": "1P+N x 40A",
             "PVP": "146,85€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003623,
+            "Referencia": "ECO-AC-3Nx1030-T15",
+            "Amperaje": "3P+N x 10A",
+            "PVP": "244,87€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003624,
+            "Referencia": "ECO-AC-3Nx1630-T15",
+            "Amperaje": "3P+N x 16A",
+            "PVP": "244,87€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003625,
+            "Referencia": "ECO-AC-3Nx2030-T15",
+            "Amperaje": "3P+N x 20A",
+            "PVP": "244,87€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003626,
+            "Referencia": "ECO-AC-3Nx2530-T15",
+            "Amperaje": "3P+N x 25A",
+            "PVP": "245,36€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003627,
+            "Referencia": "ECO-AC-3Nx3230-T15",
+            "Amperaje": "3P+N x 32A",
+            "PVP": "250,44€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003628,
+            "Referencia": "ECO-AC-3Nx4030-T15",
+            "Amperaje": "3P+N x 40A",
+            "PVP": "250,44€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003629,
+            "Referencia": "ECO-AC-3Nx5030-T15",
+            "Amperaje": "3P+N x 50A",
+            "PVP": "284,36€"
+        },
+        {
+            "familia": "eco-ac-3nt15",
+            "proteccion": "AC",
+            "fases": "3",
+            "Código": 10003630,
+            "Referencia": "ECO-AC-3Nx6330-T15",
+            "Amperaje": "3P+N x 63A",
+            "PVP": "284,36€"
         }
     ]
 }
