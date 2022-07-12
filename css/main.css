@@ -175,7 +175,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--headerBG);
     justify-content: space-between;
     padding: .5rem 0;
 }
@@ -293,7 +293,7 @@ input {
 .radio-toolbar label {
     display: inline-block;
     width: fit-content;
-    border: 2px solid red;
+    border: 2px solid var(--headerBG);
     background-color: hsl(0, 0%, 95%);
     padding: 4px 11px;
     font-family: monospace;
@@ -401,25 +401,54 @@ input {
 
 /* ------------------------------------------ */
 
-.potencia,
-.potencia * {
-    /* border: 1px solid red; */
+.inversorMonoTri label {
+    font-size: 1.5rem;
 }
 
+/* .potencia,
+.potencia * {
+    border: 1px solid red;
+} */
+
 .potencia {
-    padding: 0 1rem 0 0;
+    padding: 1rem 1rem 1rem 0 !important;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid red;
 }
 
 .potenciaLabel {
     margin: 0;
+}
+
+.potenciaDisplay,
+.potenciaDisplay * {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: monospace;
+    margin-right: .3rem;
 
 }
 
-.inversorMonoTri label {
-    font-size: 1.5rem;
+.potenciaDisplay {
+    padding: 0.2rem 0.4rem;
+    margin-right: 1rem;
+    border: 2px solid var(--headerBG);
+    border-radius: 0.3rem;
+    background-color: hsl(0, 0%, 95%);
+    box-shadow: 0 2px 4px lightcoral;
+}
+
+label[for="potencia"] {
+    margin: 0;
+    margin-top: .4rem;
+}
+
+.potenciaInput {
+    display: flex;
+    align-items: center !important;
 }
 
 .range-label {
