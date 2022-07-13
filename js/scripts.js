@@ -106,11 +106,20 @@ function changeInputValue(e) {
         setMPPT(numStrIndx);
         return
     }
+
+    if (listaClases[0] === 'ACDCNStrings') {
+        console.log('seteando ACDC');
+        processStrings(arrow, listaClases, input);
+        return
+    }
 }
 
 function processStrings(arrow, listaClases, input) {
 
-    DCstringsRange = ['1', '2', '3', '4', '5', '6', '8'];
+    let stringsRange = ['1', '2', '3', '4', '5', '6', '8'];
+    if(listaClases[0] === "ACDCNStrings") {
+        stringsRange = stringsRange.splice(0,3);
+    }
 
     // console.log(`this is ${listaClases[0]}`);
 
@@ -119,34 +128,34 @@ function processStrings(arrow, listaClases, input) {
         let arrowUp = arrow;
         let arrowDown = Array.from(document.getElementsByClassName(`${listaClases[0]} arrow down`))[0];
 
-        if (input.value === DCstringsRange[DCstringsRange.length - 1]) {
+        if (input.value === stringsRange[stringsRange.length - 1]) {
 
             buzz([10, 90, 10])
-            return DCstringsRange.indexOf(input.value)
+            return stringsRange.indexOf(input.value)
 
         }
 
-        if (input.value === DCstringsRange[DCstringsRange.length - 2]) {
+        if (input.value === stringsRange[stringsRange.length - 2]) {
 
-            input.value = DCstringsRange[DCstringsRange.indexOf(input.value) + 1];
+            input.value = stringsRange[stringsRange.indexOf(input.value) + 1];
             arrowUp.style.backgroundColor = 'lightgrey';
             buzz(20)
-            return DCstringsRange.indexOf(input.value)
+            return stringsRange.indexOf(input.value)
 
         }
 
-        if (input.value === DCstringsRange[0]) {
+        if (input.value === stringsRange[0]) {
 
-            input.value = DCstringsRange[DCstringsRange.indexOf(input.value) + 1];
+            input.value = stringsRange[stringsRange.indexOf(input.value) + 1];
             arrowDown.style.backgroundColor = 'var(--headerBG)';
             buzz(20)
-            return DCstringsRange.indexOf(input.value)
+            return stringsRange.indexOf(input.value)
 
         }
 
-        input.value = DCstringsRange[DCstringsRange.indexOf(input.value) + 1];
+        input.value = stringsRange[stringsRange.indexOf(input.value) + 1];
         buzz(20)
-        return DCstringsRange.indexOf(input.value)
+        return stringsRange.indexOf(input.value)
 
     }
 
@@ -154,36 +163,36 @@ function processStrings(arrow, listaClases, input) {
     let arrowUp = Array.from(document.getElementsByClassName(`${listaClases[0]} arrow up`))[0];
 
 
-    if (input.value === DCstringsRange[DCstringsRange.length - 1]) {
+    if (input.value === stringsRange[stringsRange.length - 1]) {
 
-        input.value = DCstringsRange[DCstringsRange.indexOf(input.value) - 1];
+        input.value = stringsRange[stringsRange.indexOf(input.value) - 1];
         arrowUp.style.backgroundColor = 'var(--headerBG)';
         buzz(20)
-        return DCstringsRange.indexOf(input.value)
+        return stringsRange.indexOf(input.value)
 
     }
 
-    if (input.value === DCstringsRange[1]) {
+    if (input.value === stringsRange[1]) {
 
         arrowDown.style.backgroundColor = 'lightgrey';
-        input.value = DCstringsRange[DCstringsRange.indexOf(input.value) - 1];
+        input.value = stringsRange[stringsRange.indexOf(input.value) - 1];
         buzz([10, 90, 10])
-        return DCstringsRange.indexOf(input.value)
+        return stringsRange.indexOf(input.value)
 
     }
 
-    if (input.value === DCstringsRange[0]) {
+    if (input.value === stringsRange[0]) {
 
         arrowDown.style.backgroundColor = 'lightgrey';
-        input.value = DCstringsRange[DCstringsRange.indexOf(input.value)];
+        input.value = stringsRange[stringsRange.indexOf(input.value)];
         buzz([10, 90, 10])
-        return DCstringsRange.indexOf(input.value)
+        return stringsRange.indexOf(input.value)
 
     }
 
-    input.value = DCstringsRange[DCstringsRange.indexOf(input.value) - 1];
+    input.value = stringsRange[stringsRange.indexOf(input.value) - 1];
     buzz(20)
-    return DCstringsRange.indexOf(input.value)
+    return stringsRange.indexOf(input.value)
 
 }
 

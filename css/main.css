@@ -441,6 +441,7 @@ input {
     box-shadow: 0 2px 4px lightcoral;
 }
 
+label[for="potenciaACDC"],
 label[for="potencia"] {
     margin: 0;
     margin-top: .4rem;

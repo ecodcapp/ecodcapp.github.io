@@ -210,9 +210,11 @@
                         <div class="potenciaInput noselect">
                             <div class="potenciaDisplay"><span id="potenciaDisplayAC">20</span>kW</div>
                             <!-- <div class="potenciaLabelLabel"> -->
-                                <label for="potencia" class="range-label noselect">
-                                    <input id="potencia" data-proteccion="AC" class="range-input noselect" type="range" min="5" max="70" step="5" name="potencia" value="20" oninput="updatePotencia(this.value, this.dataset.proteccion)">
-                                </label>
+                            <label for="potencia" class="range-label noselect">
+                                <input id="potencia" data-proteccion="AC" class="range-input noselect" type="range"
+                                    min="5" max="70" step="5" name="potencia" value="20"
+                                    oninput="updatePotencia(this.value, this.dataset.proteccion)">
+                            </label>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -243,23 +245,24 @@
 
                         <div class="inputMain">
                             <div class="inputMain-input">
-                                <input id="ACDCNStrings" class="noselect" type="number" name="strings" min="1" max="8"
+                                <input id="ACDCNStrings" class="noselect" type="number" name="strings" min="1" max="3"
                                     step="1" value="2" readonly required />
                             </div>
                             <div class="flechasSelectoras">
-                                <img class="ACDCNStrings arrow up noselect" src="resources/arrow_up.svg" alt="" srcset="">
+                                <img class="ACDCNStrings arrow up noselect" src="resources/arrow_up.svg" alt=""
+                                    srcset="">
                                 <img class="ACDCNStrings arrow down noselect" src="resources/arrow_up.svg" alt=""
                                     srcset="">
                             </div>
                         </div>
                     </div>
 
-                    <div class="inputParent ACDCMPPT">
+                    <!-- <div class="inputParent ACDCMPPT">
 
                         <h2 class="ACDCMPPTinversor noselect">Nº de <b>MPPT por inversor</b></h2>
 
                         <div class="inputMain radio-toolbar ACDCMPPTinversor">
-                            
+
                             <input type="radio" onclick="buzz(20)" class="MPPTinversor Option" name="MPPT"
                                 id="ACDCMPPTinversor1" value="1">
                             <label for="MPPTinversor1">1</label>
@@ -288,7 +291,7 @@
                                 id="MPPTinversor7" value="8" disabled>
                             <label for="MPPTinversor7">8</label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="inputParent seccionadores">
                         <div class="seccionadoresLabel noselect">Incluir <b>seccionadores de corriente</b></div>
@@ -306,14 +309,14 @@
                         <h2 class="inversorMonoTri noselect">Inversor para corriente:</h2>
 
                         <div class="inputMain radio-toolbar inversorMonoTri">
-                            
-                            <input type="radio" onclick="buzz(20)" class="inversorMonoTri Option" name="fases"
-                                id="inversorMono" value="1">
-                            <label for="inversorMono">Monofásica</label>
 
                             <input type="radio" onclick="buzz(20)" class="inversorMonoTri Option" name="fases"
-                                id="inversorTri" value="3" checked>
-                            <label for="inversorTri">Trifásica</label>
+                                id="ACDCinversorMono" value="1">
+                            <label for="ACDCinversorMono">Monofásica</label>
+
+                            <input type="radio" onclick="buzz(20)" class="inversorMonoTri Option" name="fases"
+                                id="ACDCinversorTri" value="3" checked>
+                            <label for="ACDCinversorTri">Trifásica</label>
                         </div>
                     </div>
 
@@ -321,16 +324,19 @@
                         <div class="potenciaLabel noselect"><b>Potencia</b>:</div>
                         <div class="potenciaInput noselect">
                             <div class="potenciaDisplay"><span id="potenciaDisplayACDC">20</span>kW</div>
-                            
+
                             <label for="potenciaACDC" class="range-label noselect">
-                                <input id="potenciaACDC" data-proteccion="ACDC" class="range-input noselect" type="range" min="5" max="70" step="5" name="potencia" value="20" oninput="updatePotencia(this.value, this.dataset.proteccion)">
+                                <input id="potenciaACDC" data-proteccion="ACDC" class="range-input noselect"
+                                    type="range" min="5" max="70" step="5" name="potencia" value="20"
+                                    oninput="updatePotencia(this.value, this.dataset.proteccion)">
                             </label>
-                                
+
                         </div>
                     </div>
 
                     <div class="btnContainer mostrarProductos">
-                        <button class="btn proteccionACDC" form="proteccionACDC" type="submit" onclick="buzz(20)">Mostrar
+                        <button class="btn proteccionACDC" form="proteccionACDC" type="submit"
+                            onclick="buzz(20)">Mostrar
                             productos</button>
                     </div>
 
