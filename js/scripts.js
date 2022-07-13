@@ -327,7 +327,8 @@ function buzz(ms) {
     window.navigator.vibrate ? navigator.vibrate(ms) : console.log('APPLE PLS, STOP BITCHING PWA DEVELOPERS');
 }
 
-function updatePotencia(value) {
+function updatePotencia(value, proteccion) {
     buzz(20);
-    document.getElementById('potenciaDisplay').textContent = value;
+    proteccion = 'potenciaDisplay' + proteccion;
+    document.getElementById(proteccion).textContent = value;
 }
