@@ -17,7 +17,7 @@ async function afterLoad() {
         .then(data => { jsonDB = { ...data } })
         .catch(error => console.log(error));
 
-    await timeout(2500);
+    await timeout(2000);
     const loadingBanner = Array.from(document.getElementsByClassName('loadingBanner'))[0];
 
     loadingBanner.style.top = '100%';
@@ -210,7 +210,7 @@ function setMPPT(numStrIndx) {
 
 }
 
-function buscarProducto(formAnswers) {
+async function buscarProducto(formAnswers) {
 
     console.log(formAnswers)
 
@@ -282,6 +282,8 @@ function buscarProducto(formAnswers) {
     if(Array.isArray(resultado) && resultado.length === 1) {resultado = resultado[0]}
     
     formatResultado(resultado)
+
+    await timeout(100);
 
 }
 
