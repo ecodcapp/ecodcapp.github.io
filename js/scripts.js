@@ -265,9 +265,19 @@ async function buscarProducto(formAnswers) {
             x.fases === formData.fases
         )
         
-        let indexPower = Math.floor((formData.potencia - minP)/(maxP - minP)*(resultado.length - 1));
+        resultado.forEach(x =>
+            x.Potencia = Math.round(x.Amperaje.slice(-3,-1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 *100) / 100 + ' kW'
+        )
+
+        const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0,-3)))
+        console.log(powerThresholds);
         
+        console.log(formData.potencia)
+        // console.log(powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia))));
+        let indexPower = powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia)));
+        console.log(indexPower)
         resultado = resultado[indexPower];
+        console.log(resultado)
     }
 
     if (resultado.length === 0) {
