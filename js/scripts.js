@@ -313,13 +313,14 @@ async function buscarProducto(formAnswers) {
 
     if (formData.proteccion === 'ACDC') {
 
-        // console.log(resultado)
+        console.log(resultado)
 
         resultado = resultado.filter(x =>
-            x.fases === formData.fases
+            x.fases === formData.fases && 
+            x.stringsMPPT == formData.stringsMPPT
         )
 
-        // console.log(resultado)
+        console.log(resultado)
 
         resultado.forEach(x =>
             x.Potencia = Math.round(x.Amperaje.slice(-3, -1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 * 100) / 100 + ' kW'
