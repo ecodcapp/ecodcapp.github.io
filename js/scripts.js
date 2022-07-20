@@ -47,6 +47,9 @@ function setEventListeners() {
     const inversorMonoTriAC = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
     inversorMonoTriAC.forEach(x => x.addEventListener('change', setMaxPower))
 
+    // const ACDCNStringsArrows = Array.from(document.getElementsByClassName('ACDCNStrings arrow'));
+    // ACDCNStringsArrows.forEach(x => x.addEventListener('click', setMaxPowerString))
+
     const forms = Array.from(document.getElementsByTagName('form'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
     // .addEventListener('submit', buscarProducto);
@@ -108,6 +111,7 @@ function changeInputValue(e) {
     if (listaClases[0] === 'ACDCNStrings') {
         console.log('seteando ACDC');
         processStrings(arrow, listaClases, input);
+        setMaxPowerString(listaClases[0],input)
         return
     }
 }
@@ -217,16 +221,49 @@ function setMPPT(numStrIndx) {
 
 }
 
+function setMaxPowerString(proteccion, input) {
+    console.log("let's set this shit")
+    const stringsMPPT = input.value;
+    const inversorMonoTriACDC = Array.from(document.getElementsByClassName('inversorMonoTri Option ACDC'));
+    // inversorMonoTriACDC.forEach(x => console.log(x.checked))
+    const fases = inversorMonoTriACDC.filter(x => x.checked)[0].value;
+    const potenciaACDC = document.getElementById('potenciaACDC');
+    console.log(stringsMPPT, fases, potenciaACDC)
+    if(stringsMPPT === '1') {
+        if(fases === '1') {
+            potenciaACDC.max = 4;
+            potenciaACDC.value = 2;
+            document.getElementById('potenciaDisplayACDC').value = 2;
+        } else {
+            console.log(`fases: ${fases}`)
+            potenciaACDC.max = 13;
+            potenciaACDC.value = 7;
+            document.getElementById('potenciaDisplayACDC').value = 7;
+        }        
+    } else if(stringsMPPT === '2') {
+        if(fases === '1') {
+            potenciaACDC.max = 5;
+            potenciaACDC.value = 3;
+            document.getElementById('potenciaDisplayACDC').value = 3;
+        } else {
+            potenciaACDC.max = 17;
+            potenciaACDC.value = 9;
+            document.getElementById('potenciaDisplayACDC').value = 9;
+        }
+
+    }
+}
+
 function setMaxPower(e) {
     e.preventDefault();
 
     const fase = e.currentTarget.value;
     const protecType = `potencia${e.currentTarget.classList[2]}`;
     const display = `potenciaDisplay${e.currentTarget.classList[2]}`;
-    console.log(fase)
+    // console.log(fase)
     const potencia = document.getElementById(protecType);
     const potenciaDisplay = document.getElementById(display);
-    console.log(potencia)
+    // console.log(potencia)
     if (protecType === 'AC') {
         if (fase === "1") {
             potencia.max = 7;
@@ -238,14 +275,28 @@ function setMaxPower(e) {
             potenciaDisplay.textContent = 3;
         }
     } else {
+        console.log('setting power');
+        const ACDCNStrings = document.getElementById('ACDCNStrings');
         if (fase === "1") {
-            potencia.max = 5;
-            potencia.value = 3;
-            potenciaDisplay.textContent = 3;
+            if (ACDCNStrings.value === "1") {
+                potencia.max = 4;
+                potencia.value = 2;
+                potenciaDisplay.textContent = 2;
+            } else {
+                potencia.max = 5;
+                potencia.value = 3;
+                potenciaDisplay.textContent = 3;
+            }
         } else {
-            potencia.max = 17;
-            potencia.value = 9;
-            potenciaDisplay.textContent = 9;
+            if (ACDCNStrings.value === "1") {
+                potencia.max = 13;
+                potencia.value = 7;
+                potenciaDisplay.textContent = 7;
+            } else {
+                potencia.max = 17;
+                potencia.value = 9;
+                potenciaDisplay.textContent = 9;
+            }
         }
     }
 
@@ -316,7 +367,7 @@ async function buscarProducto(formAnswers) {
         console.log(resultado)
 
         resultado = resultado.filter(x =>
-            x.fases === formData.fases && 
+            x.fases === formData.fases &&
             x.stringsMPPT == formData.stringsMPPT
         )
 
@@ -328,6 +379,7 @@ async function buscarProducto(formAnswers) {
 
         const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0, -3)))
         // console.log(powerThresholds);
+        console.log(resultado.map(x => x.Potencia))
 
         // console.log(formData.potencia)
         // console.log(powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia))));
