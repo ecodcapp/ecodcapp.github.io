@@ -367,7 +367,7 @@
             "Referencia": "ECO-AC-3Nx6330-T15",
             "Amperaje": "3P+N x 63A",
             "PVP": "284,36€"
-        }, //--------------------------------------------
+        },
         {
             "familia": "eco-dc-inv-ac-1nt15",
             "proteccion": "ACDC",
@@ -417,7 +417,7 @@
             "Amperaje": "1P+N x 32A",
             "Entrada/Salida": "3 string/3 MPPT",
             "PVP": "677,38€"
-        }, //--------------------------------------------
+        },
         {
             "familia": "eco-dc-inv-ac-3nt15",
             "proteccion": "ACDC",
