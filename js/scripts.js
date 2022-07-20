@@ -44,10 +44,8 @@ function setEventListeners() {
     const arrows = Array.from(document.getElementsByClassName('arrow'));
     arrows.forEach(x => x.addEventListener('click', changeInputValue));
 
-    // const seccionadores = Array.from(document.getElementsByClassName('seccionadores Option'));
-    // seccionadores.forEach(x => x.addEventListener('change', function () {
-    //     buzz(20)
-    // }))
+    const inversorMonoTri = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
+    inversorMonoTri.forEach(x => x.addEventListener('change', setMaxPower))
 
     const forms = Array.from(document.getElementsByTagName('form'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
@@ -205,7 +203,7 @@ function setMPPT(numStrIndx) {
         [1, 1, 0, 1, 0, 0, 0],
         [0, 0, 0, 0, 1, 0, 0],
         [1, 0, 0, 0, 0, 1, 0],
-        [1, 0, 0, 0, 0, 0, 1]
+        [1, 0, 0, 0, 0, 0, 0]
     ]
 
     const DCstrMPPT = DCstrMPPTmatrix[numStrIndx];
@@ -217,6 +215,25 @@ function setMPPT(numStrIndx) {
     MPPTinversor.forEach(x => x.checked = false);
     MPPTinversor.filter(x => x.disabled === false)[0].checked = true;
 
+}
+
+function setMaxPower(e) {
+    e.preventDefault();
+    const fase = e.currentTarget.value;
+    console.log(fase)
+    const potencia = document.getElementById('potencia');
+    const potenciaDisplay = document.getElementById('potenciaDisplayAC');
+    console.log(potencia)
+    if(fase === "1") {
+        potencia.max = 7;
+        potencia.value = 3;
+        potenciaDisplay.textContent = 3;
+    } else {
+        potencia.max = 34;
+        potencia.value = 3;
+        potenciaDisplay.textContent = 3;
+    }
+    console.log(potencia)
 }
 
 async function buscarProducto(formAnswers) {
@@ -294,8 +311,12 @@ async function buscarProducto(formAnswers) {
             firstBlockImg.src = imageSrc;
         }
         document.getElementById('secondBlockh1').textContent = 'Sigue buscando';
+        let li = document.createElement('li');
+        li.textContent = "Prueba a añadir/quitar seccionadores";
         const specList = document.getElementById('secondBlockListItems');
         specList.innerHTML = '';
+        specList.appendChild(li);
+        
         
         return
     } //RETURN
