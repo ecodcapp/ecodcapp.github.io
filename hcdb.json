@@ -29,6 +29,18 @@
             "proteccion": "AC",
             "descripción": "Cuadros de protección para salida del inversor en instalaciones fotovoltaicas. Para líneas trifásicas. Alimentación 400VAC. Protección diferencial tipo 'A' de 30mA. Magnetotérmico 10kA. Protector de sobretensiones transitorias. IP65",
             "imagen": "resources/productos/eco-ac.webp"
+        },
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC y AC. Base portafusible por string + fusibles de 15A. Conectores MC4 en entradas y salidas. Máximo 1000VDC. IP65. Para corriente alterna monofásica magnetotérmico + diferencial clase A.",
+            "imagen": "resources/productos/eco-dc-inv-dc-3.webp"
+        },
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC y AC. Base portafusible por string + fusibles de 15A. Conectores MC4 en entradas y salidas. Máximo 1000VDC. IP65. Para corriente alterna trifásica magnetotérmico + diferencial clase A.",
+            "imagen": "resources/productos/eco-dc-inv-dc-3.webp"
         }
     ],
     "productos": [
@@ -355,6 +367,106 @@
             "Referencia": "ECO-AC-3Nx6330-T15",
             "Amperaje": "3P+N x 63A",
             "PVP": "284,36€"
+        }, //--------------------------------------------
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "fases": "1",
+            "Código": 10003632,
+            "Referencia": "ECO-DC-1INV-AC-1Nx16T15",
+            "Amperaje": "1P+N x 16A",
+            "Entrada/Salida": "1 string/1 MPPT",
+            "PVP": "325,09€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "fases": "1",
+            "Código": 10003633,
+            "Referencia": "ECO-DC-1INV-AC-1Nx25T15",
+            "Amperaje": "1P+N x 25A",
+            "Entrada/Salida": "1 string/1 MPPT",
+            "PVP": "338,69€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "fases": "1",
+            "Código": 10003634,
+            "Referencia": "ECO-DC-2INV-AC-1Nx25T15",
+            "Amperaje": "1P+N x 25A",
+            "Entrada/Salida": "2 string/2 MPPT",
+            "PVP": "534,74€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "fases": "1",
+            "Código": 10003635,
+            "Referencia": "ECO-DC-2INV-AC-1Nx32T15",
+            "Amperaje": "1P+N x 32A",
+            "Entrada/Salida": "2 string/2 MPPT",
+            "PVP": "539,20€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-1nt15",
+            "proteccion": "ACDC",
+            "fases": "1",
+            "Código": 10003637,
+            "Referencia": "ECO-DC-3INV-AC-1Nx32T15",
+            "Amperaje": "1P+N x 32A",
+            "Entrada/Salida": "3 string/3 MPPT",
+            "PVP": "677,38€"
+        }, //--------------------------------------------
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "fases": "3",
+            "Código": 10003632,
+            "Referencia": "ECO-DC-1INV-AC-3Nx16T15",
+            "Amperaje": "3P+N x 16A",
+            "Entrada/Salida": "1 string/1 MPPT",
+            "PVP": "445,47€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "fases": "3",
+            "Código": 10003633,
+            "Referencia": "ECO-DC-1INV-AC-3Nx25T15",
+            "Amperaje": "3P+N x 25A",
+            "Entrada/Salida": "1 string/1 MPPT",
+            "PVP": "445,47€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "fases": "3",
+            "Código": 10003634,
+            "Referencia": "ECO-DC-2INV-AC-3Nx25T15",
+            "Amperaje": "3P+N x 25A",
+            "Entrada/Salida": "2 string/2 MPPT",
+            "PVP": "583,52€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "fases": "3",
+            "Código": 10003635,
+            "Referencia": "ECO-DC-2INV-AC-3Nx32T15",
+            "Amperaje": "3P+N x 32A",
+            "Entrada/Salida": "2 string/2 MPPT",
+            "PVP": "587,98€"
+        },
+        {
+            "familia": "eco-dc-inv-ac-3nt15",
+            "proteccion": "ACDC",
+            "fases": "3",
+            "Código": 10003637,
+            "Referencia": "ECO-DC-3INV-AC-3Nx32T15",
+            "Amperaje": "3P+N x 32A",
+            "Entrada/Salida": "3 string/3 MPPT",
+            "PVP": "725,55€"
         }
     ]
 }
