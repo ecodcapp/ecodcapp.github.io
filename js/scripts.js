@@ -44,8 +44,8 @@ function setEventListeners() {
     const arrows = Array.from(document.getElementsByClassName('arrow'));
     arrows.forEach(x => x.addEventListener('click', changeInputValue));
 
-    const inversorMonoTri = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
-    inversorMonoTri.forEach(x => x.addEventListener('change', setMaxPower))
+    const inversorMonoTriAC = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
+    inversorMonoTriAC.forEach(x => x.addEventListener('change', setMaxPower))
 
     const forms = Array.from(document.getElementsByTagName('form'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
@@ -57,13 +57,13 @@ function setEventListeners() {
             buzz(20);
             results.style.top = "110%";
             results.style.bottom = "-110%";
-    })
+        })
 }
 
 function loadSection(e) {
 
     e.preventDefault();
-    
+
     window.history.pushState(e.view.history.state, null, '');
     const sectionId = `seccion${e.currentTarget.classList[1]}`;
     const selectedSection = document.getElementById(sectionId);
@@ -115,8 +115,8 @@ function changeInputValue(e) {
 function processStrings(arrow, listaClases, input) {
 
     let stringsRange = ['1', '2', '3', '4', '5', '6', '8'];
-    if(listaClases[0] === "ACDCNStrings") {
-        stringsRange = stringsRange.splice(0,3);
+    if (listaClases[0] === "ACDCNStrings") {
+        stringsRange = stringsRange.splice(0, 3);
     }
 
     // console.log(`this is ${listaClases[0]}`);
@@ -219,21 +219,36 @@ function setMPPT(numStrIndx) {
 
 function setMaxPower(e) {
     e.preventDefault();
+
     const fase = e.currentTarget.value;
+    const protecType = `potencia${e.currentTarget.classList[2]}`;
+    const display = `potenciaDisplay${e.currentTarget.classList[2]}`;
     console.log(fase)
-    const potencia = document.getElementById('potencia');
-    const potenciaDisplay = document.getElementById('potenciaDisplayAC');
+    const potencia = document.getElementById(protecType);
+    const potenciaDisplay = document.getElementById(display);
     console.log(potencia)
-    if(fase === "1") {
-        potencia.max = 7;
-        potencia.value = 3;
-        potenciaDisplay.textContent = 3;
+    if (protecType === 'AC') {
+        if (fase === "1") {
+            potencia.max = 7;
+            potencia.value = 3;
+            potenciaDisplay.textContent = 3;
+        } else {
+            potencia.max = 34;
+            potencia.value = 3;
+            potenciaDisplay.textContent = 3;
+        }
     } else {
-        potencia.max = 34;
-        potencia.value = 3;
-        potenciaDisplay.textContent = 3;
+        if (fase === "1") {
+            potencia.max = 5;
+            potencia.value = 3;
+            potenciaDisplay.textContent = 3;
+        } else {
+            potencia.max = 17;
+            potencia.value = 9;
+            potenciaDisplay.textContent = 9;
+        }
     }
-    console.log(potencia)
+
 }
 
 async function buscarProducto(formAnswers) {
@@ -249,14 +264,14 @@ async function buscarProducto(formAnswers) {
     // console.log(data)
 
     if (formData.proteccion === 'DC') {
-        if(formData.seccionadores === "true") {
+        if (formData.seccionadores === "true") {
             formData.seccionadores = true;
         } else {
             formData.seccionadores = false;
         }
     }
 
-    console.log(formData);
+    // console.log(formData);
 
     // FILTRADO DE LA BASE DE DATOS
     // let resultado = jsonDB.productos.filter(
@@ -266,8 +281,8 @@ async function buscarProducto(formAnswers) {
     //         x.seccionadores === formData.seccionadores
     // );
     let resultado = jsonDB.productos.filter(x => x.proteccion === formData.proteccion);
-    
-    if(formData.proteccion === 'DC') {
+
+    if (formData.proteccion === 'DC') {
         resultado = resultado.filter(x =>
             x.strings == formData.strings &&
             x.mppt == formData.MPPT &&
@@ -275,26 +290,48 @@ async function buscarProducto(formAnswers) {
         )
     }
 
-    if(formData.proteccion === 'AC') {
-        
-        const minP = 5;
-        const maxP = 70;
-        
+    if (formData.proteccion === 'AC') {
+
         resultado = resultado.filter(x =>
             x.fases === formData.fases
         )
-        
+
         resultado.forEach(x =>
-            x.Potencia = Math.round(x.Amperaje.slice(-3,-1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 *100) / 100 + ' kW'
+            x.Potencia = Math.round(x.Amperaje.slice(-3, -1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 * 100) / 100 + ' kW'
         )
 
-        const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0,-3)))
-        console.log(powerThresholds);
-        
-        console.log(formData.potencia)
+        const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0, -3)))
+        // console.log(powerThresholds);
+
+        // console.log(formData.potencia)
         // console.log(powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia))));
         let indexPower = powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia)));
-        console.log(indexPower)
+        // console.log(indexPower)
+        resultado = resultado[indexPower];
+        console.log(resultado)
+    }
+
+    if (formData.proteccion === 'ACDC') {
+
+        // console.log(resultado)
+
+        resultado = resultado.filter(x =>
+            x.fases === formData.fases
+        )
+
+        // console.log(resultado)
+
+        resultado.forEach(x =>
+            x.Potencia = Math.round(x.Amperaje.slice(-3, -1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 * 100) / 100 + ' kW'
+        )
+
+        const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0, -3)))
+        // console.log(powerThresholds);
+
+        // console.log(formData.potencia)
+        // console.log(powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia))));
+        let indexPower = powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia)));
+        // console.log(indexPower)
         resultado = resultado[indexPower];
         console.log(resultado)
     }
@@ -316,13 +353,13 @@ async function buscarProducto(formAnswers) {
         const specList = document.getElementById('secondBlockListItems');
         specList.innerHTML = '';
         specList.appendChild(li);
-        
-        
+
+
         return
     } //RETURN
 
-    if(Array.isArray(resultado) && resultado.length === 1) {resultado = resultado[0]}
-    
+    if (Array.isArray(resultado) && resultado.length === 1) { resultado = resultado[0] }
+
     formatResultado(resultado)
 
     await timeout(100);
@@ -340,7 +377,7 @@ function formatResultado(resultado) {
     document.getElementById('secondBlockh1').textContent = resultado.Referencia;
 
     // let fields = Object.entries(resultado).filter(x => x[0] === x[0].toUpperCase());
-    
+
     const specsEntries = Object.entries(resultado).filter(x => x[0][0] === x[0][0].toUpperCase());
     // console.log(specsEntries)
     let specs = specsEntries.filter(x => x[0] !== 'Referencia');
@@ -351,7 +388,7 @@ function formatResultado(resultado) {
     const specList = document.getElementById('secondBlockListItems');
     specList.innerHTML = '';
     // console.log(specList)
-    for(i = 0; i < specsKeys.length; i++) {
+    for (i = 0; i < specsKeys.length; i++) {
         let listItem = document.createElement('li');
         listItem.textContent = `${specsKeys[i]}: `;
         let listItemValue = document.createElement('span');
