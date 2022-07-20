@@ -163,10 +163,6 @@ input {
     box-shadow: 0 0 4px 4px lightcoral;
 }
 
-/* #DCNStrings:focus-visible {
-    border: 1px solid lightgrey
-} */
-
 /* ----------------- The switch - the box around the slider ----------------- */
 
 /* The switch - the box around the slider */
@@ -180,11 +176,14 @@ input {
     padding: .5rem 0;
 }
 
-/* .seccionadoresLabel {
-    border: 1px solid red;
-} */
+.inputMain.seccionadores {
+    padding: 0;
+    margin: 0;
+}
 
-.seccionadoresInput {
+.inputMain.seccionadores label {
+    padding: .2rem .4rem;
+    width: fit-content;
     margin: 0 1rem;
     /* border: 1px solid */
 }

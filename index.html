@@ -156,7 +156,7 @@
                         </div>
                     </div>
 
-                    <div class="inputParent seccionadores">
+                    <!-- <div class="inputParent seccionadores">
                         <div class="seccionadoresLabel noselect">Incluir <b>seccionadores de corriente</b></div>
                         <div class="seccionadoresInput noselect">
                             <label class="switch-label noselect">
@@ -165,7 +165,32 @@
                                 <span class="slider round noselect"></span>
                             </label>
                         </div>
+                    </div> -->
+
+                    <div class="inputParent seccionadores">
+                        <div class="seccionadoresLabel noselect">Incluir <b>seccionadores de corriente</b></div>
+                        <div class="inputMain radio-toolbar seccionadores">
+
+                            <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
+                                id="seccionadores0" value="false">
+                            <label for="seccionadores0">NO</label>
+    
+                            <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
+                                id="seccionadores1" value="true" checked>
+                            <label for="seccionadores1">SÍ</label>
+                        </div>
                     </div>
+
+                    <!-- <div class="inputMain radio-toolbar inversorMonoTri">
+
+                        <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
+                            id="seccionadores0" value="false">
+                        <label for="seccionadores0">NO</label>
+
+                        <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
+                            id="seccionadores1" value="true" checked>
+                        <label for="seccionadores1">SÍ</label>
+                    </div> -->
 
                     <div class="btnContainer mostrarProductos">
                         <button class="btn proteccionDC" form="proteccionDC" type="submit" onclick="buzz(20)">Mostrar

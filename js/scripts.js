@@ -44,10 +44,10 @@ function setEventListeners() {
     const arrows = Array.from(document.getElementsByClassName('arrow'));
     arrows.forEach(x => x.addEventListener('click', changeInputValue));
 
-    const seccionadores = document.getElementById('seccionadores');
-    seccionadores.addEventListener('change', function () {
-        buzz(20)
-    });
+    // const seccionadores = Array.from(document.getElementsByClassName('seccionadores Option'));
+    // seccionadores.forEach(x => x.addEventListener('change', function () {
+    //     buzz(20)
+    // }))
 
     const forms = Array.from(document.getElementsByTagName('form'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
@@ -221,7 +221,7 @@ function setMPPT(numStrIndx) {
 
 async function buscarProducto(formAnswers) {
 
-    console.log(formAnswers)
+    // console.log(formAnswers)
 
     formAnswers.preventDefault();
 
@@ -229,12 +229,14 @@ async function buscarProducto(formAnswers) {
     let formData = { ...data };
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
 
-    // if(formData.proteccion === 'DC') {};
+    // console.log(data)
 
-    if (formData.proteccion === 'DC' && 'seccionadores' in data) {
-        formData.seccionadores = true;
-    } else {
-        formData.seccionadores = false;
+    if (formData.proteccion === 'DC') {
+        if(formData.seccionadores === "true") {
+            formData.seccionadores = true;
+        } else {
+            formData.seccionadores = false;
+        }
     }
 
     console.log(formData);
