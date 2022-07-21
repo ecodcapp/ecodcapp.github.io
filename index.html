@@ -58,9 +58,18 @@
                 </div>
             </div>
         </nav>
+
+        <!-- SECCIÓN: SABER MÁS -->
+        <div id="saberMasContenido" data-onDisplay="0">
+            <div>
+                <h1>Seleccione el tipo de protección</h1>
+            </div>
+        </div>
     </header>
 
     <main>
+
+
 
         <!-- SECCIÓN: SELECTOR AC/DC/AC+DC -->
         <section id="seccionSelectorACDC" data-onDisplay="1">
@@ -174,7 +183,7 @@
                             <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
                                 id="seccionadores0" value="false">
                             <label for="seccionadores0">NO</label>
-    
+
                             <input type="radio" onclick="buzz(20)" class="seccionadores Option" name="seccionadores"
                                 id="seccionadores1" value="true" checked>
                             <label for="seccionadores1">SÍ</label>
@@ -255,12 +264,13 @@
                 </div>
                 <form id="proteccionACDC" name="proteccionACDC" action="">
                     <div class="inputParent strings">
-                        <label for="ACDCNStrings" class="noselect">Nº de <b>entradas</b> (strings) y <b>salidas</b> (MPPTs)</label>
+                        <label for="ACDCNStrings" class="noselect">Nº de <b>entradas</b> (strings) y <b>salidas</b>
+                            (MPPTs)</label>
 
                         <div class="inputMain">
                             <div class="inputMain-input">
-                                <input id="ACDCNStrings" class="noselect" type="number" name="stringsMPPT" min="1" max="3"
-                                    step="1" value="2" readonly required />
+                                <input id="ACDCNStrings" class="noselect" type="number" name="stringsMPPT" min="1"
+                                    max="3" step="1" value="2" readonly required />
                             </div>
                             <div class="flechasSelectoras">
                                 <img class="ACDCNStrings arrow up noselect" src="resources/arrow_up.svg" alt=""

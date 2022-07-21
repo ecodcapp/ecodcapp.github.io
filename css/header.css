@@ -12,6 +12,8 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
+    /* border: 1px solid yellow; */
 }
 
 .logo {
@@ -59,3 +61,31 @@ header > nav {
 #saberMasIcon {
     transform: translateY(.15rem);
 }
+
+/* --------------------------------------- */
+
+#saberMasContenido {
+    background-color: var(--headerBG);
+    color: white;
+    margin-top: 39px;
+    padding: 1rem;
+    position: absolute;
+    left: 0vw;
+    right: 0vw;
+    top: -110vh;
+    height: 100vh;
+    /* box-shadow: -4px 0 4px 0 hsla(0, 0%, 50%, .5); */
+}
+
+#saberMasContenido div {
+    background-color: lightcoral;
+    padding: 1rem;
+    /* border: 2px solid white; */
+    border-radius: 1rem;
+    position: relative;
+    /* height: 100vh; */
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+} */
