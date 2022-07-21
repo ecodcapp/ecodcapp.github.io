@@ -20,6 +20,10 @@ header {
     padding-left: .6rem;
 }
 
+#logoToscano {
+    font-family: var(--standard);
+}
+
 header > nav {
     font-size: var(--stdSize);
     display: flex;
