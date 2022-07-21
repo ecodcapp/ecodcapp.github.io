@@ -26,22 +26,36 @@ const resourcesToPrecache = [
 ];
 
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function (event) {
   console.log('Service worker install event');
   event.waitUntil(
     caches.open(cacheName)
-      .then(function(cache) {
+      .then(function (cache) {
         return cache.addAll(resourcesToPrecache);
-    })
+      })
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-    .then(function(cachedResponse) {
-      return cachedResponse || fetch(event.request);
-      // return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
-    })
-  );
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request)
+//     .then(function(cachedResponse) {
+//       return cachedResponse || fetch(event.request);
+//       // return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
+//     })
+//   );
+// });
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(caches.open(cacheName).then((cache) => {
+    return cache.match(event.request).then((cachedResponse) => {
+      const fetchedResponse = fetch(event.request).then((networkResponse) => {
+        cache.put(event.request, networkResponse.clone());
+
+        return networkResponse;
+      });
+
+      return cachedResponse || fetchedResponse;
+    });
+  }));
 });
