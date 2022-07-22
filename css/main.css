@@ -89,8 +89,8 @@ input {
     margin: 1rem 0;
     box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.3);
     transition: 0.2s;
-    border: 1px solid hsla(0, 0%, 80%, 1);
-    border-radius: .2rem;
+    border: 1px solid hsla(0, 0%, 85%, 1);
+    border-radius: .5rem;
     padding: .5rem;
 }
 
