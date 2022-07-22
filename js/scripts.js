@@ -80,6 +80,8 @@ function openSaberMas(e) {
 
     saberMasOpen.style.transform = 'translateY(-1.8rem)';
     saberMasClose.style.transform = 'translateY(-1.8rem)';
+
+    buzz(20);
     
     main.style.filter = 'blur(.1rem)';
     
@@ -99,6 +101,8 @@ function closeSaberMas(e) {
 
     saberMasOpen.style.transform = 'translateY(0)';
     saberMasClose.style.transform = 'translateY(0)';
+
+    buzz(20);
 
     main.style.filter = 'blur(0)';
 }
