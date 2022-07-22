@@ -79,17 +79,17 @@ header > nav {
     background-color: var(--headerBG2);
     color: white;
     border-bottom: 1px solid hsl(0, 100%, 30%);
-    /* margin-top: 2.5rem; */
+    margin-top: 2.5rem;
     padding: 1rem;
     position: absolute;
     left: 0;
     right: 0;
-    top: -110vh;
+    top: -100vh;
     z-index: 9;
-    height: 97.5vh;
+    height: 95vh;
     transition: .5s;
     overflow: scroll;
-    transform: translateY(2.5rem);
+    /* transform: translateY(2.5rem); */
 }
 
 /* #saberMasContenido::after {
@@ -107,7 +107,7 @@ header > nav {
 } */
 
 #saberMasContenido div {
-    background-color: hsl(0, 100%, 97%);
+    background-color: hsl(0, 100%, 98%);
     color: var(--headerBG);
     padding: 1rem;
     border: 1px solid hsl(0, 100%, 30%);
