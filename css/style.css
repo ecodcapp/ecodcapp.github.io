@@ -12,6 +12,7 @@
     --headerBG: hsla(360, 78%, 53%, 1);
     --headerBG2: hsla(360, 78%, 53%, .80);
     --header: hsl(0, 100%, 100%);
+    --darkRed: hsl(0, 100%, 30%);
 }
 
 /* Chrome, Safari, Edge, Opera */

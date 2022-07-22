@@ -65,8 +65,8 @@ function setEventListeners() {
         })
 }
 
-function openSaberMas(e) {
-    
+async function openSaberMas(e) {
+
     const saberMasBtn = document.getElementById('saberMasBtn');
     const saberMasOpen = e.currentTarget;
     const saberMasClose = document.getElementById('saberMasClose')
@@ -74,6 +74,7 @@ function openSaberMas(e) {
 
     const saberMasContenido = document.getElementById('saberMasContenido');
     saberMasContenido.style.top = 0;
+    // saberMasContenido.scrollBy()
 
     saberMasBtn.style.backgroundColor = 'lightcoral';
     saberMasBtn.style.borderColor = 'white';
@@ -82,9 +83,20 @@ function openSaberMas(e) {
     saberMasClose.style.transform = 'translateY(-1.8rem)';
 
     buzz(20);
-    
+
     main.style.filter = 'blur(.1rem)';
-    
+
+    await timeout(500);
+    saberMasContenido.scrollBy({
+        top: 200,
+        behavior: 'smooth'
+    });
+    await timeout(200);
+    saberMasContenido.scrollBy({
+        top: -200,
+        behavior: 'smooth'
+    });
+
 }
 
 function closeSaberMas(e) {
@@ -155,7 +167,7 @@ function changeInputValue(e) {
     if (listaClases[0] === 'ACDCNStrings') {
         console.log('seteando ACDC');
         processStrings(arrow, listaClases, input);
-        setMaxPowerString(listaClases[0],input)
+        setMaxPowerString(listaClases[0], input)
         return
     }
 }
@@ -273,8 +285,8 @@ function setMaxPowerString(proteccion, input) {
     const fases = inversorMonoTriACDC.filter(x => x.checked)[0].value;
     const potenciaACDC = document.getElementById('potenciaACDC');
     console.log(stringsMPPT, fases, potenciaACDC)
-    if(stringsMPPT === '1') {
-        if(fases === '1') {
+    if (stringsMPPT === '1') {
+        if (fases === '1') {
             potenciaACDC.max = 4;
             potenciaACDC.value = 2;
             document.getElementById('potenciaDisplayACDC').value = 2;
@@ -283,9 +295,9 @@ function setMaxPowerString(proteccion, input) {
             potenciaACDC.max = 13;
             potenciaACDC.value = 7;
             document.getElementById('potenciaDisplayACDC').value = 7;
-        }        
-    } else if(stringsMPPT === '2') {
-        if(fases === '1') {
+        }
+    } else if (stringsMPPT === '2') {
+        if (fases === '1') {
             potenciaACDC.max = 5;
             potenciaACDC.value = 3;
             document.getElementById('potenciaDisplayACDC').value = 3;
