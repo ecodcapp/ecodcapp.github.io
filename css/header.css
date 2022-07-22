@@ -1,7 +1,7 @@
 header {
     background-color: var(--headerBG);
     color: var(--header);
-    height: auto;
+    height: 1.9rem;
     width: 100vw;
     padding: .3rem 0rem;
     display: flex;
@@ -78,19 +78,36 @@ header > nav {
 #saberMasContenido {
     background-color: var(--headerBG2);
     color: white;
-    margin-top: 39px;
+    border-bottom: 1px solid hsl(0, 100%, 30%);
+    /* margin-top: 2.5rem; */
     padding: 1rem;
     position: absolute;
-    left: 0vw;
-    right: 0vw;
+    left: 0;
+    right: 0;
     top: -110vh;
     z-index: 9;
-    height: calc(100vh - 39px);
+    height: 97.5vh;
     transition: .5s;
+    overflow: scroll;
+    transform: translateY(2.5rem);
 }
 
+/* #saberMasContenido::after {
+    content: '';
+    background-color: transparent;
+    position: sticky;
+    margin-top: 39px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - 39px);
+    z-index: 300;
+    box-shadow: inset 0 -5px 5px black;
+} */
+
 #saberMasContenido div {
-    background-color: hsl(0, 100%, 95%);
+    background-color: hsl(0, 100%, 97%);
     color: var(--headerBG);
     padding: 1rem;
     border: 1px solid hsl(0, 100%, 30%);
