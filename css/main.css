@@ -5,6 +5,7 @@ main {
     right: 0;
     top: 0;
     bottom: 0;
+    width: min(100vw, 600px);
 
     overflow: hidden;
     transition: .5s;
@@ -367,7 +368,7 @@ input {
 }
 
 #firstBlockImg {
-    width: 60%;
+    width: min(60vw, 15rem);
     margin: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 4px 2px lightcoral;

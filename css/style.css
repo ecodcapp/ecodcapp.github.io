@@ -79,7 +79,7 @@ h1{
     position: absolute;
     top: 0;
     z-index: 200;
-    width: 100%;
+    width: min(100vw, 600px);
     height: 100%;
     background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106));
 }
@@ -113,3 +113,9 @@ h1{
     width: 70%;
     margin-bottom: 1rem;
 }
+
+/* @media (min-device-width: 500px) {
+    main {
+        width: min(100vw, 600px);
+    }
+ } */
