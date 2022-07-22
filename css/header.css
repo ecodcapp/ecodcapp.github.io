@@ -86,7 +86,7 @@ header > nav {
     right: 0;
     top: -100vh;
     z-index: 9;
-    height: 95vh;
+    height: calc(100vh - 4.5rem);
     transition: .5s;
     overflow: scroll;
     /* transform: translateY(2.5rem); */
