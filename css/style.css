@@ -9,7 +9,8 @@
     --stdSize: 0.97rem;
 
     /* COLORS */
-    --headerBG: hsl(360, 78%, 53%);
+    --headerBG: hsla(360, 78%, 53%, 1);
+    --headerBG2: hsla(360, 78%, 53%, .80);
     --header: hsl(0, 100%, 100%);
 }
 
@@ -71,7 +72,7 @@ h1{
     align-items: center;
     position: absolute;
     top: 0;
-    z-index: 100;
+    z-index: 200;
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106));

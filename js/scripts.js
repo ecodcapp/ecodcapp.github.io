@@ -47,8 +47,10 @@ function setEventListeners() {
     const inversorMonoTriAC = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
     inversorMonoTriAC.forEach(x => x.addEventListener('change', setMaxPower))
 
-    // const ACDCNStringsArrows = Array.from(document.getElementsByClassName('ACDCNStrings arrow'));
-    // ACDCNStringsArrows.forEach(x => x.addEventListener('click', setMaxPowerString))
+    const saberMasOpen = document.getElementById('saberMasOpen');
+    saberMasOpen.addEventListener('click', openSaberMas);
+    const saberMasClose = document.getElementById('saberMasClose');
+    saberMasClose.addEventListener('click', closeSaberMas);
 
     const forms = Array.from(document.getElementsByTagName('form'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
@@ -61,6 +63,44 @@ function setEventListeners() {
             results.style.top = "110%";
             results.style.bottom = "-110%";
         })
+}
+
+function openSaberMas(e) {
+    
+    const saberMasBtn = document.getElementById('saberMasBtn');
+    const saberMasOpen = e.currentTarget;
+    const saberMasClose = document.getElementById('saberMasClose')
+    const main = document.getElementsByTagName('main')[0];
+
+    const saberMasContenido = document.getElementById('saberMasContenido');
+    saberMasContenido.style.top = 0;
+
+    saberMasBtn.style.backgroundColor = 'lightcoral';
+    saberMasBtn.style.borderColor = 'white';
+
+    saberMasOpen.style.transform = 'translateY(-1.8rem)';
+    saberMasClose.style.transform = 'translateY(-1.8rem)';
+    
+    main.style.filter = 'blur(.1rem)';
+    
+}
+
+function closeSaberMas(e) {
+    const saberMasBtn = document.getElementById('saberMasBtn');
+    const saberMasOpen = document.getElementById('saberMasOpen')
+    const saberMasClose = e.currentTarget;
+    const main = document.getElementsByTagName('main')[0];
+
+    const saberMasContenido = document.getElementById('saberMasContenido');
+    saberMasContenido.style.top = '-110vh';
+
+    saberMasBtn.style.backgroundColor = 'var(--headerBG)';
+    saberMasBtn.style.borderColor = 'lightcoral';
+
+    saberMasOpen.style.transform = 'translateY(0)';
+    saberMasClose.style.transform = 'translateY(0)';
+
+    main.style.filter = 'blur(0)';
 }
 
 function loadSection(e) {
