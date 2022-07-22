@@ -33,15 +33,15 @@
 <body>
 
     <div class="loadingBanner">
-        <img id="loadingBannerLogo" src="resources/toscano-logo-blanco.svg" alt="Logo toscano">
-
-        <div class="horizontalLine"></div>
-
-        <div id="bannerTitle">
-            <h1 class="ecoDcTitle">GAMA ECO-DC</h1>
-            <h1 class="ecoDcSubTitle">GUÍA DE SELECCIÓN</h1>
+        <div id="loadingBannerContent">
+            <img id="loadingBannerLogo" src="resources/toscano-logo-blanco.svg" alt="Logo toscano">
+            <div class="horizontalLine"></div>
+            <div id="bannerTitle">
+                <h1 class="ecoDcTitle">GAMA ECO-DC</h1>
+                <h1 class="ecoDcSubTitle">GUÍA DE SELECCIÓN</h1>
+            </div>
+            <img id="loadingBannerDoodle" src="resources/bannerECODC.svg" alt="Dibujo panel solar">
         </div>
-        <img id="loadingBannerDoodle" src="resources/bannerECODC.svg" alt="Dibujo panel solar">
     </div>
 
     <header>
@@ -423,7 +423,7 @@
     </main>
 
     <script src="js/scripts.js"></script>
-    <script>
+    <script> // SERVICE WORKER REGISTRATION
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
