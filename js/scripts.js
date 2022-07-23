@@ -371,7 +371,7 @@ async function buscarProducto(formAnswers) {
     // console.log(data)
 
     if (formData.proteccion === 'DC') {
-        if (formData.seccionadores === "true") {
+        if (formData.seccionadores === 'on') {
             formData.seccionadores = true;
         } else {
             formData.seccionadores = false;

@@ -9,6 +9,11 @@ main {
 
     overflow: hidden;
     transition: .5s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ------------------------------------------------------ */
@@ -346,8 +351,8 @@ input {
 #formResultsDiv {
     margin: calc(1rem + 39px) 1rem 1rem;
     position: absolute;
-    left: 0vw;
-    right: 0vw;
+    /* left: 0vw; */
+    /* right: 0vw; */
     top: 110%;
     bottom: -110%;
     background-color: white;
@@ -356,6 +361,8 @@ input {
     border-radius: 1rem;
     transition: 0.4s;
     box-shadow: 0 0px 5px 2px lightcoral;
+
+    width: min(calc(100vw - 2rem), 500px)
 }
 
 #formResultsDivBack {
