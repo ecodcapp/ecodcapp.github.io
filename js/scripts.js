@@ -1,10 +1,10 @@
 window.addEventListener('load', afterLoad);
 
+let jsonDB = {};
+
 function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-let jsonDB = {};
 
 async function afterLoad() {
 
