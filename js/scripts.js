@@ -86,14 +86,13 @@ async function openSaberMas(e) {
 
     main.style.filter = 'blur(.1rem)';
 
-    await timeout(500);
     saberMasContenido.scrollBy({
-        top: 200,
-        behavior: 'smooth'
+        top: saberMasContenido.scrollHeight,
+        behavior: 'instant'
     });
-    await timeout(200);
+    await timeout(300);
     saberMasContenido.scrollBy({
-        top: -200,
+        top: -saberMasContenido.scrollHeight,
         behavior: 'smooth'
     });
 
@@ -117,6 +116,7 @@ function closeSaberMas(e) {
     buzz(20);
 
     main.style.filter = 'blur(0)';
+
 }
 
 function loadSection(e) {
