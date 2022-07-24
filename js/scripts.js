@@ -1,5 +1,9 @@
 window.addEventListener('load', afterLoad);
 
+window.onbeforeunload = function(){
+    return '¿Quieres salir de la aplicación?';
+  };
+
 let jsonDB = {};
 
 function timeout(ms) {
