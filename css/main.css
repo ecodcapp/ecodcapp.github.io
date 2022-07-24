@@ -466,3 +466,11 @@ label[for="potenciaAC"] {
 .range-label {
     accent-color: var(--headerBG);
 }
+
+/* ----------------------------------------------------- */
+
+.customEco {
+    padding-top: .5rem;
+    border-top: 1px solid var(--headerBG);
+    text-align: center;
+}
