@@ -139,7 +139,7 @@ function closeSection(e) {
 
     e.preventDefault();
     const sectionId = e.currentTarget.classList[1];
-    console.log(sectionId)
+    // console.log(sectionId)
     const selectedSection = document.getElementById(sectionId);
 
     buzz(20)
@@ -165,7 +165,7 @@ function changeInputValue(e) {
     }
 
     if (listaClases[0] === 'ACDCNStrings') {
-        console.log('seteando ACDC');
+        // console.log('seteando ACDC');
         processStrings(arrow, listaClases, input);
         setMaxPowerString(listaClases[0], input)
         return
@@ -278,20 +278,20 @@ function setMPPT(numStrIndx) {
 }
 
 function setMaxPowerString(proteccion, input) {
-    console.log("let's set this shit")
+    // console.log("let's set this")
     const stringsMPPT = input.value;
     const inversorMonoTriACDC = Array.from(document.getElementsByClassName('inversorMonoTri Option ACDC'));
     // inversorMonoTriACDC.forEach(x => console.log(x.checked))
     const fases = inversorMonoTriACDC.filter(x => x.checked)[0].value;
     const potenciaACDC = document.getElementById('potenciaACDC');
-    console.log(stringsMPPT, fases, potenciaACDC)
+    // console.log(stringsMPPT, fases, potenciaACDC)
     if (stringsMPPT === '1') {
         if (fases === '1') {
             potenciaACDC.max = 4;
             potenciaACDC.value = 2;
             document.getElementById('potenciaDisplayACDC').value = 2;
         } else {
-            console.log(`fases: ${fases}`)
+            // console.log(`fases: ${fases}`)
             potenciaACDC.max = 13;
             potenciaACDC.value = 7;
             document.getElementById('potenciaDisplayACDC').value = 7;
@@ -331,7 +331,7 @@ function setMaxPower(e) {
             potenciaDisplay.textContent = 3;
         }
     } else {
-        console.log('setting power');
+        // console.log('setting power');
         const ACDCNStrings = document.getElementById('ACDCNStrings');
         if (fase === "1") {
             if (ACDCNStrings.value === "1") {
@@ -415,19 +415,19 @@ async function buscarProducto(formAnswers) {
         let indexPower = powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia)));
         // console.log(indexPower)
         resultado = resultado[indexPower];
-        console.log(resultado)
+        // console.log(resultado)
     }
 
     if (formData.proteccion === 'ACDC') {
 
-        console.log(resultado)
+        // console.log(resultado)
 
         resultado = resultado.filter(x =>
             x.fases === formData.fases &&
             x.stringsMPPT == formData.stringsMPPT
         )
 
-        console.log(resultado)
+        // console.log(resultado)
 
         resultado.forEach(x =>
             x.Potencia = Math.round(x.Amperaje.slice(-3, -1) * (x.fases === '1' ? 230 : 400 * Math.sqrt(3)) / 1000 / 1.25 * 100) / 100 + ' kW'
@@ -442,7 +442,7 @@ async function buscarProducto(formAnswers) {
         let indexPower = powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia)));
         // console.log(indexPower)
         resultado = resultado[indexPower];
-        console.log(resultado)
+        // console.log(resultado)
     }
 
     if (resultado.length === 0) {

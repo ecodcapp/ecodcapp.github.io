@@ -358,7 +358,7 @@ input {
     background-color: white;
     /* padding: 1rem; */
     z-index: 1;
-    border-radius: 1rem;
+    border-radius: .75rem;
     transition: 0.4s;
     box-shadow: 0 0px 5px 2px lightcoral;
 
@@ -370,7 +370,7 @@ input {
     top: 0;
     bottom: auto;
     right: 0;
-    border-radius: 0 1rem;
+    border-radius: 0 .75rem;
     padding: .3rem .75rem;
     background-color: var(--headerBG);
     color: white;
@@ -381,7 +381,7 @@ input {
 #firstBlockImg {
     width: min(60vw, 15rem);
     margin: 2rem;
-    border-radius: 1rem;
+    border-radius: .75rem;
     box-shadow: 0 0 4px 2px lightcoral;
 }
 
