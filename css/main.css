@@ -473,4 +473,23 @@ label[for="potenciaAC"] {
     padding-top: .5rem;
     border-top: 1px solid var(--headerBG);
     text-align: center;
+    color: darkslategrey
+}
+
+.formCustom button {
+    margin-top: .3rem;
+    padding: 0.1rem .5rem;
+    border-radius: .5rem;
+    border: 1px solid lightgray;
+    text-decoration: underline;
+    color: var(--headerBG);
+    box-shadow: 0 2px 2px lightcoral;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.formCustom button:active {
+    box-shadow: 0 0px 1px lightcoral;
+    border: 1px solid var(red);
+    color: var(--darkRed)
 }

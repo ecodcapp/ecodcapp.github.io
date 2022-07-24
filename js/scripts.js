@@ -56,9 +56,11 @@ function setEventListeners() {
     const saberMasClose = document.getElementById('saberMasClose');
     saberMasClose.addEventListener('click', closeSaberMas);
 
-    const forms = Array.from(document.getElementsByTagName('form'));
+    const forms = Array.from(document.getElementsByClassName('formProduct'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
-    // .addEventListener('submit', buscarProducto);
+
+    const formCustom = Array.from(document.getElementsByClassName('formCustom'));
+    formCustom.forEach(x => addEventListener('submit', customProduct));
 
     document.getElementById('formResultsDivBack')
         .addEventListener('click', function (event) {
@@ -152,6 +154,11 @@ function closeSection(e) {
     selectedSection.style.right = `-100vw`
     selectedSection.style.transition = '0.3s';
 
+}
+
+function customProduct(e) {
+    const formCustom = e.target;
+    formCustom.action=encodeURI("mailto:drcarlos@toscano.es?subject:Pedido especial gama ECO-DC" )
 }
 
 function changeInputValue(e) {
