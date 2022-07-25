@@ -158,9 +158,14 @@ function closeSection(e) {
 
 function customProduct(e) {
     const formCustom = e.target;
-    let correo = 'eco%20dc%20a%C3%91pp%20@%20tos%20%C3%91ca%20no%20X.es';
-    correo = decodeURI(correo).split(' ').join('').split('Ñ').join('').split('X').join('');
-    formCustom.action=encodeURI(`mailto:${correo}?subject=Pedido especial gama ECO-DC`);
+    let correo = 'eco%20dc%20a%C3%91pp%20@%20tos%20%C3%91ca%20no%20.Xes';
+    correo = decodeURI(correo).split(' ');
+    correo = correo.join('').split('Ñ');
+    correo = correo.join('').split('X').join('');
+    let subject = 'Pedido especial gama ECO-DC';
+    let body = 'Buenos días:\n\nNo he podido encontrar en vuestra aplicación de asistente de selección de la game ECO-DC la configuración que estaba buscando. ¿Podrían ayudarme?\n\nMuchas gracias';
+    body = encodeURI(body);
+    formCustom.action=`mailto:${correo}?subject=${subject}&body=${body}`;
 }
 
 function changeInputValue(e) {

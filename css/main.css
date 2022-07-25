@@ -479,8 +479,7 @@ label[for="potenciaAC"] {
     align-self: auto;
 }
 
-.formCustom button,
-.customEco a p {
+.formCustom button {
     margin-top: .3rem;
     padding: 0.1rem .5rem;
     border-radius: .5rem;
@@ -494,8 +493,7 @@ label[for="potenciaAC"] {
     transition: 200ms;
 }
 
-.formCustom button:active,
-.customEco a p:active {
+.formCustom button:active {
     box-shadow: 0 0px 1px lightcoral;
     border: 1px solid var(red);
     color: var(--darkRed);
