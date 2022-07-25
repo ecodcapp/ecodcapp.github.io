@@ -166,6 +166,7 @@ function customProduct(e) {
     let body = 'Buenos días:\n\nNo he podido encontrar en vuestra aplicación de asistente de selección de la game ECO-DC la configuración que estaba buscando. ¿Podrían ayudarme?\n\nMuchas gracias';
     body = encodeURI(body);
     formCustom.action=`mailto:${correo}?subject=${subject}&body=${body}`;
+    // location.href = `mailto:${correo}?subject=${subject}&body=${body}`;
 }
 
 function changeInputValue(e) {
