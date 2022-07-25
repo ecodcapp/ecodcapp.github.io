@@ -473,22 +473,28 @@ label[for="potenciaAC"] {
     padding-top: .5rem;
     border-top: 1px solid var(--headerBG);
     text-align: center;
-    color: darkslategrey
+    color: darkslategrey;
+    position: relative;
+    bottom: 1rem;
+    align-self: auto;
 }
 
-.formCustom button {
+.formCustom button,
+.customEco a p {
     margin-top: .3rem;
-    padding: 0.1rem .5rem;
+    padding: 0.1rem .3rem;
     border-radius: .5rem;
     border: 1px solid lightgray;
     text-decoration: underline;
     color: var(--headerBG);
+    background-color: hsl(0, 0%, 98%);
     box-shadow: 0 2px 2px lightcoral;
     transition: 200ms;
     cursor: pointer;
 }
 
-.formCustom button:active {
+.formCustom button:active,
+.customEco a p:active {
     box-shadow: 0 0px 1px lightcoral;
     border: 1px solid var(red);
     color: var(--darkRed)
