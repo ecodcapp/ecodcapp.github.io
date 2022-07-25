@@ -469,6 +469,39 @@ label[for="potenciaAC"] {
 
 /* ----------------------------------------------------- */
 
+footer{
+    display: flex;
+    flex-direction: ;
+}
+
+#customFormSection {
+    margin: calc(1rem + 39px) 1rem 1rem;
+    position: absolute;
+    height: fit-content;
+    bottom: -110%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 1;
+    border-radius: .75rem;
+    transition: 0.5s;
+    box-shadow: 0 0px 5px 2px lightcoral;
+
+    width: min(calc(70vw), 500px)
+}
+
+#customFormSectionBack {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    right: 0;
+    border-radius: 0 .75rem;
+    padding: .3rem .75rem;
+    background-color: var(--headerBG);
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+}
+
 .customEco {
     padding-top: .5rem;
     border-top: 1px solid var(--headerBG);
@@ -479,12 +512,46 @@ label[for="potenciaAC"] {
     align-self: auto;
 }
 
-.formCustom button {
+#formWrap {
+    margin-top: .5rem;
+    background-color: hsl(0, 100%, 95%);
+    padding: .3rem 1rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    height: 1.4rem;
+    transition: 1s;
+}
+
+.formCustom {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .5rem;
+}
+
+.formCustom #cuentaCuenta {
+    height: 2rem;
+}
+
+.formCustom input,
+.formCustom textarea {
+    width: 100%;
+    border: 1px solid lightcoral;
+    border-radius: .2rem;
+    text-align: left;
+    padding: .2rem;
+}
+
+
+
+#formWrap {
     margin-top: .3rem;
     padding: 0.1rem .5rem;
     border-radius: .5rem;
     border: 1px solid lightgray;
-    /* text-decoration: underline; */
+    text-decoration: underline;
     color: var(--headerBG);
     background-color: hsl(0, 0%, 98%);
     box-shadow: 0 2px 2px lightcoral;
@@ -493,7 +560,7 @@ label[for="potenciaAC"] {
     transition: 200ms;
 }
 
-.formCustom button:active {
+#formWrap:active {
     box-shadow: 0 0px 1px lightcoral;
     border: 1px solid var(red);
     color: var(--darkRed);

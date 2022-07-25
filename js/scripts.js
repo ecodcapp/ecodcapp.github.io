@@ -59,8 +59,11 @@ function setEventListeners() {
     const forms = Array.from(document.getElementsByClassName('formProduct'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
 
-    const formCustom = Array.from(document.getElementsByClassName('formCustom'));
-    formCustom.forEach(x => addEventListener('submit', customProduct));
+    const customFormOpen = document.getElementById('formWrap');
+    customFormOpen.addEventListener('click', openCustomForm);
+
+    const customFormSectionBack = document.getElementById('customFormSectionBack');
+    customFormSectionBack.addEventListener('click', closeCustomForm)
 
     document.getElementById('formResultsDivBack')
         .addEventListener('click', function (event) {
@@ -154,6 +157,16 @@ function closeSection(e) {
     selectedSection.style.right = `-100vw`
     selectedSection.style.transition = '0.3s';
 
+}
+
+function openCustomForm(e) {
+    const customFormSection = document.getElementById('customFormSection');
+    customFormSection.style.bottom = 0;
+}
+
+function closeCustomForm(e) {
+    const customFormSection = document.getElementById('customFormSection');
+    customFormSection.style.bottom = '-110%';
 }
 
 function customProduct(e) {

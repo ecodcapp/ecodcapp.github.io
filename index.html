@@ -85,7 +85,8 @@
                 rayos.</p>
             <br>
             <p>Las sobretensiones <b>pueden provocar reducción de la vida útil</b> de los equipos, mal funcionamiento,
-                <b>e incluso la destrucción</b> de los mismos.</p>
+                <b>e incluso la destrucción</b> de los mismos.
+            </p>
             <br>
             <p>Afortunadamente, todos estos problemas se pueden evitar incorporando <b>dispositivos de protección contra
                     sobretensiones transitorias</b>, como los de nuestra <b>serie ECO-DC</b></p>
@@ -110,7 +111,8 @@
                 fotovoltaicos (aunque también eólicos). Se encuentran integrados en los inversores y hay tantos como
                 <b>salidas</b>, por lo que se habla de MPPTs y salidas indistintamente. Son útiles porque, debido a la
                 naturaleza de la energía solar, que se extrae en condiciones cambiantes de luminosidad o temperatura,
-                los MPPTs permiten optimizar el aprovechamiento energético de la instalación.</p>
+                los MPPTs permiten optimizar el aprovechamiento energético de la instalación.
+            </p>
         </div>
 
         <div>
@@ -155,11 +157,23 @@
             </div>
             <div class="customEco">
                 <h2>¿No encuentras lo que buscas?</h2>
-                <form class="formCustom" method="post" target="_blank" enctype="multipart/form-data">
-                    <button type="submit" onclick="buzz(20)">
-                        <p>Cuéntanos qué necesitas</p>
-                    </button>
-                </form>
+                <div id="formWrap">
+                    <p id="cuentaCuenta">Cuéntanos qué necesitas</p>
+                    <!-- <form class="formCustom" method="post" target="_blank" enctype="multipart/form-data">
+                        <label for="nombreCustom">Nombre</label>
+                        <input type="text" id="nombreCustom" name="nombre" required>
+                        <label for="correoCustom">Correo</label>
+                        <input type="text" id="correoCustom" name="correo" required>
+                        <label for="telefonoCustom">Teléfono</label>
+                        <input type="tel" id="telefonoCustom" name="telefono">
+                        <label for="mensajeCustom">Mensaje</label>
+                        <textarea type="longtext" id="mensajeCustom" name="mensaje" style="resize: none;" rows="5" required></textarea>
+                    
+                        <button type="submit" onclick="buzz(20)">
+                            <p>Enviar</p>
+                        </button>
+                    </form> -->
+                </div>
                 <!-- enctype="multipart/form-data" -->
             </div>
         </section>
@@ -457,7 +471,45 @@
 
         </div>
 
+        <div id="customFormSection">
+            <form class="formCustom" method="post" target="_blank" enctype="multipart/form-data">
+                <label for="nombreCustom">Nombre</label>
+                <input type="text" id="nombreCustom" name="nombre" required>
+                <label for="correoCustom">Correo</label>
+                <input type="text" id="correoCustom" name="correo" required>
+                <label for="telefonoCustom">Teléfono</label>
+                <input type="tel" id="telefonoCustom" name="telefono">
+                <label for="mensajeCustom">Mensaje</label>
+                <textarea type="longtext" id="mensajeCustom" name="mensaje" style="resize: none;" rows="5"
+                    required></textarea>
+                <button type="submit" onclick="buzz(20)">
+                    <p>Enviar</p>
+                </button>
+            </form>
+            <div id="customFormSectionBack">VOLVER</div>
+        </div>
+
     </main>
+
+    <!-- <footer>
+        <div id="customFormSection">
+            <form class="formCustom" method="post" target="_blank" enctype="multipart/form-data">
+                <label for="nombreCustom">Nombre</label>
+                <input type="text" id="nombreCustom" name="nombre" required>
+                <label for="correoCustom">Correo</label>
+                <input type="text" id="correoCustom" name="correo" required>
+                <label for="telefonoCustom">Teléfono</label>
+                <input type="tel" id="telefonoCustom" name="telefono">
+                <label for="mensajeCustom">Mensaje</label>
+                <textarea type="longtext" id="mensajeCustom" name="mensaje" style="resize: none;" rows="5"
+                    required></textarea>
+                <button type="submit" onclick="buzz(20)">
+                    <p>Enviar</p>
+                </button>
+            </form>
+            <div id="customFormSectionBack">VOLVER</div>
+        </div>
+    </footer> -->
 
     <script src="js/scripts.js"></script>
     <script> // SERVICE WORKER REGISTRATION
