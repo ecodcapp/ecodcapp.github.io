@@ -482,20 +482,22 @@ label[for="potenciaAC"] {
 .formCustom button,
 .customEco a p {
     margin-top: .3rem;
-    padding: 0.1rem .3rem;
+    padding: 0.1rem .5rem;
     border-radius: .5rem;
     border: 1px solid lightgray;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: var(--headerBG);
     background-color: hsl(0, 0%, 98%);
     box-shadow: 0 2px 2px lightcoral;
     transition: 200ms;
     cursor: pointer;
+    transition: 200ms;
 }
 
 .formCustom button:active,
 .customEco a p:active {
     box-shadow: 0 0px 1px lightcoral;
     border: 1px solid var(red);
-    color: var(--darkRed)
+    color: var(--darkRed);
+    text-decoration: underline;
 }

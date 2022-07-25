@@ -159,7 +159,7 @@ function closeSection(e) {
 function customProduct(e) {
     const formCustom = e.target;
     console.log(formCustom)
-    // formCustom.action=encodeURI("mailto:drcarlos@toscano.es?subject:Pedido especial gama ECO-DC" )
+    formCustom.action=encodeURI("mailto:drcarlos@toscano.es?subject=Pedido especial gama ECO-DC" )
 }
 
 function changeInputValue(e) {
