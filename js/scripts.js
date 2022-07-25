@@ -4,6 +4,13 @@ window.addEventListener('load', afterLoad);
 //     return '¿Quieres salir de la aplicación?';
 // };
 
+// window.addEventListener('resize', function(){
+//     let fixedWidth = 600;
+//     let fixedHeight = window.screen.height;
+
+//     window.resizeTo(fixedWidth, fixedHeight);
+// });
+
 let jsonDB = {};
 
 function timeout(ms) {
@@ -60,10 +67,10 @@ function setEventListeners() {
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
 
     const customFormOpen = document.getElementById('formWrap');
-    customFormOpen.addEventListener('click', openCustomForm);
+    customFormOpen.addEventListener('click', copyMail);
 
-    const customFormSectionBack = document.getElementById('customFormSectionBack');
-    customFormSectionBack.addEventListener('click', closeCustomForm)
+    // const customFormSectionBack = document.getElementById('customFormSectionBack');
+    // customFormSectionBack.addEventListener('click', closeCustomForm)
 
     document.getElementById('formResultsDivBack')
         .addEventListener('click', function (event) {
@@ -159,15 +166,36 @@ function closeSection(e) {
 
 }
 
-function openCustomForm(e) {
-    const customFormSection = document.getElementById('customFormSection');
-    customFormSection.style.bottom = 0;
-}
+function copyMail() {
+    /* Get the text field */
+    var copyText = document.getElementById("formWrapInput");
+  
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+     /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+  
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
 
-function closeCustomForm(e) {
-    const customFormSection = document.getElementById('customFormSection');
-    customFormSection.style.bottom = '-110%';
-}
+// function openCustomForm(e) {
+//     const customFormSection = document.getElementById('customFormSection');
+//     customFormSection.style.bottom = 0;
+
+//     const seccionSelectorACDC = document.getElementById('seccionSelectorACDC');
+//     seccionSelectorACDC.style.filter = 'blur(2px)';
+// }
+
+// function closeCustomForm(e) {
+//     const customFormSection = document.getElementById('customFormSection');
+//     customFormSection.style.bottom = '-110%';
+
+//     const seccionSelectorACDC = document.getElementById('seccionSelectorACDC');
+//     seccionSelectorACDC.style.filter = 'blur(0px)';
+// }
 
 function customProduct(e) {
     const formCustom = e.target;

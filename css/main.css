@@ -90,9 +90,9 @@ input {
 
 /* ---------------------------------------------- */
 
-/* #seccionSelectorACDC {
-    background-color: lightblue;
-} */
+#seccionSelectorACDC {
+    transition: .3s;
+}
 
 .seleccionACDC {
     display: flex;
@@ -469,7 +469,7 @@ label[for="potenciaAC"] {
 
 /* ----------------------------------------------------- */
 
-footer{
+/* footer{
     display: flex;
     flex-direction: ;
 }
@@ -501,6 +501,7 @@ footer{
     font-weight: bold;
     width: fit-content;
 }
+*/
 
 .customEco {
     padding-top: .5rem;
@@ -512,7 +513,8 @@ footer{
     align-self: auto;
 }
 
-#formWrap {
+
+/* #formWrap {
     margin-top: .5rem;
     background-color: hsl(0, 100%, 95%);
     padding: .3rem 1rem;
@@ -520,7 +522,9 @@ footer{
     overflow: hidden;
     height: 1.4rem;
     transition: 1s;
-}
+} */
+
+/*
 
 .formCustom {
     margin-top: .5rem;
@@ -535,6 +539,10 @@ footer{
     height: 2rem;
 }
 
+.formCustom label {
+    margin-top: .5rem;
+}
+
 .formCustom input,
 .formCustom textarea {
     width: 100%;
@@ -544,14 +552,36 @@ footer{
     padding: .2rem;
 }
 
+.formCustom button {
+    background-color: hsl(0, 100%, 95%);
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    color: var(--headerBG);
+    font-weight: 700;
+    padding: .2rem 1rem;
+    margin: 1rem auto 0;
+    box-shadow: 0 2px 2px lightcoral;
+    transition: 200ms;
+    cursor: pointer;
+    transition: 200ms;
+}
 
+.formCustom button:active {
+    background-color: hsl(0, 0, 95%);
+    border-radius: .5rem;
+    margin: 1rem auto 0;
+}
+
+*/
 
 #formWrap {
     margin-top: .3rem;
     padding: 0.1rem .5rem;
     border-radius: .5rem;
     border: 1px solid lightgray;
-    text-decoration: underline;
+    box-shadow: 0 0px 1px lightcoral;
+    border: 1px solid var(red);
+    color: var(--darkRed);
     color: var(--headerBG);
     background-color: hsl(0, 0%, 98%);
     box-shadow: 0 2px 2px lightcoral;
@@ -565,4 +595,4 @@ footer{
     border: 1px solid var(red);
     color: var(--darkRed);
     text-decoration: underline;
-}
+} 
