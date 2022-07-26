@@ -583,12 +583,25 @@ function formatResultado(resultado) {
 }
 
 function showEsquema(e) {
-    console.log('showEsquema');
+    const dialog = document.createElement('dialog');
+    dialog.classList.add('dialog');
+    dialog.classList.add('esquema');
+    dialog.style.border = '2px solid red'
+    const esquema = document.createElement('img');
+    esquema.src = e.target.dataset.esquema;
+    // esquema.style.width = '95vw';
+    // esquema.style.height = 'fit-content';
+    dialog.appendChild(esquema);
+
+    const auxDiv = document.getElementById('auxDiv');
+    auxDiv.appendChild(dialog);
+    dialog.showModal()
+
+    // modal.s
 }
 
 function takeMe2Toscano(e) {
-    window.open(e.target.dataset.enlace, '_blanck')
-    console.log(e.target.dataset.enlace);
+    window.open(e.target.dataset.enlace, '_blanck');
 }
 
 function buzz(ms) {
