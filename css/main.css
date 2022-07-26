@@ -364,12 +364,16 @@ input {
     border-radius: .75rem;
     transition: 0.4s;
     box-shadow: 0 0px 5px 2px lightcoral;
+    /* overflow-x: auto; */
 
     width: min(calc(100vw - 2rem), 500px)
 }
 
 #resultParent {
-    overflow-x:auto
+    /* border: 1px solid red; */
+    height: calc(100vh - 2rem - 39px);
+    padding: 1rem 0;
+    /* overflow-x: scroll; */
 }
 
 #formResultsDivBack {
@@ -585,15 +589,12 @@ label[for="potenciaAC"] {
     padding: 0.1rem .5rem;
     border-radius: .5rem;
     border: 1px solid lightgray;
-    box-shadow: 0 0px 1px lightcoral;
-    border: 1px solid var(red);
-    color: var(--darkRed);
+    /* border: 1px solid red; */
     color: var(--headerBG);
     background-color: hsl(0, 0%, 98%);
     box-shadow: 0 2px 2px lightcoral;
     transition: 200ms;
     cursor: pointer;
-    transition: 200ms;
 }
 
 #formWrap:active {
@@ -609,6 +610,31 @@ label[for="potenciaAC"] {
 
 /* -------------------------------- */
 
-.esquema img {
-    width: 100%;
+.resultsFooter {
+    position: absolute;
+    bottom: 1rem;
+    left:5%;
+    right: 5%;
+}
+
+.resultsFooter div {
+    margin: 1rem;
+    padding: .5rem;
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px lightcoral;
+
+    text-align: center;
+
+    color: var(--headerBG);
+    background-color: hsl(0, 0%, 98%);
+    transition: 150ms;
+    cursor: pointer;
+}
+
+.resultsFooter div:active {
+    box-shadow: 0 0px 1px lightcoral;
+    border: 1px solid var(red);
+    color: var(--darkRed);
+    /* text-decoration: underline; */
 }
