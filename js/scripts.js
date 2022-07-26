@@ -70,6 +70,12 @@ function setEventListeners() {
     const customFormOpen = document.getElementById('formWrap');
     customFormOpen.addEventListener('click', copyMail);
 
+    const esquema = document.getElementById('esquema');
+    esquema.addEventListener('click', showEsquema);
+
+    const enlaceWeb = document.getElementById('enlaceWeb');
+    enlaceWeb.addEventListener('click', takeMe2Toscano);
+
     // const customFormSectionBack = document.getElementById('customFormSectionBack');
     // customFormSectionBack.addEventListener('click', closeCustomForm)
 
@@ -537,7 +543,7 @@ async function buscarProducto(formAnswers) {
 }
 
 function formatResultado(resultado) {
-    
+
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
     
     const firstBlockImg = document.getElementById('firstBlockImg');
@@ -545,12 +551,12 @@ function formatResultado(resultado) {
     if (firstBlockImg) {firstBlockImg.src = imageSrc}
     
     const esquema = document.getElementById('esquema');
-    const esquemaSrc = familia.esquema;
-    if (esquema) {esquema.src = esquemaSrc}
+    esquema.dataset.esquema = familia.esquema;
+
+    const enlaceWeb = document.getElementById('enlaceWeb');
+    enlaceWeb.dataset.enlace = familia.enlaceWeb;
 
     document.getElementById('secondBlockh1').textContent = resultado.Referencia;
-
-    // let fields = Object.entries(resultado).filter(x => x[0] === x[0].toUpperCase());
 
     const specsEntries = Object.entries(resultado).filter(x => x[0][0] === x[0][0].toUpperCase());
     // console.log(specsEntries)
@@ -574,6 +580,15 @@ function formatResultado(resultado) {
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
     resultDiv.style.bottom = 0;
+}
+
+function showEsquema(e) {
+    console.log('showEsquema');
+}
+
+function takeMe2Toscano(e) {
+    window.open(e.target.dataset.enlace, '_blanck')
+    console.log(e.target.dataset.enlace);
 }
 
 function buzz(ms) {
