@@ -513,7 +513,6 @@ label[for="potenciaAC"] {
     align-self: auto;
 }
 
-
 /* #formWrap {
     margin-top: .5rem;
     background-color: hsl(0, 100%, 95%);
@@ -595,4 +594,8 @@ label[for="potenciaAC"] {
     border: 1px solid var(red);
     color: var(--darkRed);
     text-decoration: underline;
-} 
+}
+
+#formWrapMail {
+    font-weight: bold;
+}

@@ -168,17 +168,20 @@ function closeSection(e) {
 
 function copyMail() {
     /* Get the text field */
-    var copyText = document.getElementById("formWrapInput");
+    let formWrapMail = document.getElementById("formWrapMail");
+    console.log(formWrapMail)
   
     /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    let contactMail = formWrapMail.textContent;
+    // formWrapMail.classList.add('selected');
+    // await timeout(1000);
+    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
   
      /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(contactMail);
   
     /* Alert the copied text */
-    alert("Copied the text: " + copyText.value);
+    alert(contactMail + ' copiado en el portapapeles');
   }
 
 // function openCustomForm(e) {
