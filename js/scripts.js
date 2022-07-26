@@ -1,3 +1,4 @@
+// console.log(document.getElementsByClassName('formProduct'))
 window.addEventListener('load', afterLoad);
 
 // window.onbeforeunload = function () {
@@ -173,9 +174,6 @@ function copyMail() {
   
     /* Select the text field */
     let contactMail = formWrapMail.textContent;
-    // formWrapMail.classList.add('selected');
-    // await timeout(1000);
-    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
   
      /* Copy the text inside the text field */
     navigator.clipboard.writeText(contactMail);
@@ -531,7 +529,7 @@ async function buscarProducto(formAnswers) {
     } //RETURN
 
     if (Array.isArray(resultado) && resultado.length === 1) { resultado = resultado[0] }
-
+    console.log(resultado)
     formatResultado(resultado)
 
     await timeout(100);
@@ -539,12 +537,16 @@ async function buscarProducto(formAnswers) {
 }
 
 function formatResultado(resultado) {
+    
+    const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
+    
     const firstBlockImg = document.getElementById('firstBlockImg');
-    // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
-    let imageSrc = jsonDB.familias.filter(x => x.familia === resultado.familia)[0].imagen;
-    if (firstBlockImg) {
-        firstBlockImg.src = imageSrc;
-    }
+    const imageSrc = familia.imagen;
+    if (firstBlockImg) {firstBlockImg.src = imageSrc}
+    
+    const esquema = document.getElementById('esquema');
+    const esquemaSrc = familia.esquema;
+    if (esquema) {esquema.src = esquemaSrc}
 
     document.getElementById('secondBlockh1').textContent = resultado.Referencia;
 

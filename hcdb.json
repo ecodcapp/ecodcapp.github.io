@@ -4,7 +4,8 @@
             "familia": "eco-dc",
             "proteccion": "DC",
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Seccionador. Varios strings/un MPPT. Protección de sobretensiones transitorias DC. Base portafusibles por string + fusibles de 15A. Máximo d1000VDC. IP65.",
-            "imagen": "resources/productos/eco-dc.webp"
+            "imagen": "resources/productos/eco-dc.webp",
+            "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2.png"
         },
         {
             "familia": "eco-dc-inv",

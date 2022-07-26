@@ -53,6 +53,7 @@ section {
     width: fit-content;
     padding: .3rem .75rem;
     border-radius: 2rem;
+    cursor: pointer;
     /* box-shadow: 1px 2px 4px 0 hsla(0, 0%, 50%, 1); */
 }
 
@@ -78,6 +79,7 @@ input {
     width: 1.5rem;
     height: 1.5rem;
     background-color: var(--headerBG);
+    cursor: pointer;
 }
 
 .arrow+.arrow {
@@ -277,6 +279,7 @@ input {
     color: white;
     font-weight: bold;
     background-color: var(--headerBG);
+    cursor: pointer;
 }
 
 .btn:active {
@@ -363,6 +366,10 @@ input {
     box-shadow: 0 0px 5px 2px lightcoral;
 
     width: min(calc(100vw - 2rem), 500px)
+}
+
+#resultParent {
+    overflow-x:auto
 }
 
 #formResultsDivBack {
@@ -598,4 +605,10 @@ label[for="potenciaAC"] {
 
 #formWrapMail {
     font-weight: bold;
+}
+
+/* -------------------------------- */
+
+.esquema img {
+    width: 100%;
 }
