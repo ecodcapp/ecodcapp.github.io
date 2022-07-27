@@ -22,7 +22,7 @@ async function afterLoad() {
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
     setEventListeners()
-    
+
 
     // LOAD HARDCODED ECO-DC DB
     fetch('hcdb.json')
@@ -82,7 +82,7 @@ function setEventListeners() {
     enlaceWeb.addEventListener('click', takeMe2Toscano);
 
     const selectorMarca = document.getElementById('selectorMarca');
-    selectorMarca.addEventListener('input', setModeloInversor);
+    selectorMarca.addEventListener('change', setModeloInversor);
 
     // const customFormSectionBack = document.getElementById('customFormSectionBack');
     // customFormSectionBack.addEventListener('click', closeCustomForm)
@@ -99,7 +99,7 @@ function setEventListeners() {
 function setSelect() {
     const marcas = jsonDB.inversores.map(x => x.marca);
     const selectorMarca = document.getElementById('selectorMarca');
-    for(let i = 0; i < marcas.length; i++) {
+    for (let i = 0; i < marcas.length; i++) {
         const option = document.createElement('option');
         option.value = marcas[i];
         option.textContent = marcas[i];
@@ -110,19 +110,40 @@ function setSelect() {
 
 function setModeloInversor(e) {
     const marca = e.target.value;
-    
-    const selectorModelo = document.getElementById('selectorModelo');
 
-    let modelos = jsonDB.inversores.filter(x => x.marca === marca)[0];
-    modelos = modelos.modelos.map(x => x[0]);
-    for(let i = 0; i < modelos.length; i++) {
+    if (marca !== '') {
+        const selectorModelo = document.getElementById('selectorModelo');
+        selectorModelo.innerHTML = '';
+
+        let modelos = jsonDB.inversores.filter(x => x.marca === marca)[0];
+        modelos = modelos.modelos.map(x => x[0]);
+
         const option = document.createElement('option');
-        option.value = modelos[i];
-        option.textContent = modelos[i];
+        option.value = '';
+        option.textContent = '--Selecciona el modelo--';
         selectorModelo.appendChild(option);
+
+        for (let i = 0; i < modelos.length; i++) {
+            const option = document.createElement('option');
+            option.value = modelos[i];
+            option.textContent = modelos[i];
+            selectorModelo.appendChild(option);
+        }
+
+        selectorModelo.disabled = false;
+
+        return
     }
-    
-    selectorModelo.disabled = false;
+
+    const selectorModelo = document.getElementById('selectorModelo');
+    selectorModelo.innerHTML = '';
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = '--Selecciona el modelo--';
+    selectorModelo.appendChild(option);
+    selectorModelo.disabled = true;
+
+
 }
 
 async function openSaberMas(e) {
@@ -214,16 +235,16 @@ function copyMail() {
     /* Get the text field */
     let formWrapMail = document.getElementById("formWrapMail");
     console.log(formWrapMail)
-  
+
     /* Select the text field */
     let contactMail = formWrapMail.textContent;
-  
-     /* Copy the text inside the text field */
+
+    /* Copy the text inside the text field */
     navigator.clipboard.writeText(contactMail);
-  
+
     /* Alert the copied text */
     alert(contactMail + ' copiado en el portapapeles');
-  }
+}
 
 // function openCustomForm(e) {
 //     const customFormSection = document.getElementById('customFormSection');
@@ -250,7 +271,7 @@ function customProduct(e) {
     let subject = 'Pedido especial gama ECO-DC';
     let body = 'Buenos días:\n\nNo he podido encontrar en vuestra aplicación de asistente de selección de la game ECO-DC la configuración que estaba buscando. ¿Podrían ayudarme?\n\nMuchas gracias';
     body = encodeURI(body);
-    formCustom.action=`mailto:${correo}?subject=${subject}&body=${body}`;
+    formCustom.action = `mailto:${correo}?subject=${subject}&body=${body}`;
     // location.href = `mailto:${correo}?subject=${subject}&body=${body}`;
 }
 
@@ -582,11 +603,11 @@ async function buscarProducto(formAnswers) {
 function formatResultado(resultado) {
 
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
-    
+
     const firstBlockImg = document.getElementById('firstBlockImg');
     const imageSrc = familia.imagen;
-    if (firstBlockImg) {firstBlockImg.src = imageSrc}
-    
+    if (firstBlockImg) { firstBlockImg.src = imageSrc }
+
     const esquema = document.getElementById('esquema');
     esquema.dataset.esquema = familia.esquema;
 
@@ -648,6 +669,6 @@ function buzz(ms) {
 function updatePotencia(value, proteccion) {
     buzz(20);
     proteccion = 'potenciaDisplay' + proteccion;
-    if(value.indexOf('.') === -1) {value += '.0'}
+    if (value.indexOf('.') === -1) { value += '.0' }
     document.getElementById(proteccion).textContent = value;
 }
