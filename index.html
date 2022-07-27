@@ -121,7 +121,7 @@
             <p>La corriente eléctrica que proviene de los strings (las hileras de paneles solares), es continua y puede
                 tener varios cientos de voltios, por lo que requiere de interruptores especializados que eviten que se
                 formen arcos voltaicos entre los polos. Así pues, estos dispositivos suponen una capa de protección
-                adicional para los dispositivos, pero también para el usuario o instalador final.</p>
+                adicional para tu instalación, pero también para el usuario o instalador final.</p>
         </div>
     </div>
 
@@ -129,29 +129,51 @@
         <!-- SECCIÓN: SELECTOR AC/DC/AC+DC -->
         <section id="seccionSelectorACDC" data-onDisplay="1">
             <div class="subsection">
-                <h1>Seleccione el tipo de protección</h1>
-                <div class="seleccionACDC DC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/dc_current.svg"
-                            alt="icono corriente continua" srcset=""></div>
-                    <div class="tipo-de-proteccion-texto">
-                        <h3>ECO-DC</h3>
-                        <div class="seleccionContent">Protección para <b>corriente continua</b></div>
+                <div class="subsubsection">
+                    <h1>Seleccione según <b>características de la instalación</b></h1>
+                    <div class="seleccionACDC DC">
+                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/dc_current.svg"
+                                alt="icono corriente continua" srcset=""></div>
+                        <div class="tipo-de-proteccion-texto">
+                            <h3>ECO-DC</h3>
+                            <div class="seleccionContent">Protección para <b>corriente continua</b></div>
+                        </div>
+                    </div>
+                    <div class="seleccionACDC AC">
+                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/ac_current.svg"
+                                alt="icono corriente alterna" srcset=""></div>
+                        <div class="tipo-de-proteccion-texto">
+                            <h3>ECO-AC</h3>
+                            <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
+                        </div>
+                    </div>
+                    <div class="seleccionACDC ACDC">
+                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
+                                src="resources/acdc_current.svg" alt="icono corriente continua y alterna" srcset="">
+                        </div>
+                        <div class="tipo-de-proteccion-texto">
+                            <h3>ECO-DC-AC</h3>
+                            <div class="seleccionContent">Protección para <b>corriente continua y alterna</b></div>
+                        </div>
                     </div>
                 </div>
-                <div class="seleccionACDC AC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/ac_current.svg"
-                            alt="icono corriente alterna" srcset=""></div>
-                    <div class="tipo-de-proteccion-texto">
-                        <h3>ECO-AC</h3>
-                        <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
-                    </div>
-                </div>
-                <div class="seleccionACDC ACDC">
-                    <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/acdc_current.svg"
-                            alt="icono corriente continua y alterna" srcset=""></div>
-                    <div class="tipo-de-proteccion-texto">
-                        <h3>ECO-DC-AC</h3>
-                        <div class="seleccionContent">Protección para <b>corriente continua y alterna</b></div>
+                <div class="subsubsection">
+                    <h1>Seleccione según <b>modelo de inversor</b></h1>
+                    <div class="formInversor">
+                        <form action="">
+                            <div class="selectField">
+                                <label for="selectorMarca"><b>Marca:</b> </label>
+                                <select name="marca" id="selectorMarca">
+                                    <option value="">--Selecciona la marca--</option>
+                                </select>
+                            </div>
+                            <div class="selectField">
+                                <label for="selectorModelo"><b>Modelo:</b> </label>
+                                <select name="modelo" id="selectorModelo" disabled>
+                                    <option value="">--Selecciona el modelo--</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -293,11 +315,11 @@
                     <div class="inputParent potencia">
                         <div class="potenciaLabel noselect"><b>Potencia</b>:</div>
                         <div class="potenciaInput noselect">
-                            <div class="potenciaDisplay"><span id="potenciaDisplayAC">3</span>kW</div>
+                            <div class="potenciaDisplay"><span id="potenciaDisplayAC">3.0</span>kW</div>
                             <!-- <div class="potenciaLabelLabel"> -->
                             <label for="potenciaAC" class="range-label noselect">
                                 <input id="potenciaAC" data-proteccion="AC" class="range-input noselect" type="range"
-                                    min="1" max="34" step="1" name="potencia" value="3"
+                                    min="1" max="34" step="0.1" name="potencia" value="3"
                                     oninput="updatePotencia(this.value, this.dataset.proteccion)">
                             </label>
                             <!-- </div> -->
@@ -413,7 +435,7 @@
 
                             <label for="potenciaACDC" class="range-label noselect">
                                 <input id="potenciaACDC" data-proteccion="ACDC" class="range-input noselect"
-                                    type="range" min="1" max="17" step="1" name="potencia" value="9"
+                                    type="range" min="1" max="17" step="0.1" name="potencia" value="9"
                                     oninput="updatePotencia(this.value, this.dataset.proteccion)">
                             </label>
 
@@ -441,7 +463,7 @@
                     <ul id="secondBlockListItems">
                     </ul>
                     <div class="resultsFooter">
-                        <div id="esquema" style="display:none" data-esquema="">
+                        <div id="esquema" style="display:block" data-esquema="">
                             Mostrar esquema de ejemplo
                         </div>
                         <div id="enlaceWeb" data-enlace="">

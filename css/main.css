@@ -46,6 +46,17 @@ section {
     width: min(calc(100vw - 2rem), 500px)
 }
 
+.subsubsection {
+    border: 1px solid lightgrey;
+    border-radius: .5rem;
+    background-color: hsl(0, 100%, 95%);
+    padding: 1rem 1rem .1rem;
+}
+
+.subsubsection+.subsubsection {
+    margin-top: 1rem;
+}
+
 .back {
     background-color: var(--headerBG);
     color: white;
@@ -96,18 +107,25 @@ input {
     transition: .3s;
 }
 
+.formInversor,
 .seleccionACDC {
+    background-color: rgba(255, 255, 255, 1);
     display: flex;
     margin: 1rem 0;
-    box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.3);
-    transition: 0.2s;
-    border: 1px solid hsla(0, 0%, 85%, 1);
+    box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.3);
+    transition: 150ms;
+    border: 1px solid hsl(0, 100%, 80%);
     border-radius: .5rem;
     padding: .5rem;
 }
 
-.seleccionACDC:hover {
+/* .seleccionACDC:hover {
     box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.3);
+} */
+
+.seleccionACDC:active {
+    box-shadow: 0 1px 2px 0 hsla(0, 0%, 0%, 0.3);
+    border: 1px solid var(--headerBG);
 }
 
 .seleccion-icon {
@@ -461,21 +479,27 @@ input {
     border-radius: 0.3rem;
     background-color: hsl(0, 0%, 95%);
     box-shadow: 0 2px 4px lightcoral;
+    width: 85px;
+    text-align: right;
 }
 
 label[for="potenciaACDC"],
 label[for="potenciaAC"] {
     margin: 0;
     margin-top: .4rem;
+    /* width: 5rem; */
 }
 
 .potenciaInput {
     display: flex;
     align-items: center !important;
+    justify-content: flex-end;
+    /* width: 7rem; */
 }
 
 .range-label {
     accent-color: var(--headerBG);
+    
 }
 
 /* ----------------------------------------------------- */
@@ -666,4 +690,16 @@ dialog .esquema img {
     width: 100vw;
     border-radius: .3rem;
     border: 2px solid;
+}
+
+/* ------------------------------------------------------ */
+
+select {
+    font-weight: bold;
+    border: 1px solid lightgray;
+    border-radius: .2rem;
+}
+
+.selectField {
+    padding: .5rem;
 }

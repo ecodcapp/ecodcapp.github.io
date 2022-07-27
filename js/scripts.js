@@ -22,13 +22,18 @@ async function afterLoad() {
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
     setEventListeners()
+    
 
     // LOAD HARDCODED ECO-DC DB
     fetch('hcdb.json')
         .then(response => response.json())
-        .then(data => { jsonDB = { ...data } })
+        .then(data => {
+            jsonDB = { ...data };
+            setSelect();
+        })
         .catch(error => console.log(error));
 
+    // setSelect()
     await timeout(2000);
     const loadingBanner = Array.from(document.getElementsByClassName('loadingBanner'))[0];
 
@@ -68,13 +73,16 @@ function setEventListeners() {
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
 
     const customFormOpen = document.getElementById('formWrap');
-    customFormOpen.addEventListener('click', copyMail);
+    customFormOpen.addEventListener('click', copyMail, false);
 
     const esquema = document.getElementById('esquema');
     esquema.addEventListener('click', showEsquema);
 
     const enlaceWeb = document.getElementById('enlaceWeb');
     enlaceWeb.addEventListener('click', takeMe2Toscano);
+
+    const selectorMarca = document.getElementById('selectorMarca');
+    selectorMarca.addEventListener('input', setModeloInversor);
 
     // const customFormSectionBack = document.getElementById('customFormSectionBack');
     // customFormSectionBack.addEventListener('click', closeCustomForm)
@@ -86,6 +94,35 @@ function setEventListeners() {
             results.style.top = "110%";
             results.style.bottom = "-110%";
         })
+}
+
+function setSelect() {
+    const marcas = jsonDB.inversores.map(x => x.marca);
+    const selectorMarca = document.getElementById('selectorMarca');
+    for(let i = 0; i < marcas.length; i++) {
+        const option = document.createElement('option');
+        option.value = marcas[i];
+        option.textContent = marcas[i];
+        selectorMarca.appendChild(option);
+    }
+
+}
+
+function setModeloInversor(e) {
+    const marca = e.target.value;
+    
+    const selectorModelo = document.getElementById('selectorModelo');
+
+    let modelos = jsonDB.inversores.filter(x => x.marca === marca)[0];
+    modelos = modelos.modelos.map(x => x[0]);
+    for(let i = 0; i < modelos.length; i++) {
+        const option = document.createElement('option');
+        option.value = modelos[i];
+        option.textContent = modelos[i];
+        selectorModelo.appendChild(option);
+    }
+    
+    selectorModelo.disabled = false;
 }
 
 async function openSaberMas(e) {
@@ -611,5 +648,6 @@ function buzz(ms) {
 function updatePotencia(value, proteccion) {
     buzz(20);
     proteccion = 'potenciaDisplay' + proteccion;
+    if(value.indexOf('.') === -1) {value += '.0'}
     document.getElementById(proteccion).textContent = value;
 }
