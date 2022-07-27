@@ -703,3 +703,13 @@ select {
 .selectField {
     padding: .5rem;
 }
+
+#inversorBtn{
+    box-shadow: 0 2px 4px lightcoral;
+}
+
+#inversorBtn:disabled {
+    background-color: hsl(0, 100%, 85%);
+    border-color: hsl(0, 100%, 85%);
+    box-shadow: 0 0px 1px lightcoral;
+}

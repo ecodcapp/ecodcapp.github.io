@@ -160,7 +160,7 @@
                 <div class="subsubsection">
                     <h1>Seleccione según <b>modelo de inversor</b></h1>
                     <div class="formInversor">
-                        <form action="">
+                        <form id="formInversor" name="formInversor" action="">
                             <div class="selectField">
                                 <label for="selectorMarca"><b>Marca:</b> </label>
                                 <select name="marca" id="selectorMarca">
@@ -172,6 +172,12 @@
                                 <select name="modelo" id="selectorModelo" disabled>
                                     <option value="">--Selecciona el modelo--</option>
                                 </select>
+                            </div>
+                            <!-- <input id="referenciaTosc" type="text" value="" style="display: none;"> -->
+                            <div class="selectField">
+                                <!-- <label for="selectorModelo"><b>Modelo:</b> </label> -->
+                                <!-- <button type="button" id="selectorBtn" disabled>Buscar protector</button> -->
+                                <button disabled id="inversorBtn" class="btn formInversor" form="formInversor" type="submit" onclick="buzz(20)">Buscar protector</button> 
                             </div>
                         </form>
                     </div>
@@ -463,7 +469,7 @@
                     <ul id="secondBlockListItems">
                     </ul>
                     <div class="resultsFooter">
-                        <div id="esquema" style="display:block" data-esquema="">
+                        <div id="esquema" style="display:none" data-esquema="">
                             Mostrar esquema de ejemplo
                         </div>
                         <div id="enlaceWeb" data-enlace="">

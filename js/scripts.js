@@ -13,11 +13,6 @@ window.addEventListener('load', afterLoad);
 // });
 
 let jsonDB = {};
-
-function timeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 async function afterLoad() {
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
@@ -84,6 +79,12 @@ function setEventListeners() {
     const selectorMarca = document.getElementById('selectorMarca');
     selectorMarca.addEventListener('change', setModeloInversor);
 
+    const selectorModelo = document.getElementById('selectorModelo');
+    selectorModelo.addEventListener('change', afterSetModeloInversor);
+
+    const formInversor = document.getElementById('formInversor');
+    formInversor.addEventListener('submit', buscarProductoPorInversor);
+
     // const customFormSectionBack = document.getElementById('customFormSectionBack');
     // customFormSectionBack.addEventListener('click', closeCustomForm)
 
@@ -109,14 +110,20 @@ function setSelect() {
 }
 
 function setModeloInversor(e) {
+
     const marca = e.target.value;
 
+    const inversotBtn = document.getElementById('inversotBtn');
+
     if (marca !== '') {
+        // inversorBtn.disabled = false;
         const selectorModelo = document.getElementById('selectorModelo');
         selectorModelo.innerHTML = '';
 
         let modelos = jsonDB.inversores.filter(x => x.marca === marca)[0];
+        let referenciasT = modelos.modelos.map(x => x[1]);
         modelos = modelos.modelos.map(x => x[0]);
+
 
         const option = document.createElement('option');
         option.value = '';
@@ -125,7 +132,7 @@ function setModeloInversor(e) {
 
         for (let i = 0; i < modelos.length; i++) {
             const option = document.createElement('option');
-            option.value = modelos[i];
+            option.value = referenciasT[i];
             option.textContent = modelos[i];
             selectorModelo.appendChild(option);
         }
@@ -142,8 +149,21 @@ function setModeloInversor(e) {
     option.textContent = '--Selecciona el modelo--';
     selectorModelo.appendChild(option);
     selectorModelo.disabled = true;
+    inversorBtn.disabled = true;
 
+}
 
+function afterSetModeloInversor(e) {
+    
+    const inversotBtn = document.getElementById('inversotBtn');
+    if(e.target.value !== '') {
+        inversorBtn.disabled = false;
+        return
+    }
+
+    inversorBtn.disabled = true;
+    
+    
 }
 
 async function openSaberMas(e) {
@@ -483,6 +503,15 @@ function setMaxPower(e) {
 
 }
 
+function updatePotencia(value, proteccion) {
+    buzz(20);
+    proteccion = 'potenciaDisplay' + proteccion;
+    if (value.indexOf('.') === -1) { value += '.0' }
+    document.getElementById(proteccion).textContent = value;
+}
+
+// ----- BÚSQUEDA DE PRODUCTOS ----- //
+
 async function buscarProducto(formAnswers) {
 
     // console.log(formAnswers)
@@ -600,6 +629,43 @@ async function buscarProducto(formAnswers) {
 
 }
 
+async function buscarProductoPorInversor(e) {
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target).entries());
+    const Código = data.modelo;
+    console.log(Código)
+
+    let resultado = jsonDB.productos.filter(x => x.Código == Código);
+
+    if (resultado.length === 0) {
+        let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
+        resultDiv.style.top = 0;
+        resultDiv.style.bottom = 0;
+
+        const firstBlockImg = document.getElementById('firstBlockImg');
+        // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
+        let imageSrc = 'resources/productos/salta-el-diferencial.webp';
+        if (firstBlockImg) {
+            firstBlockImg.src = imageSrc;
+        }
+        document.getElementById('secondBlockh1').textContent = 'Sigue buscando';
+        let li = document.createElement('li');
+        li.textContent = "Prueba a añadir/quitar seccionadores";
+        const specList = document.getElementById('secondBlockListItems');
+        specList.innerHTML = '';
+        specList.appendChild(li);
+
+
+        return
+    } //RETURN
+
+    resultado = resultado[0];
+
+    console.log(resultado);
+    formatResultado(resultado);
+    await timeout(100);
+}
+
 function formatResultado(resultado) {
 
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
@@ -662,13 +728,12 @@ function takeMe2Toscano(e) {
     window.open(e.target.dataset.enlace, '_blanck');
 }
 
+// ----- UTILIDADES ----- //
+
 function buzz(ms) {
     window.navigator.vibrate ? navigator.vibrate(ms) : console.log('APPLE PLS, STOP BITCHING PWA DEVELOPERS');
 }
 
-function updatePotencia(value, proteccion) {
-    buzz(20);
-    proteccion = 'potenciaDisplay' + proteccion;
-    if (value.indexOf('.') === -1) { value += '.0' }
-    document.getElementById(proteccion).textContent = value;
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
