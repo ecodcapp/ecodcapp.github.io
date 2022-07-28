@@ -44,16 +44,13 @@ async function afterLoad() {
 function setEventListeners() {
 
     const selectACDC = Array.from(document.getElementsByClassName('seleccionACDC'));
-    for (let i = 0; i < selectACDC.length; i++) {
-        selectACDC[i].addEventListener('click', loadSection)
-    }
+    selectACDC.forEach(x => x.addEventListener('click', loadSection));
 
     const backButtons = Array.from(document.getElementsByClassName('back'));
-    for (let i = 0; i < backButtons.length; i++) {
-        backButtons[i].addEventListener('click', closeSection)
-    }
+    backButtons.forEach(x => x.addEventListener('click', closeSection))
 
     const arrows = Array.from(document.getElementsByClassName('arrow'));
+    console.log(backButtons)
     arrows.forEach(x => x.addEventListener('click', changeInputValue));
 
     const inversorMonoTriAC = Array.from(document.getElementsByClassName('inversorMonoTri Option'));

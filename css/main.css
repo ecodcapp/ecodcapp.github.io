@@ -34,6 +34,12 @@ section {
     align-items: center;
 }
 
+.miniTitle {
+    /* border: 1px solid; */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 .subsection {
     background-color: rgba(255, 255, 255, 1);
     /* border: 1px solid red; */
@@ -58,6 +64,23 @@ section {
     margin-top: 1rem;
 }
 
+.subsubsectionHeader {
+    padding: 1rem;
+    cursor: pointer;
+    /* border: 1px solid; */
+    /* margin-bottom: 1rem; */
+}
+
+.subsubsectionHeader h1 {
+    font-family: var(--headerTitle);
+}
+
+.subsubsectionContent {
+    /* border: 1px solid; */
+    margin: 0 1rem 1rem;
+    display: none;
+}
+
 .closeIcon {
     position: absolute;
     top: .5rem;
@@ -69,10 +92,23 @@ section {
     font-size: 2rem;
 }
 
-.back {
+/* .back {
     background-color: var(--headerBG);
     color: white;
     font-weight: bold;
+    width: fit-content;
+    padding: .3rem .75rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    box-shadow: 1px 2px 4px 0 hsla(0, 0%, 50%, 1);
+} */
+
+/* iOS style  */
+.back {
+    /* background-color: var(--headerBG); */
+    color: var(--headerBG);
+    font-weight: 800;
+    /* font-size: 2rem; */
     width: fit-content;
     padding: .3rem .75rem;
     border-radius: 2rem;
@@ -88,6 +124,11 @@ section {
     padding-bottom: 1rem;
     margin-bottom: .5rem;
     border-bottom: 1px solid red;
+}
+
+.sectionSubtitle h2 {
+    font-family: var(--headerTitle);
+    text-align: right;
 }
 
 input {
@@ -767,14 +808,3 @@ select {
     box-shadow: 0 0px 1px lightcoral;
 }
 
-.subsubsectionHeader {
-    padding: 1rem;
-    /* border: 1px solid; */
-    /* margin-bottom: 1rem; */
-}
-
-.subsubsectionContent {
-    /* border: 1px solid; */
-    margin: 0 1rem 1rem;
-    display: none;
-}
