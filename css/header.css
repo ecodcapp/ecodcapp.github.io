@@ -108,3 +108,7 @@ header > nav {
 #saberMasContenido div+div {
     margin-top: 1rem;
 }
+
+#saberMasContenido h2 {
+    font-family: 'Montserrat', sans-serif;
+}

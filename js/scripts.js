@@ -242,11 +242,14 @@ function loadSection(e) {
     const sectionId = `seccion${e.currentTarget.classList[1]}`;
     const selectedSection = document.getElementById(sectionId);
 
+    const back = $(`.back.${sectionId}`)[0];
+    back.style.transform = 'translateX(0)'
+
     buzz(20)
 
     selectedSection.style.left = `0vw`
     selectedSection.style.right = `0vw`
-    selectedSection.style.transition = '0.3s';
+    selectedSection.style.transition = '0.4s';
 
 }
 
@@ -256,6 +259,9 @@ function closeSection(e) {
     const sectionId = e.currentTarget.classList[1];
     // console.log(sectionId)
     const selectedSection = document.getElementById(sectionId);
+
+    const back = $(`.back.${sectionId}`)[0];
+    back.style.transform = 'translateX(5rem)'
 
     buzz(20)
 
@@ -572,7 +578,7 @@ async function buscarProducto(formAnswers) {
 
         const powerThresholds = resultado.map(x => parseFloat(x.Potencia.slice(0, -3)))
         // console.log(powerThresholds);
-        console.log(resultado.map(x => x.Potencia))
+        // console.log(resultado.map(x => x.Potencia))
 
         // console.log(formData.potencia)
         // console.log(powerThresholds.indexOf(Math.min(...powerThresholds.filter(x => x > formData.potencia))));
@@ -605,7 +611,7 @@ async function buscarProducto(formAnswers) {
     } //RETURN
 
     if (Array.isArray(resultado) && resultado.length === 1) { resultado = resultado[0] }
-    console.log(resultado)
+    // console.log(resultado)
     formatResultado(resultado)
 
     await timeout(100);
@@ -616,7 +622,7 @@ async function buscarProductoPorInversor(e) {
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target).entries());
     const Código = data.modelo;
-    console.log(Código)
+    // console.log(Código)
 
     let resultado = jsonDB.productos.filter(x => x.Código == Código);
 
@@ -645,7 +651,7 @@ async function buscarProductoPorInversor(e) {
 
     resultado = resultado[0];
 
-    console.log(resultado);
+    // console.log(resultado);
     formatResultado(resultado);
     await timeout(100);
 }

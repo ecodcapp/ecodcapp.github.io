@@ -36,13 +36,15 @@
 
     <div class="loadingBanner">
         <div id="loadingBannerContent">
-            <img oncontextmenu="return false;" id="loadingBannerLogo" src="resources/toscano-logo-blanco.svg" alt="Logo toscano">
+            <img oncontextmenu="return false;" id="loadingBannerLogo" src="resources/toscano-logo-blanco.svg"
+                alt="Logo toscano">
             <div class="horizontalLine"></div>
             <div id="bannerTitle">
                 <h1 class="ecoDcTitle">GAMA ECO-DC</h1>
                 <h1 class="ecoDcSubTitle">GUÍA DE SELECCIÓN</h1>
             </div>
-            <img oncontextmenu="return false;" id="loadingBannerDoodle" src="resources/bannerECODC.svg" alt="Dibujo panel solar">
+            <img oncontextmenu="return false;" id="loadingBannerDoodle" src="resources/bannerECODC.svg"
+                alt="Dibujo panel solar">
         </div>
     </div>
 
@@ -142,24 +144,27 @@
                     </div>
                     <div class="subsubsectionContent">
                         <div class="seleccionACDC DC">
-                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;" class="seleccion-icon"
-                                    src="resources/dc_current.svg" alt="icono corriente continua" srcset=""></div>
+                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;"
+                                    class="seleccion-icon" src="resources/dc_current.svg" alt="icono corriente continua"
+                                    srcset=""></div>
                             <div class="tipo-de-proteccion-texto">
                                 <h3>ECO-DC</h3>
                                 <div class="seleccionContent">Protección para <b>corriente continua</b></div>
                             </div>
                         </div>
                         <div class="seleccionACDC AC">
-                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;" class="seleccion-icon"
-                                    src="resources/ac_current.svg" alt="icono corriente alterna" srcset=""></div>
+                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;"
+                                    class="seleccion-icon" src="resources/ac_current.svg" alt="icono corriente alterna"
+                                    srcset=""></div>
                             <div class="tipo-de-proteccion-texto">
                                 <h3>ECO-AC</h3>
                                 <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
                             </div>
                         </div>
                         <div class="seleccionACDC ACDC">
-                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;" class="seleccion-icon"
-                                    src="resources/acdc_current.svg" alt="icono corriente continua y alterna" srcset="">
+                            <div class="tipo-de-proteccion-icon"><img oncontextmenu="return false;"
+                                    class="seleccion-icon" src="resources/acdc_current.svg"
+                                    alt="icono corriente continua y alterna" srcset="">
                             </div>
                             <div class="tipo-de-proteccion-texto">
                                 <h3>ECO-DC-AC</h3>
@@ -250,9 +255,10 @@
                                     step="1" value="2" readonly required />
                             </div>
                             <div class="flechasSelectoras">
-                                <img oncontextmenu="return false;" class="DCNStrings arrow up noselect" src="resources/arrow_up.svg" alt="" srcset="">
-                                <img oncontextmenu="return false;" class="DCNStrings arrow down noselect" src="resources/arrow_up.svg" alt=""
-                                    srcset="">
+                                <img oncontextmenu="return false;" class="DCNStrings arrow up noselect"
+                                    src="resources/arrow_up.svg" alt="" srcset="">
+                                <img oncontextmenu="return false;" class="DCNStrings arrow down noselect"
+                                    src="resources/arrow_up.svg" alt="" srcset="">
                             </div>
                         </div>
                     </div>
@@ -399,10 +405,10 @@
                                     max="3" step="1" value="2" readonly required />
                             </div>
                             <div class="flechasSelectoras">
-                                <img oncontextmenu="return false;" class="ACDCNStrings arrow up noselect" src="resources/arrow_up.svg" alt=""
-                                    srcset="">
-                                <img oncontextmenu="return false;" class="ACDCNStrings arrow down noselect" src="resources/arrow_up.svg" alt=""
-                                    srcset="">
+                                <img oncontextmenu="return false;" class="ACDCNStrings arrow up noselect"
+                                    src="resources/arrow_up.svg" alt="" srcset="">
+                                <img oncontextmenu="return false;" class="ACDCNStrings arrow down noselect"
+                                    src="resources/arrow_up.svg" alt="" srcset="">
                             </div>
                         </div>
                     </div>
@@ -514,7 +520,11 @@
                     </div>
                 </div>
             </div>
-            <div id="formResultsDivBack">VOLVER</div>
+            <div id="formResultsDivBack">
+                <span class="material-symbols-outlined">
+                    cancel
+                </span>
+            </div>
 
         </div>
 
@@ -546,7 +556,7 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
                     .then(reg => {
-                        console.log('Service worker registered!', reg);
+                        console.log('Service worker registered!');
                     }).catch(err => {
                         console.log('Registration of sw.js FAILED', err);
                     })
