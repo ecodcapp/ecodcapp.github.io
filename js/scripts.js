@@ -50,7 +50,6 @@ function setEventListeners() {
     backButtons.forEach(x => x.addEventListener('click', closeSection))
 
     const arrows = Array.from(document.getElementsByClassName('arrow'));
-    console.log(backButtons)
     arrows.forEach(x => x.addEventListener('click', changeInputValue));
 
     const inversorMonoTriAC = Array.from(document.getElementsByClassName('inversorMonoTri Option'));
@@ -63,9 +62,6 @@ function setEventListeners() {
 
     const forms = Array.from(document.getElementsByClassName('formProduct'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
-
-    // const customFormOpen = document.getElementById('formWrap');
-    // customFormOpen.addEventListener('click', copyMail, false);
 
     const esquema = document.getElementById('esquema');
     esquema.addEventListener('click', showEsquema);
@@ -81,9 +77,6 @@ function setEventListeners() {
 
     const formInversor = document.getElementById('formInversor');
     formInversor.addEventListener('submit', buscarProductoPorInversor);
-
-    // const customFormSectionBack = document.getElementById('customFormSectionBack');
-    // customFormSectionBack.addEventListener('click', closeCustomForm)
 
     document.getElementById('formResultsDivBack')
         .addEventListener('click', function (event) {
@@ -271,37 +264,6 @@ function closeSection(e) {
     selectedSection.style.transition = '0.3s';
 
 }
-
-function copyMail() {
-    /* Get the text field */
-    let formWrapMail = document.getElementById("formWrapMail");
-    console.log(formWrapMail)
-
-    /* Select the text field */
-    let contactMail = formWrapMail.textContent;
-
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(contactMail);
-
-    /* Alert the copied text */
-    alert(contactMail + ' copiado en el portapapeles');
-}
-
-// function openCustomForm(e) {
-//     const customFormSection = document.getElementById('customFormSection');
-//     customFormSection.style.bottom = 0;
-
-//     const seccionSelectorACDC = document.getElementById('seccionSelectorACDC');
-//     seccionSelectorACDC.style.filter = 'blur(2px)';
-// }
-
-// function closeCustomForm(e) {
-//     const customFormSection = document.getElementById('customFormSection');
-//     customFormSection.style.bottom = '-110%';
-
-//     const seccionSelectorACDC = document.getElementById('seccionSelectorACDC');
-//     seccionSelectorACDC.style.filter = 'blur(0px)';
-// }
 
 function customProduct(e) {
     const formCustom = e.target;
