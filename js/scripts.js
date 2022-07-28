@@ -110,10 +110,10 @@ function setSelect() {
 }
 
 $(".subsubsectionHeader").click(function () {
-
+    
     $header = $(this);
-    $icon = $header.next()[0];
-    $content = $header.next().next();
+    $icon = $header.children(".closeIcon")[0];
+    $content = $header.next();
     $icon.style.transform += 'rotate(180deg)';
     //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
     $content.slideToggle(500, function () {
@@ -124,7 +124,6 @@ $(".subsubsectionHeader").click(function () {
         //     return $content.is(":visible") ? "Collapse" : "Expand";
         // });
     });
-
 });
 
 function setModeloInversor(e) {
