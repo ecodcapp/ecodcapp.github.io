@@ -72,7 +72,7 @@ section {
 }
 
 .subsubsectionHeader h1 {
-    font-family: var(--headerTitle);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .subsubsectionContent {
@@ -127,7 +127,7 @@ section {
 }
 
 .sectionSubtitle h2 {
-    font-family: var(--headerTitle);
+    font-family: 'Montserrat', sans-serif;
     text-align: right;
 }
 
