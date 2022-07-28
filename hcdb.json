@@ -6,7 +6,7 @@
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Seccionador. Varios strings/un MPPT. Protección de sobretensiones transitorias DC. Base portafusibles por string + fusibles de 15A. Máximo d1000VDC. IP65.",
             "imagen": "resources/productos/eco-dc.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-dc/"
+            "enlaceWeb": "https://toscano.es/producto/eco-dc/"
         },
         {
             "familia": "eco-dc-inv",
@@ -14,7 +14,7 @@
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC. Base portafusibles por string + fusibles de 15A. Conectores MC4 en entradas y salidas. Máximo 1000VDC. IP65. Para corriente alterna trifásica magnetotérmico + diferencial clase A.",
             "imagen": "resources/productos/eco-dc-inv.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2INV.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-dc-inv/"
+            "enlaceWeb": "https://toscano.es/producto/eco-dc-inv/"
         },
         {
             "familia": "eco-dc-inv-s",
@@ -22,7 +22,7 @@
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC. Con seccionadores por string. Base portafusibles por string + fusibles de 15A. Máximo 1000VDC. IP65.",
             "imagen": "resources/productos/eco-dc-inv-s.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2INV-S.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-dc-inv-s/"
+            "enlaceWeb": "https://toscano.es/producto/eco-dc-inv-s/"
         },
         {
             "familia": "eco-ac-1nt15",
@@ -30,7 +30,7 @@
             "descripción": "Cuadros de protección para salida del inversor en instalaciones fotovoltaicas. Para líneas monofásicas. Alimentación 230VAC. Protección diferencial tipo 'A' de 30mA. Magnetotérmico 10kA. Protector de sobretensiones transitorias. IP65",
             "imagen": "resources/productos/eco-ac.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-AC.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-ac-2/"
+            "enlaceWeb": "https://toscano.es/producto/eco-ac-2/"
         },
         {
             "familia": "eco-ac-3nt15",
@@ -38,7 +38,7 @@
             "descripción": "Cuadros de protección para salida del inversor en instalaciones fotovoltaicas. Para líneas trifásicas. Alimentación 400VAC. Protección diferencial tipo 'A' de 30mA. Magnetotérmico 10kA. Protector de sobretensiones transitorias. IP65",
             "imagen": "resources/productos/eco-ac.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-AC.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-ac-2/"
+            "enlaceWeb": "https://toscano.es/producto/eco-ac-2/"
         },
         {
             "familia": "eco-dc-inv-ac-1nt15",
@@ -46,7 +46,7 @@
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC y AC. Base portafusible por string + fusibles de 15A. Conectores MC4 en entradas y salidas. Máximo 1000VDC. IP65. Para corriente alterna monofásica magnetotérmico + diferencial clase A.",
             "imagen": "resources/productos/eco-dc-inv-ac-3.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2INV-AC-1NT15.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-dc-inv-ac-2/"
+            "enlaceWeb": "https://toscano.es/producto/eco-dc-inv-ac-2/"
         },
         {
             "familia": "eco-dc-inv-ac-3nt15",
@@ -54,7 +54,7 @@
             "descripción": "Cuadros de protección para instalaciones fotovoltaicas. Varios strings/varios MPPT. Protección de sobretensiones transitorias DC y AC. Base portafusible por string + fusibles de 15A. Conectores MC4 en entradas y salidas. Máximo 1000VDC. IP65. Para corriente alterna trifásica magnetotérmico + diferencial clase A.",
             "imagen": "resources/productos/eco-dc-inv-ac-3.webp",
             "esquema": "resources/esquemas/ESQUEMA-ECO-DC-2INV-AC-1NT15.png",
-            "enlaceWeb": "https://toscano.es/en/producto/eco-dc-inv-ac-2/"
+            "enlaceWeb": "https://toscano.es/producto/eco-dc-inv-ac-2/"
         }
     ],
     "productos": [
