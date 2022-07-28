@@ -67,8 +67,8 @@ function setEventListeners() {
     const forms = Array.from(document.getElementsByClassName('formProduct'));
     forms.forEach(x => x.addEventListener('submit', buscarProducto));
 
-    const customFormOpen = document.getElementById('formWrap');
-    customFormOpen.addEventListener('click', copyMail, false);
+    // const customFormOpen = document.getElementById('formWrap');
+    // customFormOpen.addEventListener('click', copyMail, false);
 
     const esquema = document.getElementById('esquema');
     esquema.addEventListener('click', showEsquema);
@@ -108,6 +108,23 @@ function setSelect() {
     }
 
 }
+
+$(".subsubsectionHeader").click(function () {
+
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        // $header.text(function () {
+        //     //change text based on condition
+        //     return $content.is(":visible") ? "Collapse" : "Expand";
+        // });
+    });
+
+});
 
 function setModeloInversor(e) {
 
@@ -610,13 +627,13 @@ async function buscarProducto(formAnswers) {
         if (firstBlockImg) {
             firstBlockImg.src = imageSrc;
         }
-        document.getElementById('secondBlockh1').textContent = 'Sigue buscando';
+        document.getElementById('secondBlockh1').textContent = 'Producto bajo demanda';
         let li = document.createElement('li');
-        li.textContent = "Prueba a añadir/quitar seccionadores";
+        li.textContent = "Este producto se sirve sólo bajo demanda. Escríbenos a ventas@toscano.es para más información.";
         const specList = document.getElementById('secondBlockListItems');
         specList.innerHTML = '';
         specList.appendChild(li);
-
+        document.getElementById('enlaceWeb').style.display = 'none';
 
         return
     } //RETURN
@@ -648,12 +665,13 @@ async function buscarProductoPorInversor(e) {
         if (firstBlockImg) {
             firstBlockImg.src = imageSrc;
         }
-        document.getElementById('secondBlockh1').textContent = 'Sigue buscando';
+        document.getElementById('secondBlockh1').textContent = 'Producto bajo demanda';
         let li = document.createElement('li');
-        li.textContent = "Prueba a añadir/quitar seccionadores";
+        li.textContent = "Este producto se sirve bajo demanda \n Escríbenos a ventas@toscano.es para más información.";
         const specList = document.getElementById('secondBlockListItems');
         specList.innerHTML = '';
         specList.appendChild(li);
+        document.getElementById('enlaceWeb').style.display = 'none';
 
 
         return
@@ -701,6 +719,7 @@ function formatResultado(resultado) {
         specList.appendChild(listItem);
     }
 
+    document.getElementById('enlaceWeb').style.display = 'block';
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
     resultDiv.style.bottom = 0;

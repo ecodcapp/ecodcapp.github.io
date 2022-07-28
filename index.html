@@ -25,6 +25,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--Import Google Icon Font-->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!--Import materialize.css-->
@@ -116,7 +117,7 @@
         </div>
 
         <div>
-            <h2>¿Qué es un seccionador?</h2>
+            <h2>La importancia de los seccionadores</h2>
             <br>
             <p>La corriente eléctrica que proviene de los strings (las hileras de paneles solares), es continua y puede
                 tener varios cientos de voltios, por lo que requiere de interruptores especializados que eviten que se
@@ -130,36 +131,42 @@
         <section id="seccionSelectorACDC" data-onDisplay="1">
             <div class="subsection">
                 <div class="subsubsection">
-                    <h1>Seleccione según <b>características de la instalación</b></h1>
-                    <div class="seleccionACDC DC">
-                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/dc_current.svg"
-                                alt="icono corriente continua" srcset=""></div>
-                        <div class="tipo-de-proteccion-texto">
-                            <h3>ECO-DC</h3>
-                            <div class="seleccionContent">Protección para <b>corriente continua</b></div>
-                        </div>
+                    <div class="subsubsectionHeader">
+                        <h1>Seleccione según <b>características de la instalación</b></h1>
                     </div>
-                    <div class="seleccionACDC AC">
-                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon" src="resources/ac_current.svg"
-                                alt="icono corriente alterna" srcset=""></div>
-                        <div class="tipo-de-proteccion-texto">
-                            <h3>ECO-AC</h3>
-                            <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
+                    <div class="subsubsectionContent">
+                        <div class="seleccionACDC DC">
+                            <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
+                                    src="resources/dc_current.svg" alt="icono corriente continua" srcset=""></div>
+                            <div class="tipo-de-proteccion-texto">
+                                <h3>ECO-DC</h3>
+                                <div class="seleccionContent">Protección para <b>corriente continua</b></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="seleccionACDC ACDC">
-                        <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
-                                src="resources/acdc_current.svg" alt="icono corriente continua y alterna" srcset="">
+                        <div class="seleccionACDC AC">
+                            <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
+                                    src="resources/ac_current.svg" alt="icono corriente alterna" srcset=""></div>
+                            <div class="tipo-de-proteccion-texto">
+                                <h3>ECO-AC</h3>
+                                <div class="seleccionContent">Protección para <b>corriente alterna</b></div>
+                            </div>
                         </div>
-                        <div class="tipo-de-proteccion-texto">
-                            <h3>ECO-DC-AC</h3>
-                            <div class="seleccionContent">Protección para <b>corriente continua y alterna</b></div>
+                        <div class="seleccionACDC ACDC">
+                            <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
+                                    src="resources/acdc_current.svg" alt="icono corriente continua y alterna" srcset="">
+                            </div>
+                            <div class="tipo-de-proteccion-texto">
+                                <h3>ECO-DC-AC</h3>
+                                <div class="seleccionContent">Protección para <b>corriente continua y alterna</b></div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="subsubsection">
-                    <h1>Seleccione según <b>modelo de inversor</b></h1>
-                    <div class="formInversor">
+                    <div class="subsubsectionHeader">
+                        <h1>Seleccione según <b>modelo de inversor</b></h1>
+                    </div>
+                    <div class="formInversor subsubsectionContent">
                         <form id="formInversor" name="formInversor" action="">
                             <div class="selectField">
                                 <label for="selectorMarca"><b>Marca:</b> </label>
@@ -177,7 +184,8 @@
                             <div class="selectField">
                                 <!-- <label for="selectorModelo"><b>Modelo:</b> </label> -->
                                 <!-- <button type="button" id="selectorBtn" disabled>Buscar protector</button> -->
-                                <button disabled id="inversorBtn" class="btn formInversor" form="formInversor" type="submit" onclick="buzz(20)">Buscar protector</button> 
+                                <button disabled id="inversorBtn" class="btn formInversor" form="formInversor"
+                                    type="submit" onclick="buzz(20)">Buscar protector</button>
                             </div>
                         </form>
                     </div>
@@ -187,8 +195,8 @@
                 <h2>¿No encuentras lo que buscas?</h2>
                 <div id="formWrap">
                     Escríbenos a
-                    <span id="formWrapMail">ecodcapp@toscano.es</span>
-                    <!-- <p id="cuentaCuenta"></p> -->
+                    <span id="formWrapMail">ventas@toscano.es</span>
+                    <a href="mailto:ventas@toscano.es" target="_blank">ventas@toscano.es</a>
                     <!-- <form class="formCustom" method="post" target="_blank" enctype="multipart/form-data">
                         <label for="nombreCustom">Nombre</label>
                         <input type="text" id="nombreCustom" name="nombre" required>
@@ -354,8 +362,8 @@
                 </div>
                 <form class="formProduct" id="proteccionACDC" name="proteccionACDC" action="">
                     <div class="inputParent strings">
-                        <label for="ACDCNStrings" class="noselect">Nº de <b>entradas</b> (strings) y <b>salidas</b>
-                            (MPPTs)</label>
+                        <label for="ACDCNStrings" class="noselect">Nº de <b>entradas</b> (strings) y
+                            <b>MPPTs</b></label>
 
                         <div class="inputMain">
                             <div class="inputMain-input">
@@ -473,7 +481,7 @@
                             Mostrar esquema de ejemplo
                         </div>
                         <div id="enlaceWeb" data-enlace="">
-                            Saber más
+                            Ficha técnica (enlace web)
                         </div>
                     </div>
                 </div>
