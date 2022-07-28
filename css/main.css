@@ -36,7 +36,7 @@ section {
 
 .miniTitle {
     /* border: 1px solid; */
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
 }
 
@@ -618,7 +618,7 @@ label[for="potenciaAC"] {
 .footerL {
     border-right: 1px solid var(--headerBG);;
     text-align: right;
-    padding-right: .5rem;
+    padding: .2rem .5rem;
 }
 
 .footerR ul li {
