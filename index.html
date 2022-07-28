@@ -134,6 +134,11 @@
                     <div class="subsubsectionHeader">
                         <h1>Seleccione según <b>características de la instalación</b></h1>
                     </div>
+                    <div class="closeIcon">
+                        <span class="material-symbols-outlined">
+                            expand_less
+                        </span>
+                    </div>
                     <div class="subsubsectionContent">
                         <div class="seleccionACDC DC">
                             <div class="tipo-de-proteccion-icon"><img class="seleccion-icon"
@@ -166,28 +171,35 @@
                     <div class="subsubsectionHeader">
                         <h1>Seleccione según <b>modelo de inversor</b></h1>
                     </div>
-                    <div class="formInversor subsubsectionContent">
-                        <form id="formInversor" name="formInversor" action="">
-                            <div class="selectField">
-                                <label for="selectorMarca"><b>Marca:</b> </label>
-                                <select name="marca" id="selectorMarca">
-                                    <option value="">--Selecciona la marca--</option>
-                                </select>
-                            </div>
-                            <div class="selectField">
-                                <label for="selectorModelo"><b>Modelo:</b> </label>
-                                <select name="modelo" id="selectorModelo" disabled>
-                                    <option value="">--Selecciona el modelo--</option>
-                                </select>
-                            </div>
-                            <!-- <input id="referenciaTosc" type="text" value="" style="display: none;"> -->
-                            <div class="selectField">
-                                <!-- <label for="selectorModelo"><b>Modelo:</b> </label> -->
-                                <!-- <button type="button" id="selectorBtn" disabled>Buscar protector</button> -->
-                                <button disabled id="inversorBtn" class="btn formInversor" form="formInversor"
-                                    type="submit" onclick="buzz(20)">Buscar protector</button>
-                            </div>
-                        </form>
+                    <div class="closeIcon">
+                        <span class="material-symbols-outlined">
+                            expand_less
+                        </span>
+                    </div>
+                    <div class="subsubsectionContent">
+                        <div class="formInversor">
+                            <form id="formInversor" name="formInversor" action="">
+                                <div class="selectField">
+                                    <label for="selectorMarca"><b>Marca:</b> </label>
+                                    <select name="marca" id="selectorMarca">
+                                        <option value="">--Selecciona la marca--</option>
+                                    </select>
+                                </div>
+                                <div class="selectField">
+                                    <label for="selectorModelo"><b>Modelo:</b> </label>
+                                    <select name="modelo" id="selectorModelo" disabled>
+                                        <option value="">--Selecciona el modelo--</option>
+                                    </select>
+                                </div>
+                                <!-- <input id="referenciaTosc" type="text" value="" style="display: none;"> -->
+                                <div class="selectField">
+                                    <!-- <label for="selectorModelo"><b>Modelo:</b> </label> -->
+                                    <!-- <button type="button" id="selectorBtn" disabled>Buscar protector</button> -->
+                                    <button disabled id="inversorBtn" class="btn formInversor" form="formInversor"
+                                        type="submit" onclick="buzz(20)">Buscar protector</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,7 +211,7 @@
                     <ul>
                         <li>Escríbenos: <span class="contact"><a href="mailto:ventas@toscano.es?subject=Pedido especial ECO-DC&body=Buenos días:%0D%0A%0D%0AVengo de la aplicación de asistente de selección ECO-DC. El producto que busco no aparece publicado en la aplicación y quisiera información sobre producto customizados.%0D%0A%0D%0AGracias." rel="noopener noreferrer" target="_blank">ventas@toscano.es</a></span></li>
                         <li>Llámanos: <span class="contact"><a href="tel:954999900">954 999 900</a></span></li>
-                        <li>Visítanos: <span class="contact"><a href="https://toscano.es/">toscano.es</a></span></li>
+                        <li>Visítanos: <span class="contact"><a href="https://toscano.es/" target="_blank">toscano.es</a></span></li>
                     </ul>
                 </div>
                 <!-- enctype="multipart/form-data" -->

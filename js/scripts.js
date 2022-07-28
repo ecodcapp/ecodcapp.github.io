@@ -112,8 +112,9 @@ function setSelect() {
 $(".subsubsectionHeader").click(function () {
 
     $header = $(this);
-    //getting the next element
-    $content = $header.next();
+    $icon = $header.next()[0];
+    $content = $header.next().next();
+    $icon.style.transform += 'rotate(180deg)';
     //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
     $content.slideToggle(500, function () {
         //execute this after slideToggle is done

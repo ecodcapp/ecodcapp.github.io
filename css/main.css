@@ -51,10 +51,22 @@ section {
     border-radius: .5rem;
     background-color: hsl(0, 100%, 95%);
     padding: 1rem 1rem .1rem;
+    position: relative;
 }
 
 .subsubsection+.subsubsection {
     margin-top: 1rem;
+}
+
+.closeIcon {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    transition: 500ms;
+}
+
+.closeIcon span {
+    font-size: 2rem;
 }
 
 .back {
