@@ -612,6 +612,7 @@ label[for="potenciaAC"] {
     display: grid;
     grid-template-columns: 1fr 2fr;
     /* border: 1px solid; */
+    width: min(calc(100vw - 2rem), 500px);
 }
 
 .footerL {
@@ -623,7 +624,7 @@ label[for="potenciaAC"] {
 .footerR ul li {
     display: block;
     text-align: left;
-    padding-left: .5rem;
+    padding: .2rem .5rem;
 }
 
 /* #formWrap {
