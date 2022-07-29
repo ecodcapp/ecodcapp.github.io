@@ -105,7 +105,11 @@ $(".subsubsectionHeader").click(function () {
     $header[0].dataset.open = $header[0].dataset.open === "0" ? "1" : "0";
     $icon = $header.children(".closeIcon")[0];
     $content = $header.next();
-    $icon.style.transform += 'rotate(180deg)';
+    $header[0].dataset.open === "1" ?
+    $icon.style.transform = 'rotate(180deg)' :
+    $icon.style.transform = 'rotate(0)'
+
+    
 
     $otherSection = $header.parent().siblings().children();
     $headerS = $header.parent().siblings().children(".subsubsectionHeader");
@@ -126,10 +130,12 @@ $(".subsubsectionHeader").click(function () {
 $(".saberMasHeader").click(function () {
 
     $header = $(this);
-    // $header[0].dataset.open = $header[0].dataset.open === "0" ? "1" : "0";
-    // $icon = $header.children(".closeIcon")[0];
+    $header[0].dataset.open = $header[0].dataset.open === "0" ? "1" : "0";
+    $icon = $header.children(".closeIcon")[0];
     $content = $header.next();
-    // $icon.style.transform += 'rotate(180deg)';
+    $header[0].dataset.open === "1" ?
+    $icon.style.transform = 'rotate(180deg)' :
+    $icon.style.transform = 'rotate(0)'
 
     // $otherSection = $header.parent().siblings().children();
     // $headerS = $header.parent().siblings().children(".subsubsectionHeader");

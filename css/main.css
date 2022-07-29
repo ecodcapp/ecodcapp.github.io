@@ -85,7 +85,7 @@ section {
 .closeIcon {
     position: absolute;
     top: .5rem;
-    right: .5rem;
+    right: .8rem;
     transition: 500ms;
 }
 
