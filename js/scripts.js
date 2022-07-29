@@ -106,19 +106,19 @@ $(".subsubsectionHeader").click(function () {
     $icon = $header.children(".closeIcon")[0];
     $content = $header.next();
     $header[0].dataset.open === "1" ?
-    $icon.style.transform = 'rotate(180deg)' :
-    $icon.style.transform = 'rotate(0)'
+        $icon.style.transform = 'rotate(180deg)' :
+        $icon.style.transform = 'rotate(0)'
 
-    
+
 
     $otherSection = $header.parent().siblings().children();
     $headerS = $header.parent().siblings().children(".subsubsectionHeader");
-    
 
-    if($header[0].dataset.open === "1" && $headerS[0].dataset.open === "1") {
+
+    if ($header[0].dataset.open === "1" && $headerS[0].dataset.open === "1") {
         $iconS = $headerS.children(".closeIcon")[0];
         $contentS = $header.parent().siblings().children(".subsubsectionContent");
-        
+
         $headerS[0].dataset.open = $headerS[0].dataset.open === "0" ? "1" : "0";
         $contentS.slideToggle(400);
         $iconS.style.transform += 'rotate(180deg)';
@@ -134,17 +134,17 @@ $(".saberMasHeader").click(function () {
     $icon = $header.children(".closeIcon")[0];
     $content = $header.next();
     $header[0].dataset.open === "1" ?
-    $icon.style.transform = 'rotate(180deg)' :
-    $icon.style.transform = 'rotate(0)'
+        $icon.style.transform = 'rotate(180deg)' :
+        $icon.style.transform = 'rotate(0)'
 
     // $otherSection = $header.parent().siblings().children();
     // $headerS = $header.parent().siblings().children(".subsubsectionHeader");
-    
+
 
     // if($header[0].dataset.open === "1" && $headerS[0].dataset.open === "1") {
     //     $iconS = $headerS.children(".closeIcon")[0];
     //     $contentS = $header.parent().siblings().children(".subsubsectionContent");
-        
+
     //     $headerS[0].dataset.open = $headerS[0].dataset.open === "0" ? "1" : "0";
     //     $contentS.slideToggle(400);
     //     $iconS.style.transform += 'rotate(180deg)';
@@ -198,16 +198,16 @@ function setModeloInversor(e) {
 }
 
 function afterSetModeloInversor(e) {
-    
+
     const inversotBtn = document.getElementById('inversotBtn');
-    if(e.target.value !== '') {
+    if (e.target.value !== '') {
         inversorBtn.disabled = false;
         return
     }
 
     inversorBtn.disabled = true;
-    
-    
+
+
 }
 
 async function openSaberMas(e) {
@@ -261,6 +261,18 @@ function closeSaberMas(e) {
     buzz(20);
 
     main.style.filter = 'blur(0)';
+
+    $header = $(".saberMasHeader[data-open='1']");
+    
+    $header.each(function(i) {
+        $header[i].dataset.open = "0";
+        $icon = $header.children(".closeIcon")[0];
+        $content = $header.next();
+    });
+    
+    $icon.style.transform = 'rotate(180deg)';
+
+    $content.slideToggle(400);
 
 }
 

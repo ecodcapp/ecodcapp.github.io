@@ -69,6 +69,7 @@ section {
     cursor: pointer;
     /* border: 1px solid; */
     /* margin-bottom: 1rem; */
+    position: relative;
 }
 
 .subsubsectionHeader h1 {
@@ -85,6 +86,9 @@ section {
 .closeIcon {
     position: absolute;
     top: .5rem;
+    /* top: calc(50%-.5rem);
+    -ms-transform: translateY(calc(-50%));
+    transform: translateY(calc(-50%)); */
     right: .8rem;
     transition: 500ms;
 }
