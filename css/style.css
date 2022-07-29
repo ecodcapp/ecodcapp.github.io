@@ -9,7 +9,7 @@
     --stdSize: 0.97rem;
 
     /* COLORS */
-    --headerBG: hsla(360, 78%, 53%, 1);
+    --headerBG: hsl(0, 78%, 53%);
     --headerBG2: hsla(360, 78%, 53%, .80);
     --header: hsl(0, 100%, 100%);
     --darkRed: hsl(0, 100%, 30%);
@@ -126,8 +126,10 @@ h1{
     margin-bottom: 1rem;
 }
 
-/* @media (min-device-width: 500px) {
-    main {
-        width: min(100vw, 600px);
-    }
- } */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}

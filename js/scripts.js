@@ -243,7 +243,11 @@ function loadSection(e) {
     const selectedSection = document.getElementById(sectionId);
 
     const back = $(`.back.${sectionId}`)[0];
+    const back2 = $(`.back2.${sectionId}`)[0];
+    const back3 = $(`.back3.${sectionId}`)[0];
     back.style.transform = 'translateX(0)'
+    back2.style.transform = 'translateX(0)'
+    back3.style.transform = 'translateX(0)'
 
     buzz(20)
 
@@ -261,7 +265,11 @@ function closeSection(e) {
     const selectedSection = document.getElementById(sectionId);
 
     const back = $(`.back.${sectionId}`)[0];
-    back.style.transform = 'translateX(5rem)'
+    const back2 = $(`.back2.${sectionId}`)[0];
+    const back3 = $(`.back3.${sectionId}`)[0];
+    back.style.transform = 'translateX(5rem)';
+    back2.style.transform = 'translateX(5rem)';
+    back3.style.transform = 'translateX(5rem)';
 
     buzz(20)
 

@@ -78,6 +78,7 @@ section {
 .subsubsectionContent {
     /* border: 1px solid; */
     margin: 0 1rem 1rem;
+    padding: 0 4px 4px;
     display: none;
 }
 
@@ -94,16 +95,42 @@ section {
 
 /* iOS style  */
 .back {
-    /* background-color: var(--headerBG); */
     color: var(--headerBG);
+    font-weight: 700;
+    width: fit-content;
+    padding: .3rem .75rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: .6s;
+    transform: translateX(5rem);
+    position: relative;
+}
+
+.back2 {
+    /* background-color: var(--headerBG); */
+    color: hsla(0, 78%, 53%, .66);
+    font-weight: 700;
+    width: fit-content;
+    padding: .3rem .75rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: .75s;
+    transform: translateX(5rem);
+    position: absolute;
+}
+
+.back3 {
+    /* background-color: var(--headerBG); */
+    color: hsla(0, 78%, 53%, .33);
     font-weight: 700;
     /* font-size: 2rem; */
     width: fit-content;
     padding: .3rem .75rem;
     border-radius: 2rem;
     cursor: pointer;
-    transition: .5s;
+    transition: .9s;
     transform: translateX(5rem);
+    position: absolute;
 }
 
 .sectionHeader {
@@ -160,7 +187,7 @@ input {
 .seleccionACDC {
     background-color: rgba(255, 255, 255, 1);
     display: flex;
-    margin: 0;
+    margin: 4px;
     box-shadow: 0 2px 4px 0 lightcoral;
     transition: 150ms;
     border: 1px solid hsl(0, 0%, 85%);
@@ -172,8 +199,8 @@ input {
     margin-top: 1rem;
 }
 
-/* .seleccionACDC:hover {
-    box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.3);
+/* #formInversor {
+    margin: 0 auto;
 } */
 
 .seleccionACDC:active {
@@ -784,6 +811,7 @@ select {
 }
 
 #inversorBtn{
+    margin: 0 auto;
     box-shadow: 0 2px 4px lightcoral;
 }
 
