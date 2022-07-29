@@ -95,20 +95,33 @@ header > nav {
     align-items: center;
 }
 
-#saberMasContenido div {
+#saberMasContenido>div {
     background-color: hsl(0, 100%, 98%);
     color: var(--darkRed);
-    padding: min(1rem, 20vw);
-    border: 1px solid hsl(0, 100%, 30%);
+    /* padding: 1rem; */
+    border: 1px solid var(--headerBG);
     border-radius: 1rem;
     position: relative;
-    max-width: 600px;
+    width: min(100%, 600px);
+    margin: 0;
 } 
 
-#saberMasContenido div+div {
+#saberMasContenido>div+div {
     margin-top: 1rem;
 }
 
 #saberMasContenido h2 {
     font-family: 'Montserrat', sans-serif;
+}
+
+.saberMasHeader {
+    /* border-bottom: 1px solid; */
+    margin: 1rem;
+    /* padding-bottom: 1rem; */
+}
+.saberMasContent {
+    display: none;
+    margin: 1rem;
+    /* padding-top: 1rem; */
+    /* border-top: 1px solid; */
 }
