@@ -244,6 +244,7 @@ async function openSaberMas(e) {
 }
 
 function closeSaberMas(e) {
+    
     const saberMasBtn = document.getElementById('saberMasBtn');
     const saberMasOpen = document.getElementById('saberMasOpen')
     const saberMasClose = e.currentTarget;
@@ -263,16 +264,14 @@ function closeSaberMas(e) {
     main.style.filter = 'blur(0)';
 
     $header = $(".saberMasHeader[data-open='1']");
+    $icon = $header.children(".closeIcon");
+    $content = $header.next();
+    $content.slideToggle(400);
     
     $header.each(function(i) {
         $header[i].dataset.open = "0";
-        $icon = $header.children(".closeIcon")[0];
-        $content = $header.next();
+        $icon[i].style.transform = 'rotate(0)';
     });
-    
-    $icon.style.transform = 'rotate(180deg)';
-
-    $content.slideToggle(400);
 
 }
 
