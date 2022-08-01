@@ -8,7 +8,7 @@ main {
     width: 100vw;
 
     overflow: hidden;
-    transition: .5s;
+    transition: .4s;
 
     display: flex;
     flex-direction: column;
@@ -711,26 +711,27 @@ dialog {
     
     padding: 0;
     margin: 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     border-radius: 1rem;
     width: fit-content;
     height: fit-content;
-    /* background-color: transparent; */
-
     position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    
+    box-shadow: 0 3px 6px lightcoral,
+    0 3px 6px gray;
+    transition: .4s;
+}
+
+dialog::backdrop {
+    background-color: hsla(0, 0%, 50%, .3);
 }
 
 dialog img {
-
     margin: 0;
-    width: 90vw;
-    /* z-index: 9999; */
+    width: min(90vw, 700px);
     vertical-align: middle;
-
 }
 
 #esquemaDivBack span {

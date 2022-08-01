@@ -749,10 +749,15 @@ function formatResultado(resultado) {
 }
 
 function showEsquema(e) {
+
     const dialog = document.createElement('dialog');
     dialog.id = 'esquemaDialog';
     const esquema = document.createElement('img');
     esquema.src = e.target.dataset.esquema;
+    // document.querySelectorAll(".esquema").forEach(element => {
+    //     pinchZoom(element);
+    // });
+    pinchZoom(esquema);
 
     dialog.appendChild(esquema);
 
@@ -760,6 +765,7 @@ function showEsquema(e) {
     backWrapper.id = 'esquemaDivBack';
     backWrapper.addEventListener('click', function (event) {
         const esquemaDialog = document.getElementById('esquemaDialog');
+        document.getElementsByTagName('main')[0].style.filter = 'blur(0) grayscale(0)';
         buzz(20);
         esquemaDialog.remove();
     })
@@ -773,6 +779,7 @@ function showEsquema(e) {
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(dialog);
     dialog.showModal()
+    document.getElementsByTagName('main')[0].style.filter = 'blur(3px) grayscale(70%)';
 
 }
 

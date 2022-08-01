@@ -581,7 +581,7 @@
                     <ul id="secondBlockListItems">
                     </ul>
                     <div class="resultsFooter">
-                        <div id="esquema" data-esquema="">  <!-- style="display:none" -->
+                        <div id="esquema" data-esquema="" onclick="buzz(20)">
                             Mostrar esquema de ejemplo
                         </div>
                         <div id="enlaceWeb" data-enlace="">
@@ -601,6 +601,7 @@
     </main>
 
     <script src="js/scripts.js"></script>
+    <script src="js/PinchZoom.js"></script>
     <script> // SERVICE WORKER REGISTRATION
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
