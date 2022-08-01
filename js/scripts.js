@@ -13,6 +13,7 @@ window.addEventListener('load', afterLoad);
 // });
 
 let jsonDB = {};
+
 async function afterLoad() {
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
@@ -263,6 +264,7 @@ function closeSaberMas(e) {
 
     main.style.filter = 'blur(0)';
 
+    // COLLAPSE ALL OPENED SUBSECTIONS WITHIN SABERMAS
     $header = $(".saberMasHeader[data-open='1']");
     $icon = $header.children(".closeIcon");
     $content = $header.next();

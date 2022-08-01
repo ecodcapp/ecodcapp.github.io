@@ -197,6 +197,7 @@ input {
     border: 1px solid hsl(0, 0%, 85%);
     border-radius: .5rem;
     padding: .5rem;
+    cursor: pointer;
 }
 
 .seleccionACDC+.seleccionACDC {
@@ -205,6 +206,7 @@ input {
 
 #formInversor {
     margin: 0 auto;
+    cursor: auto;
 }
 
 .seleccionACDC:active {
@@ -483,6 +485,7 @@ input {
     font-size: 2rem;
     font-weight: bold;
     width: 2rem;
+    cursor: pointer;
 }
 
 #firstBlockImg {
@@ -567,6 +570,11 @@ label[for="potenciaAC"] {
     /* width: 5rem; */
 }
 
+label[for="potenciaACDC"] input,
+label[for="potenciaAC"] input {
+    cursor: pointer;
+}
+
 .potenciaInput {
     display: flex;
     align-items: center !important;
@@ -576,7 +584,6 @@ label[for="potenciaAC"] {
 
 .range-label {
     accent-color: var(--headerBG);
-    
 }
 
 /* ----------------------------------------------------- */
@@ -808,6 +815,7 @@ select {
     font-weight: bold;
     border: 1px solid lightgray;
     border-radius: .2rem;
+    cursor: pointer;
 }
 
 .selectField {
