@@ -204,9 +204,13 @@ input {
     margin-top: 1rem;
 }
 
+.formInversor {
+    cursor: auto;
+}
+
 #formInversor {
     margin: 0 auto;
-    cursor: auto;
+    /* cursor: auto; */
 }
 
 .seleccionACDC:active {
@@ -383,6 +387,9 @@ input {
     color: white;
     font-weight: bold;
     background-color: var(--headerBG);
+}
+
+.btn:enabled {
     cursor: pointer;
 }
 
@@ -427,7 +434,6 @@ input {
 .radio-toolbar input[type="radio"]:disabled+label {
     background-color: hsl(0, 0%, 95%);
     color: hsl(0, 0%, 80%);
-    ;
     border-color: hsl(0, 0%, 95%);
     box-shadow: 0 2px 4px hsla(0, 79%, 72%, 0);
 }
@@ -815,6 +821,10 @@ select {
     font-weight: bold;
     border: 1px solid lightgray;
     border-radius: .2rem;
+    /* cursor: pointer; */
+}
+
+select:enabled {
     cursor: pointer;
 }
 
