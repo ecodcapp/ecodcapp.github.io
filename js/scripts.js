@@ -756,8 +756,10 @@ function showEsquema(e) {
     const esquema = document.createElement('img');
     esquema.id = 'esquemaImg';
     esquema.src = e.target.dataset.esquema;
+    const esquemaDiv = document.createElement('div');
+    esquemaDiv.appendChild(esquema);
     
-    dialog.appendChild(esquema);
+    dialog.appendChild(esquemaDiv);
 
     const zooms = document.createElement('div');
     zooms.id = 'zooms';

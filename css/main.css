@@ -713,7 +713,7 @@ dialog {
     margin: 0;
     /* border: 1px solid red; */
     border-radius: 1rem;
-    /* width: min(90vw, 700px); */
+    width: min(90vw, 700px);
     /* height: 100vh; */
     position: relative;
     left: 50%;
@@ -722,11 +722,18 @@ dialog {
     box-shadow: 0 3px 6px lightcoral,
     0 3px 6px gray;
     transition: .4s;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 dialog::backdrop {
     background-color: hsla(0, 0%, 50%, .3);
+}
+
+dialog div {
+    margin: 0;
+    /* width: min(90vw, 700px); */
+    vertical-align: middle;
+    overflow-x: scroll;
 }
 
 dialog img {
@@ -739,12 +746,13 @@ dialog img {
     display: flex;
     flex-direction: column;
     position: absolute;
+    /* width: 2rem; */
     right: 0;
     bottom: 0;
     margin: .2rem;
 }
 
-#zooms div {
+#zooms>div {
     display: grid;
     border: 1px solid lightcoral;
     border-radius: .5rem;
