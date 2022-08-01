@@ -1,3 +1,4 @@
+// import PinchZoom from "./js/PinchZoom";
 // console.log(document.getElementsByClassName('formProduct'))
 window.addEventListener('load', afterLoad);
 
@@ -753,13 +754,33 @@ function showEsquema(e) {
     const dialog = document.createElement('dialog');
     dialog.id = 'esquemaDialog';
     const esquema = document.createElement('img');
+    esquema.id = 'esquemaImg';
     esquema.src = e.target.dataset.esquema;
-    // document.querySelectorAll(".esquema").forEach(element => {
-    //     pinchZoom(element);
-    // });
-    pinchZoom(esquema);
-
+    
     dialog.appendChild(esquema);
+
+    const zooms = document.createElement('div');
+    zooms.id = 'zooms';
+
+    const divZoomIn = document.createElement('div');
+    divZoomIn.id = 'zoomIn';
+    divZoomIn.addEventListener('click', zoomin);
+    const spanZoomIn = document.createElement('span');
+    spanZoomIn.classList.add('material-symbols-outlined');
+    spanZoomIn.textContent = 'zoom_in';
+    divZoomIn.appendChild(spanZoomIn);
+    zooms.appendChild(divZoomIn);
+
+    const divZoomOut = document.createElement('div');
+    divZoomOut.id = 'zoomOut';
+    divZoomOut.addEventListener('click', zoomout)
+    const spanZoomOut = document.createElement('span');
+    spanZoomOut.classList.add('material-symbols-outlined');
+    spanZoomOut.textContent = 'zoom_out';
+    divZoomOut.appendChild(spanZoomOut);
+    zooms.appendChild(divZoomOut);
+
+    dialog.appendChild(zooms);
 
     const backWrapper = document.createElement('div');
     backWrapper.id = 'esquemaDivBack';
@@ -795,4 +816,25 @@ function buzz(ms) {
 
 function timeout(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function zoomin(){
+    buzz(20);
+    var myImg = document.getElementById("esquemaImg");
+    var currWidth = myImg.clientWidth;
+    //if(currWidth == 2500) return false;
+    // else{
+    //    myImg.style.width = (currWidth + 100) + "px";
+    //} 
+    myImg.style.width = (currWidth + 100) + "px";
+}
+
+function zoomout(){
+    buzz(20);
+    var myImg = document.getElementById("esquemaImg");
+    var currWidth = myImg.clientWidth;
+    if(currWidth == 100) return false;
+     else{
+        myImg.style.width = (currWidth - 100) + "px";
+    }
 }

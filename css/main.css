@@ -713,8 +713,8 @@ dialog {
     margin: 0;
     /* border: 1px solid red; */
     border-radius: 1rem;
-    width: fit-content;
-    height: fit-content;
+    /* width: min(90vw, 700px); */
+    /* height: 100vh; */
     position: relative;
     left: 50%;
     top: 50%;
@@ -722,6 +722,7 @@ dialog {
     box-shadow: 0 3px 6px lightcoral,
     0 3px 6px gray;
     transition: .4s;
+    overflow: auto;
 }
 
 dialog::backdrop {
@@ -734,10 +735,34 @@ dialog img {
     vertical-align: middle;
 }
 
+#zooms {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: .2rem;
+}
+
+#zooms div {
+    display: grid;
+    border: 1px solid lightcoral;
+    border-radius: .5rem;
+    padding: .4rem;
+    margin: .3rem;
+    transition: .1s;
+    background-color: hsla(0, 0%, 100%, .8);
+    /* filter: blur(); */
+}
+
+#zooms div:active {
+    background-color: lightcoral;
+}
+
 #esquemaDivBack span {
     position: absolute;
-    top: 0rem;
-    right: 0rem;
+    top: 0;
+    right: 0;
     background-color: transparent;
     color: var(--headerBG);
     font-size: 2rem;
