@@ -713,7 +713,7 @@ dialog {
     margin: 0;
     /* border: 1px solid red; */
     border-radius: 1rem;
-    width: min(90vw, 700px);
+    width: min(fit-content, 700px);
     /* height: 100vh; */
     position: relative;
     left: 50%;
@@ -769,8 +769,8 @@ dialog img {
 
 #esquemaDivBack span {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: .1rem;
+    right: .1rem;
     background-color: transparent;
     color: var(--headerBG);
     font-size: 2rem;
