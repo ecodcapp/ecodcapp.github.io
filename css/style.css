@@ -64,6 +64,10 @@ input[type=number] {
     outline: none !important;
 }
 
+/* body {
+    position: relative;
+} */
+
 h1{
     font-weight: 400;
 }

@@ -594,40 +594,6 @@ label[for="potenciaAC"] input {
 
 /* ----------------------------------------------------- */
 
-/* footer{
-    display: flex;
-    flex-direction: ;
-}
-
-#customFormSection {
-    margin: calc(1rem + 39px) 1rem 1rem;
-    position: absolute;
-    height: fit-content;
-    bottom: -110%;
-    background-color: white;
-    padding: 1rem;
-    z-index: 1;
-    border-radius: .75rem;
-    transition: 0.5s;
-    box-shadow: 0 0px 5px 2px lightcoral;
-
-    width: min(calc(70vw), 500px)
-}
-
-#customFormSectionBack {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-    right: 0;
-    border-radius: 0 .75rem;
-    padding: .3rem .75rem;
-    background-color: var(--headerBG);
-    color: white;
-    font-weight: bold;
-    width: fit-content;
-}
-*/
-
 .footer {
     padding-top: .5rem;
     border-top: 1px solid var(--headerBG);
@@ -654,66 +620,6 @@ label[for="potenciaAC"] input {
     text-align: left;
     padding: .2rem .5rem;
 }
-
-/* #formWrap {
-    margin-top: .5rem;
-    background-color: hsl(0, 100%, 95%);
-    padding: .3rem 1rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    height: 1.4rem;
-    transition: 1s;
-} */
-
-/*
-
-.formCustom {
-    margin-top: .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: .5rem;
-}
-
-.formCustom #cuentaCuenta {
-    height: 2rem;
-}
-
-.formCustom label {
-    margin-top: .5rem;
-}
-
-.formCustom input,
-.formCustom textarea {
-    width: 100%;
-    border: 1px solid lightcoral;
-    border-radius: .2rem;
-    text-align: left;
-    padding: .2rem;
-}
-
-.formCustom button {
-    background-color: hsl(0, 100%, 95%);
-    border: 1px solid lightgray;
-    border-radius: .5rem;
-    color: var(--headerBG);
-    font-weight: 700;
-    padding: .2rem 1rem;
-    margin: 1rem auto 0;
-    box-shadow: 0 2px 2px lightcoral;
-    transition: 200ms;
-    cursor: pointer;
-    transition: 200ms;
-}
-
-.formCustom button:active {
-    background-color: hsl(0, 0, 95%);
-    border-radius: .5rem;
-    margin: 1rem auto 0;
-}
-
-*/
 
 #formWrap {
     margin-top: .3rem;
@@ -771,50 +677,6 @@ label[for="potenciaAC"] input {
     /* text-decoration: underline; */
 }
 
-/* ------------------------------------------------ */
-
-#auxDiv {
-    display: none;
-    justify-content: center;
-    border-radius: .3rem;
-    /* border: 1px solid; */
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-};
-
-dialog {
-    /* display: none; */
-    margin: 2rem;
-    width: 90vw !important;
-    height: fit-content;
-    border: 2px solid;
-    /* display: flex; */
-    /* justify-content: center; */
-    border-radius: .3rem;
-    border: 2px solid red !important;
-    background-color: transparent;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    
-}
-
-.esquema img {
-    margin: 0;
-    width: 90vw;
-    border-radius: .3rem;
-    border: 2px solid;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /* ------------------------------------------------------ */
 
 select {
@@ -843,3 +705,42 @@ select:enabled {
     box-shadow: 0 0px 1px lightcoral;
 }
 
+/* ------------------------------------------------ */
+
+dialog {
+    
+    padding: 0;
+    margin: 0;
+    border: 1px solid red;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    /* background-color: transparent; */
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+dialog img {
+
+    margin: 0;
+    width: 90vw;
+    /* z-index: 9999; */
+    vertical-align: middle;
+
+}
+
+#esquemaDivBack span {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    background-color: transparent;
+    color: var(--headerBG);
+    font-size: 2rem;
+    font-weight: bold;
+    width: 2rem;
+    cursor: pointer;
+}

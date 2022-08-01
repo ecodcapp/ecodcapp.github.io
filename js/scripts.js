@@ -245,7 +245,7 @@ async function openSaberMas(e) {
 }
 
 function closeSaberMas(e) {
-    
+
     const saberMasBtn = document.getElementById('saberMasBtn');
     const saberMasOpen = document.getElementById('saberMasOpen')
     const saberMasClose = e.currentTarget;
@@ -269,8 +269,8 @@ function closeSaberMas(e) {
     $icon = $header.children(".closeIcon");
     $content = $header.next();
     $content.slideToggle(400);
-    
-    $header.each(function(i) {
+
+    $header.each(function (i) {
         $header[i].dataset.open = "0";
         $icon[i].style.transform = 'rotate(0)';
     });
@@ -750,20 +750,30 @@ function formatResultado(resultado) {
 
 function showEsquema(e) {
     const dialog = document.createElement('dialog');
-    dialog.classList.add('dialog');
-    dialog.classList.add('esquema');
-    dialog.style.border = '2px solid red'
+    dialog.id = 'esquemaDialog';
     const esquema = document.createElement('img');
     esquema.src = e.target.dataset.esquema;
-    // esquema.style.width = '95vw';
-    // esquema.style.height = 'fit-content';
+
     dialog.appendChild(esquema);
 
-    const auxDiv = document.getElementById('auxDiv');
-    auxDiv.appendChild(dialog);
+    const backWrapper = document.createElement('div');
+    backWrapper.id = 'esquemaDivBack';
+    backWrapper.addEventListener('click', function (event) {
+        const esquemaDialog = document.getElementById('esquemaDialog');
+        buzz(20);
+        esquemaDialog.remove();
+    })
+    const cancelSpan = document.createElement('span');
+    cancelSpan.classList.add('material-symbols-outlined');
+    cancelSpan.textContent = 'cancel';
+    backWrapper.appendChild(cancelSpan);
+
+    dialog.appendChild(backWrapper);
+
+    const body = document.getElementsByTagName('body')[0];
+    body.appendChild(dialog);
     dialog.showModal()
 
-    // modal.s
 }
 
 function takeMe2Toscano(e) {
