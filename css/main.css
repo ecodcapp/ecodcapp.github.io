@@ -478,7 +478,7 @@ input {
 #resultParent {
     /* border: 1px solid red; */
     height: calc(100vh - 2rem - 39px);
-    padding: 1rem 0;
+    padding: .5rem 0;
     /* overflow-x: scroll; */
 }
 
@@ -652,7 +652,7 @@ label[for="potenciaAC"] input {
 .resultsFooter {
     display: flex;
     position: absolute;
-    bottom: 1rem;
+    bottom: .5rem;
     left:5%;
     right: 5%;
 }
@@ -728,7 +728,7 @@ dialog {
 }
 
 dialog::backdrop {
-    background-color: hsla(0, 0%, 50%, .3);
+    background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 dialog div {
