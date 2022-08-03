@@ -495,8 +495,8 @@ input {
 }
 
 #firstBlockImg {
-    width: min(60vw, 15rem);
-    margin: 2rem;
+    width: clamp(6rem, 40vw, 12rem);
+    margin: 1rem 2rem;
     border-radius: .75rem;
     border: 1px solid hsl(0, 0%, 90%);
     box-shadow: 0 2px 4px lightcoral;
@@ -505,6 +505,7 @@ input {
 #secondBlockh1 {
     border-bottom: 1px solid var(--headerBG);
     margin-bottom: 1rem;
+    font-size: clamp(1rem, 3vh, 1.6rem) ;
 }
 
 #secondBlock {
@@ -649,6 +650,7 @@ label[for="potenciaAC"] input {
 /* -------------------------------- */
 
 .resultsFooter {
+    display: flex;
     position: absolute;
     bottom: 1rem;
     left:5%;
@@ -656,7 +658,7 @@ label[for="potenciaAC"] input {
 }
 
 .resultsFooter div {
-    margin: 1rem;
+    margin: .5rem;
     padding: .5rem;
     border: 1px solid lightgray;
     border-radius: .5rem;
