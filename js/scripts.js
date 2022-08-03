@@ -1,17 +1,4 @@
-// import PinchZoom from "./js/PinchZoom";
-// console.log(document.getElementsByClassName('formProduct'))
 window.addEventListener('load', afterLoad);
-
-// window.onbeforeunload = function () {
-//     return '¿Quieres salir de la aplicación?';
-// };
-
-// window.addEventListener('resize', function(){
-//     let fixedWidth = 600;
-//     let fixedHeight = window.screen.height;
-
-//     window.resizeTo(fixedWidth, fixedHeight);
-// });
 
 let jsonDB = {};
 
@@ -658,6 +645,7 @@ async function buscarProducto(formAnswers) {
         specList.innerHTML = '';
         specList.appendChild(li);
         document.getElementById('enlaceWeb').style.display = 'none';
+        document.getElementById('esquema').style.display = 'none';
 
         return
     } //RETURN
@@ -696,6 +684,7 @@ async function buscarProductoPorInversor(e) {
         specList.innerHTML = '';
         specList.appendChild(li);
         document.getElementById('enlaceWeb').style.display = 'none';
+        document.getElementById('esquema').style.display = 'none';
 
 
         return
@@ -744,6 +733,7 @@ function formatResultado(resultado) {
     }
 
     document.getElementById('enlaceWeb').style.display = 'block';
+    document.getElementById('esquema').style.display = 'block';
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
     resultDiv.style.bottom = 0;
@@ -801,7 +791,8 @@ function showEsquema(e) {
 
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(dialog);
-    dialog.showModal()
+    dialog.showModal();
+    esquema.dataset.width = esquema.style.width;
     document.getElementsByTagName('main')[0].style.filter = 'blur(3px) grayscale(70%)';
 
 }
@@ -824,10 +815,6 @@ function zoomin(){
     buzz(20);
     var myImg = document.getElementById("esquemaImg");
     var currWidth = myImg.clientWidth;
-    //if(currWidth == 2500) return false;
-    // else{
-    //    myImg.style.width = (currWidth + 100) + "px";
-    //} 
     myImg.style.width = (currWidth + 100) + "px";
 }
 

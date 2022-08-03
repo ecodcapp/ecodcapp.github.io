@@ -181,6 +181,7 @@ input {
 
 #seccionSelectorACDC {
     transition: .3s;
+    overflow-x: auto;
 }
 
 /* #seccionSelectorACDC .subsubsection {
@@ -596,6 +597,7 @@ label[for="potenciaAC"] input {
 /* ----------------------------------------------------- */
 
 .footer {
+    margin-top: .5rem;
     padding-top: .5rem;
     border-top: 1px solid var(--headerBG);
     text-align: center;
