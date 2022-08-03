@@ -651,6 +651,7 @@ label[for="potenciaAC"] input {
 
 .resultsFooter {
     display: flex;
+    justify-content: space-between;
     position: absolute;
     bottom: .5rem;
     left:5%;
@@ -670,6 +671,8 @@ label[for="potenciaAC"] input {
     background-color: hsl(0, 0%, 97%);
     transition: 150ms;
     cursor: pointer;
+
+    width: 50%;
 }
 
 .resultsFooter div:active {
