@@ -80,6 +80,8 @@ h1{
     width: 100vw;
     height: 100%;
     background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106));
+    /* background: linear-gradient(45deg, #e52a2aff, #e52a2aff); */
+    transition: 3s;
 }
 
 #loadingBannerContent {
@@ -93,7 +95,6 @@ h1{
     z-index: 200;
     width: min(100vw, 600px);
     height: 100%;
-    /* background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106)); */
 }
 
 #bannerTitle {
@@ -105,6 +106,7 @@ h1{
 .ecoDcTitle {
     font-family: var(--headerTitle);
     font-size: 1.8rem;
+    transition: 3s;
 }
 
 .ecoDcSubTitle {

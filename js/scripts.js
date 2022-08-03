@@ -17,9 +17,12 @@ async function afterLoad() {
         })
         .catch(error => console.log(error));
 
-    // setSelect()
-    await timeout(2000);
+    
+    const ecoDcTitle = Array.from(document.getElementsByClassName('ecoDcTitle'))[0];
+    ecoDcTitle.style.fontSize = '1.9rem';
     const loadingBanner = Array.from(document.getElementsByClassName('loadingBanner'))[0];
+    // loadingBanner.style.background = 'linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106))';
+    await timeout(2000);
 
     loadingBanner.style.top = '100%';
     loadingBanner.style.bottom = '-100%';
