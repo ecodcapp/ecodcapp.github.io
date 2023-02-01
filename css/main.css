@@ -56,7 +56,8 @@ section {
     border: 1px solid hsl(0, 0%, 90%);
     border-radius: .5rem;
     background-color: hsl(0, 0%, 95%);
-    padding: 0; /* 1rem 1rem .1rem; */
+    padding: 0;
+    /* 1rem 1rem .1rem; */
     position: relative;
 }
 
@@ -158,6 +159,7 @@ input {
     border-radius: 5px;
     text-align: center;
     font-family: monospace;
+    font-size: 1.4rem;
 }
 
 .arrow {
@@ -233,47 +235,130 @@ input {
 /* ---------------------------------------------- */
 
 .inputParent {
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid red; */
+    opacity: 1;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: stretch; */
+    border: 1px solid hsla(0, 79%, 72%, .1);
+    padding: .7rem;
+    border-radius: .5rem;
+    box-shadow: 0 0px 3px hsla(0, 79%, 72%, .3);
+    background-color: white;
+    position: relative;
+    width: calc(100% - 1.4rem - 2px);
+    /* margin: .5rem 0; */
+    margin: 0;
+    height: auto;
+    /* overflow: auto; */
+    transition: border 400ms,
+        box-shadow 400ms,
+        opacity 700ms,
+        margin 300ms,
+        box-shadow 300ms;
 }
 
-.inputParent+.inputParent {
-    border-top: 1px solid red;
-    margin-top: 1rem;
-    padding-top: .5rem;
+.inputParent[data-show=""] {
+    display: none;
+    opacity: 0;
+}
+
+.inputParent[data-select=""][ data-show="1"] {
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+.inputParent[data-select=""][ data-show="1"] + .inputParent[data-select=""][ data-show="1"] {
+    border-top: 1px solid hsla(0, 79%, 72%, .4);
+}
+
+.inputParent[data-select="1"] {
+    border: 1px solid lightcoral;
+    box-shadow: 0 3px 6px hsla(0, 79%, 72%, .5);
 }
 
 .inputParent label {
     text-align: center;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.inputParentFlex {
+    width: 100%;
+    height: 100%;
+    height: fit-content;
+    /* overflow: auto; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.formProduct {
+    display: flex;
+    flex-direction: column;
+    /* align-items: stretch; */
 }
 
 .inputMain {
     display: flex;
     flex-direction: row;
-    justify-content: stretch;
+    justify-content: right;
     align-items: center;
+    position: relative;
+    height: auto;
+    transition: all .3s ease !important;
 }
 
-.inputMain-input {
+.inputMain.radio-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    position: relative;
+    height: min-content;
+    /* overflow: auto; */
+}
+
+
+input[name="strings"],
+input[name="stringsMPPT"] {
     display: grid;
     /* border: 1px solid; */
-    width: 100%;
-    padding: 0 1rem;
+    width: fit-content;
+    /* padding: 0 1rem; */
+    padding: 4px 5px;
     margin-right: 1rem;
     place-items: center;
+    font-size: 1.4rem;
+    position: relative;
+    left: 0;
+    z-index: 10;
+    transition: all .3s ease;
+    border: 1px solid var(--headerBG);
+    border-radius: 0.3rem;
+    background-color: hsl(0, 0%, 95%);
+    box-shadow: 0 2px 4px lightcoral;
+
 }
 
-.inputMain-input input {
-    width: 100%;
-    font-size: 2rem;
-}
+input.disabled[name="strings"],
+input.disabled[name="stringsMPPT"] {
+    left: 6.7rem;
+    background-color: var(--headerBG);
+    color: white;
+} 
+
 
 .flechasSelectoras {
     display: flex;
-    padding-right: 1rem;
-    /* border: 1px solid; */
+    padding-right: .3rem;
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+.flechasSelectoras.disabled {
+    opacity: 0;
 }
 
 .arrow {
@@ -288,14 +373,19 @@ input {
 
 /* The switch - the box around the slider */
 
-.inputParent.seccionadores {
+.inputParentLabel {
+    width: fit-content;
+    /* height: fit-content; */
+    height: auto;
+    text-align: left;
+    /* width: 100%;  */
+    /* margin-bottom: .5rem; */
     display: flex;
-    flex-direction: row;
+    justify-content: left;
     align-items: center;
-    border-bottom: 1px solid var(--headerBG);
-    justify-content: space-between;
-    padding: .5rem 0;
+    margin-right: 0.7rem;
 }
+
 
 .inputMain.seccionadores {
     padding: 0;
@@ -305,7 +395,7 @@ input {
 .inputMain.seccionadores label {
     padding: .2rem .4rem;
     width: fit-content;
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
     /* border: 1px solid */
 }
 
@@ -374,11 +464,26 @@ input {
 
 /* ----------------------------------------------------------*/
 
+
+
 .btnContainer {
     /* border: 1px solid; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 1rem;
+    align-items: center;
+    padding: .5rem;
+    width: auto;
+}
+
+.btnAtrasAlante {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btnContainer button {
+    margin: .35rem;
 }
 
 .btn {
@@ -388,6 +493,13 @@ input {
     color: white;
     font-weight: bold;
     background-color: var(--headerBG);
+    transition: .2s;
+}
+
+.btn:disabled {
+    background-color: hsl(0, 100%, 85%);
+    border-color: hsl(0, 100%, 85%);
+    box-shadow: 0 0px 1px lightcoral;
 }
 
 .btn:enabled {
@@ -395,7 +507,11 @@ input {
 }
 
 .btn:active {
-    background-color: lightcoral;
+    background-color: hsl(0, 100%, 85%);
+}
+
+button.mostrarEquipo {
+    display: none;
 }
 
 /* --------------------------------------------------------- */
@@ -404,8 +520,16 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: .5rem;
+
+    /* margin-top: .5rem; */
     /* border: 1px solid red; */
+}
+
+.radio-toolbar.inversorMonoTri {
+    display: flex;
+    flex-direction: column;
+    /* height: auto; */
+
 }
 
 .radio-toolbar input[type="radio"] {
@@ -421,10 +545,17 @@ input {
     background-color: hsl(0, 0%, 95%);
     padding: 4px 11px;
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.4rem;
     cursor: pointer;
     border-radius: .3rem;
     box-shadow: 0 2px 4px hsla(0, 79%, 72%, 1);
+    margin-right: .9rem !important;
+    margin-left: 0 !important;
+    transform: translateX(.7rem);
+    position: relative;
+    transition: all .3s ease !important;
+    left: 0;
+    top: 0;
 }
 
 .radio-toolbar input[type="radio"]:checked+label {
@@ -437,6 +568,17 @@ input {
     color: hsl(0, 0%, 80%);
     border-color: hsl(0, 0%, 95%);
     box-shadow: 0 2px 4px hsla(0, 79%, 72%, 0);
+}
+
+.inversorMonoTri label,
+.inversorMonoTri input {
+    width: calc(100% - 1.5rem);
+    padding: 0.1rem 0.5rem !important;
+    transition: all .3s ease !important;
+}
+
+#thisMF {
+    margin-top: .5rem;
 }
 
 /* ----------------------------------------------------------*/
@@ -468,7 +610,7 @@ input {
     top: 110%;
     bottom: -110%;
     background-color: white;
-    z-index: 1;
+    z-index: 100;
     border-radius: .75rem;
     transition: 0.4s;
     box-shadow: 0 2px 4px lightcoral;
@@ -506,7 +648,7 @@ input {
 #secondBlockh1 {
     border-bottom: 1px solid var(--headerBG);
     margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vh, 1.6rem) ;
+    font-size: clamp(1rem, 3vh, 1.6rem);
 }
 
 #secondBlock {
@@ -530,21 +672,17 @@ input {
 /* ------------------------------------------ */
 
 .inversorMonoTri label {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    transition: all .3s ease;
 }
 
-/* .potencia,
-.potencia * {
-    border: 1px solid red;
-} */
-
 .potencia {
-    padding: 1rem 1rem 1rem 0 !important;
+    /* padding: 1rem; */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid red;
+    /* border-bottom: 1px solid red; */
 }
 
 .potenciaLabel {
@@ -553,45 +691,64 @@ input {
 
 .potenciaDisplay,
 .potenciaDisplay * {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 400;
     font-family: monospace;
-    margin-right: .3rem;
-
+    /* margin-right: .3rem; */
 }
 
 .potenciaDisplay {
     padding: 0.2rem 0.4rem;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     border: 1px solid var(--headerBG);
     border-radius: 0.3rem;
     background-color: hsl(0, 0%, 95%);
     box-shadow: 0 2px 4px lightcoral;
-    width: 85px;
+    width: 8.5rem;
     text-align: right;
+    transition: all 300ms ease;
+    position: relative;
+    left: 0;
 }
 
-label[for="potenciaACDC"],
-label[for="potenciaAC"] {
-    margin: 0;
-    margin-top: .4rem;
-    /* width: 5rem; */
-}
-
-label[for="potenciaACDC"] input,
-label[for="potenciaAC"] input {
-    cursor: pointer;
+.potenciaDisplay.disabled {
+    background-color: var(--headerBG);
+    color: white;
+    /* left: 10.9rem; */
 }
 
 .potenciaInput {
     display: flex;
     align-items: center !important;
-    justify-content: flex-end;
-    /* width: 7rem; */
+    justify-content: space-between;
+    width: 100%;
+    /* margin-left: .5rem; */
+}
+
+label[for="potenciaACDC"],
+label[for="potenciaAC"] {
+    /* margin: 0; */
+    /* width: max-content; */
+    margin-top: .4rem;
+    width: 100%;
+}
+
+label[for="potenciaACDC"] input,
+label[for="potenciaAC"] input {
+    cursor: pointer;
+    width: calc(100% - 1.4rem);
+    margin-right: -0.7rem;
 }
 
 .range-label {
+    font-size: 1.4rem;
     accent-color: var(--headerBG);
+    opacity: 1;
+    transition: all 300ms ease;
+}
+
+.range-label.disabled {
+    opacity: 0;
 }
 
 /* ----------------------------------------------------- */
@@ -613,7 +770,8 @@ label[for="potenciaAC"] input {
 }
 
 .footerL {
-    border-right: 1px solid var(--headerBG);;
+    border-right: 1px solid var(--headerBG);
+    ;
     text-align: right;
     padding: .2rem .5rem;
 }
@@ -656,7 +814,7 @@ label[for="potenciaAC"] input {
     justify-content: space-between;
     position: absolute;
     bottom: .5rem;
-    left:5%;
+    left: 5%;
     right: 5%;
 }
 
@@ -701,7 +859,7 @@ select:enabled {
     padding: .5rem;
 }
 
-#inversorBtn{
+#inversorBtn {
     margin: 0 auto;
     box-shadow: 0 2px 4px lightcoral;
 }
@@ -715,7 +873,7 @@ select:enabled {
 /* ------------------------------------------------ */
 
 dialog {
-    
+
     padding: 0;
     margin: 0;
     /* border: 1px solid red; */
@@ -727,7 +885,7 @@ dialog {
     top: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 3px 6px lightcoral,
-    0 3px 6px gray;
+        0 3px 6px gray;
     transition: .4s;
     /* overflow: auto; */
 }

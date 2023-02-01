@@ -1,7 +1,6 @@
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
-  '/',
   'index.html',
   'css/style.css',
   'css/main.css',
@@ -21,10 +20,8 @@ const resourcesToPrecache = [
   'resources/productos/eco-dc-inv-s.webp',
   'resources/productos/eco-dc-inv.webp',
   'resources/productos/eco-dc.webp',
-  'resources/productos/salta-el-diferencial.webp',
-  'hcdb.json'
+  'resources/productos/salta-el-diferencial.webp'
 ];
-
 
 self.addEventListener('install', function (event) {
   console.log('Service worker install event');
@@ -36,28 +33,29 @@ self.addEventListener('install', function (event) {
   );
 });
 
-// self.addEventListener('fetch', function(event) {
-//   event.respondWith(
-//     caches.match(event.request)
-//     .then(function(cachedResponse) {
-//       return cachedResponse || fetch(event.request);
-//       // return fetch(event.request) || cachedResponse;  // FIRST NETWORK, CACHE IF NOT
-//     })
-//   );
-// });
 
 self.addEventListener('fetch', (event) => {
+  // console.log('FETCH EVENT IN SW');
   event.respondWith(
     caches.open(cacheName)
-    .then((cache) => {
-    return cache.match(event.request).then((cachedResponse) => {
-      const fetchedResponse = fetch(event.request).then((networkResponse) => {
-        cache.put(event.request, networkResponse.clone());
+      .then(async (cache) => {
+        const cachedResponse = await cache.match(event.request);
+        const fetchedResponse = fetch(event.request).then((networkResponse) => {
 
-        return networkResponse;
-      });
+          cache.put(event.request, networkResponse.clone());
 
-      return cachedResponse || fetchedResponse;
-    });
-  }));
+          const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
+          // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
+
+          if (event.request.referrer.includes(stringPattern)) {
+            console.log('>----------- DELETE PROTOCOL -----------<');
+            // console.log(event.request);
+            cache.delete(event.request);
+          }
+
+          return networkResponse;
+        });
+
+        return cachedResponse || fetchedResponse;
+      }));
 });
