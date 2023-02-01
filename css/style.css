@@ -80,7 +80,7 @@ h1{
     width: 100vw;
     height: 100%;
     background: rgb(255, 107, 70);
-    background: var(--headerBG);
+    /* background: var(--headerBG); */
     /* background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106)); */
     /* background: linear-gradient(45deg, #e52a2aff, #e52a2aff); */
     transition: 3s;

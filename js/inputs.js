@@ -34,15 +34,6 @@ function showInput(input, back = false) {
         input.dataset.show = '' :
         input.dataset.show = 1
 
-    // const inputs = [...input.children[0].children[1].children].filter(x => x.nodeName === "INPUT");
-    // const firstInput = inputs[0];
-
-    // if (input.dataset.inputtype == "checkboxCol") {
-    //     const parent = firstInput.parentElement;
-    //     const h = parent.offsetHeight;
-    //     parent.style.height = h + 'px';
-    //     // parent.style.height = h - checkedLabel.offsetHeight - 7 + 'px';
-    // }
 }
 
 function ableInput(input) {
@@ -117,7 +108,7 @@ function ableInput(input) {
     }
 }
 
-async function disableInput(input) {
+function disableInput(input) {
 
     console.log('FUNCTION: --------------- ableInput (PREVIOUS input)');
 
@@ -200,11 +191,23 @@ async function disableInput(input) {
 }
 
 function showProdutBtn(section) {
+
     const mostrarProductBTN = document.querySelectorAll(`.proteccion${section}.mostrarEquipo`)[0];
     mostrarProductBTN.style.display = 'block';
+
+    let lastInput = mostrarProductBTN.parentElement.parentElement.children;
+    lastInput = lastInput[lastInput.length - 2];
+    lastInput.classList.add('lastInput');
+
 }
 
 function hideProdutBtn(section) {
+
     const mostrarProductBTN = document.querySelectorAll(`.proteccion${section}.mostrarEquipo`)[0];
     mostrarProductBTN.style.display = 'none';
+
+    let lastInput = mostrarProductBTN.parentElement.parentElement.children;
+    lastInput = lastInput[lastInput.length - 2];
+    lastInput.classList.remove('lastInput');
+    
 }

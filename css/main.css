@@ -326,6 +326,7 @@ input[name="stringsMPPT"] {
     display: grid;
     /* border: 1px solid; */
     width: fit-content;
+    /* aspect-ratio: 1; */
     /* padding: 0 1rem; */
     padding: 4px 5px;
     margin-right: 1rem;
@@ -942,4 +943,8 @@ dialog img {
     font-weight: bold;
     width: 2rem;
     cursor: pointer;
+}
+
+.lastInput {
+    border-bottom: 1px solid red !important;
 }
