@@ -193,9 +193,9 @@ function disableInput(input) {
 function showProdutBtn(section) {
 
     const mostrarProductBTN = document.querySelectorAll(`.proteccion${section}.mostrarEquipo`)[0];
-    mostrarProductBTN.style.display = 'block';
+    mostrarProductBTN.classList.add('show');
 
-    let lastInput = mostrarProductBTN.parentElement.parentElement.children;
+    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement.parentElement.children;
     lastInput = lastInput[lastInput.length - 2];
     lastInput.classList.add('lastInput');
 
@@ -204,10 +204,11 @@ function showProdutBtn(section) {
 function hideProdutBtn(section) {
 
     const mostrarProductBTN = document.querySelectorAll(`.proteccion${section}.mostrarEquipo`)[0];
-    mostrarProductBTN.style.display = 'none';
+    mostrarProductBTN.classList.remove('show');
+    // mostrarProductBTN.style.display = 'none';
 
-    let lastInput = mostrarProductBTN.parentElement.parentElement.children;
+    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement.parentElement.children;
     lastInput = lastInput[lastInput.length - 2];
     lastInput.classList.remove('lastInput');
-    
+
 }

@@ -10,6 +10,7 @@
 
     /* COLORS */
     --headerBG: hsl(0, 78%, 53%);
+    /* --headerBG: hsl(12, 100%, 64%); */
     --headerBG2: hsla(360, 78%, 53%, .80);
     --header: hsl(0, 100%, 100%);
     --darkRed: hsl(0, 100%, 30%);
@@ -79,7 +80,7 @@ h1{
     z-index: 200;
     width: 100vw;
     height: 100%;
-    background: rgb(255, 107, 70);
+    background: hsl(12, 100%, 64%);
     /* background: var(--headerBG); */
     /* background: linear-gradient(45deg, #e52a2aff, rgb(255, 161, 106)); */
     /* background: linear-gradient(45deg, #e52a2aff, #e52a2aff); */
