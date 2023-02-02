@@ -195,9 +195,8 @@ function showProdutBtn(section) {
     const mostrarProductBTN = document.querySelectorAll(`.proteccion${section}.mostrarEquipo`)[0];
     mostrarProductBTN.classList.add('show');
 
-    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement.parentElement.children;
-    lastInput = lastInput[lastInput.length - 2];
-    lastInput.classList.add('lastInput');
+    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement;
+    lastInput.classList.add('endSeleccion');
 
 }
 
@@ -207,8 +206,7 @@ function hideProdutBtn(section) {
     mostrarProductBTN.classList.remove('show');
     // mostrarProductBTN.style.display = 'none';
 
-    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement.parentElement.children;
-    lastInput = lastInput[lastInput.length - 2];
-    lastInput.classList.remove('lastInput');
+    let lastInput = mostrarProductBTN.parentElement.parentElement.parentElement;
+    lastInput.classList.remove('endSeleccion');
 
 }

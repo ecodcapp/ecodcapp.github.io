@@ -468,6 +468,8 @@ input.disabled[name="stringsMPPT"] {
 .btnContainerWrapper {
     display: grid;
     place-items: center;
+    margin-top: .5rem;
+    /* border-top: 1px solid red; */
 }
 
 .btnContainer {
@@ -476,7 +478,7 @@ input.disabled[name="stringsMPPT"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: .5rem;
+    padding-top: .25rem;
     width: fit-content;
 }
 
@@ -972,4 +974,8 @@ dialog img {
 
 .lastInput {
     border-bottom: 1px solid red !important;
+}
+
+.endSeleccion {
+    border-top: 1px solid red !important;
 }
