@@ -12,8 +12,8 @@ async function afterLoad() {
 
     // LOAD HARDCODED ECO-DC DB
 
-    const fetchedURL = 'https://script.google.com/macros/s/AKfycbxkh_dWYR_09WIYlhu8aYWc_kBx_10U2mW7mJJZszi6nS3NeNH9uZhKUtBoT2k2vdai3Q/exec';
-
+    // const fetchedURL = 'https://script.google.com/macros/s/AKfycbxkh_dWYR_09WIYlhu8aYWc_kBx_10U2mW7mJJZszi6nS3NeNH9uZhKUtBoT2k2vdai3Q/exec';
+    const fetchedURL = 'https://script.google.com/macros/s/AKfycbyYaGzDFmCoKOu2xIly1851IRe7oW2Cp2PMhliPaDELM-sV0IQOb2SR4Id1XgMjVBP9/exec';
     fetch(fetchedURL)
         .then(response => response.json())
         .then(data => {
@@ -118,9 +118,9 @@ function loadSection(e) {
 
     switch (section) {
         case 'DC':
-            const secInput = document.querySelectorAll('.seccionadoresInput')
+            const secInput = document.querySelectorAll('.seccionadorInput')
             secInput.forEach(x => {
-                if (x.checked) {!x.checked};
+                if (x.checked) { !x.checked };
                 x.addEventListener('click', preActivateSiguiente);
             });
             break;
@@ -137,8 +137,10 @@ function loadSection(e) {
             const firstInput = document.getElementById('proteccionACDC').children[0];
 
             const productos = jsonDB.productos.filter(x => x.proteccion == section);
+            // console.log(productos);
             let initialData = productos.map(x => x[firstInput.dataset.input]);
             initialData = [...new Set(initialData)].sort((a, b) => a - b).join(',');
+            // console.log(initialData);
             firstInput
                 .children[0]
                 .children[1]
@@ -148,7 +150,7 @@ function loadSection(e) {
             let initialValue = initialData.split(',');
             initialValue = Math.floor((Math.max(...initialValue) - Math.min(...initialValue)) / 2);
             firstInput.children[0].children[1].children[0].value = initialValue > 1 ? initialValue : 2;
-            console.log(initialData);
+            // console.log(initialData);
 
             ableInput(firstInput);
             activateSiguiente(section)

@@ -320,25 +320,24 @@
                 </div>
                 <form class="formProduct" id="proteccionDC" name="proteccionDC" action="">
 
-                    <div class="inputParent seccionadores DC" data-show="1" data-input="seccionadores" data-value=""
+                    <div class="inputParent seccionador DC" data-show="1" data-input="seccionador" data-value=""
                         data-select="1" data-inputtype="checkbox">
                         <div class="inputParentFlex">
-                            <div class="seccionadoresLabel noselect">
+                            <div class="seccionadorLabel noselect">
                                 <p>Incluir <b>seccionadores <br> de corriente</b></p>
                             </div>
                             <div class="inputMain radio-toolbar">
                                 <!-- <div class="radio-toolbar"> -->
                                 <input type="radio" onclick="buzz(20)" data-protection="DC"
-                                    class="seccionadoresInput Option" name="seccionadores" id="seccionadoresInput0"
+                                    class="seccionadorInput Option" name="seccionador" id="seccionadorInput0"
                                     value="No">
-                                <label style="margin-left: .7rem;" for="seccionadoresInput0">No</label>
+                                <label style="margin-left: .7rem;" for="seccionadorInput0">No</label>
                                 <input type="radio" onclick="buzz(20)" data-protection="DC"
-                                    class="seccionadoresInput Option" name="seccionadores" id="seccionadoresInput1"
+                                    class="seccionadorInput Option" name="seccionador" id="seccionadorInput1"
                                     value="Sí">
-                                <label style="margin-left: .7rem;" for="seccionadoresInput1">Sí</label>
+                                <label style="margin-left: .7rem;" for="seccionadorInput1">Sí</label>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="inputParent strings DC" data-show="" data-input="strings" data-value="" data-select=""
@@ -370,6 +369,42 @@
                             </div>
 
                             <div class="inputMain radio-toolbar MPPTinversor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent termicaDC DC" data-show="" data-input="termicaDC" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="termicaDC noselect">Protección</br>sobreintensidad</h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar termicaDC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent transitoriaDC DC" data-show="" data-input="transitoriaDC" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="transitoriaDC noselect">Tensión de<br>servicio</h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar transitoriaDC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent acometida DC" data-show="" data-input="acometida" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="acometida noselect">Acometida</h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar acometida">
                             </div>
                         </div>
                     </div>
@@ -484,6 +519,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="btnContainerWrapper">
                         <div class="btnContainer mostrarProductos">
                             <div class="btnAtrasAlante">
@@ -533,15 +569,15 @@
                 </div>
                 <form class="formProduct" id="proteccionACDC" name="proteccionACDC" action="">
 
-                    <div class="inputParent strings ACDC" data-show="1" data-input="stringsMPPT" data-value=""
+                    <div class="inputParent strings ACDC" data-show="1" data-input="strings" data-value=""
                         data-select="1" data-inputtype="arrows">
                         <div class="inputParentFlex">
                             <div class="inputParentLabel noselect">
-                                <p>Nº de <b>entradas</b> (strings) y <b>MPPTs</b></p>
+                                <p>Nº de <b>entradas</b> (strings)</b></p>
                             </div>
                             <div class="inputMain">
 
-                                <input id="ACDCNStrings" class="noselect" type="number" name="stringsMPPT" min="1"
+                                <input id="ACDCNStrings" class="noselect" type="number" name="strings" min="1"
                                     max="8" step="1" value="" readonly required />
 
                                 <div class="flechasSelectoras">
@@ -550,6 +586,42 @@
                                     <img oncontextmenu="return false;" class="ACDCNStrings arrow down noselect"
                                         src="resources/arrow_up.svg" alt="" srcset="">
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent MPPT ACDC" data-show="" data-input="mppt" data-value="" data-select=""
+                        data-inputtype="checkbox">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="MPPTinversor noselect">Nº de <b>MPPT<br>por inversor</b></h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar MPPTinversor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent termicaDC ACDC" data-show="" data-input="termicaDC" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="termicaDC noselect">Protección</br>sobreintensidad</h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar termicaDC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent acometida ACDC" data-show="" data-input="acometida" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="inputParentLabel noselect">
+                                <h2 class="acometida noselect">Acometida</h2>
+                            </div>
+
+                            <div class="inputMain radio-toolbar acometida">
                             </div>
                         </div>
                     </div>
@@ -570,6 +642,28 @@
                                 <input type="radio" onclick="buzz(20)" data-protection="ACDC"
                                     class="inversorMonoTri Option ACDC" name="fases" id="inversorTri" value="3">
                                 <label for="inversorTri">Trifásica</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent permanente ACDC" data-show="" data-input="permanente" data-value=""
+                        data-select="" data-inputtype="checkbox">
+                        <div class="inputParentFlex">
+                            <div class="permanenteLabel noselect">
+                                <p><b>Protección para sobretensión permanente<br></b></p>
+                            </div>
+                            <div class="inputMain radio-toolbar">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputParent diferencial ACDC" data-show="" data-input="diferencial" data-value=""
+                        data-select="" data-inputtype="checkboxCol">
+                        <div class="inputParentFlex">
+                            <div class="diferencialLabel noselect">
+                                <p><b>Sensibilidad del diferencial<br></b></p>
+                            </div>
+                            <div class="inputMain radio-toolbar inversorMonoTri">
                             </div>
                         </div>
                     </div>

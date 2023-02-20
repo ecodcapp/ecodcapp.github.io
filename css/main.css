@@ -143,8 +143,8 @@ section {
     justify-content: space-between;
     align-items: center;
 
-    padding-bottom: 1rem;
-    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: .2rem;
     border-bottom: 1px solid red;
 }
 
@@ -240,7 +240,7 @@ input {
     /* flex-direction: row; */
     /* align-items: stretch; */
     border: 1px solid hsla(0, 79%, 72%, .1);
-    padding: .7rem;
+    padding: .5rem;
     border-radius: .5rem;
     box-shadow: 0 0px 3px hsla(0, 79%, 72%, .3);
     background-color: white;
@@ -331,7 +331,7 @@ input[name="stringsMPPT"] {
     padding: 4px 5px;
     margin-right: 1rem;
     place-items: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     position: relative;
     left: 0;
     z-index: 10;
@@ -553,9 +553,13 @@ button.mostrarEquipo.show {
     /* border: 1px solid red; */
 }
 
+.radio-toolbar.transitoriaDC,
+.radio-toolbar.acometida,
+.radio-toolbar.termicaDC,
 .radio-toolbar.inversorMonoTri {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     /* height: auto; */
 
 }
@@ -573,7 +577,7 @@ button.mostrarEquipo.show {
     background-color: hsl(0, 0%, 95%);
     padding: 4px 11px;
     font-family: monospace;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     cursor: pointer;
     border-radius: .3rem;
     box-shadow: 0 2px 4px hsla(0, 79%, 72%, 1);

@@ -18,7 +18,7 @@ async function buscarProducto(formAnswers) {
 
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
 
-    // console.log(formData);
+    console.log(formData);
 
     // ------ HASTA AQUÍ SE TIENEN LOS DATOS PARA FILTRAR ------
 
@@ -167,10 +167,11 @@ function formatResultado(resultado) {
     specs = Object.fromEntries(specs);
     specsKeys = Object.keys(specs);
     specsValues = Object.values(specs);
+    console.log({specs})
 
     const specList = document.getElementById('secondBlockListItems');
     specList.innerHTML = '';
-    // console.log(specList)
+    console.log(specList);
     for (i = 0; i < specsKeys.length; i++) {
         let listItem = document.createElement('li');
         listItem.textContent = `${specsKeys[i]}: `;

@@ -167,9 +167,7 @@ function disableInput(input) {
                 parent.style.height = h + 'px';
                 parent.style.height = h - checkedLabel.offsetHeight - 7 + 'px';
             }
-
-
-
+            
             break;
 
         case 'slider':
