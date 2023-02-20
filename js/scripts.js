@@ -80,33 +80,33 @@ function setEventListeners() {
     atrasACDC.addEventListener('click', goBackward);
 }
 
-$(".subsubsectionHeader").click(function () {
+// $(".subsubsectionHeader").click(function () {
 
-    $header = $(this);
-    $header[0].dataset.open = $header[0].dataset.open === "0" ? "1" : "0";
-    $icon = $header.children(".closeIcon")[0];
-    $content = $header.next();
-    $header[0].dataset.open === "1" ?
-        $icon.style.transform = 'rotate(180deg)' :
-        $icon.style.transform = 'rotate(0)'
-
-
-
-    $otherSection = $header.parent().siblings().children();
-    $headerS = $header.parent().siblings().children(".subsubsectionHeader");
+//     $header = $(this);
+//     $header[0].dataset.open = $header[0].dataset.open === "0" ? "1" : "0";
+//     $icon = $header.children(".closeIcon")[0];
+//     $content = $header.next();
+//     $header[0].dataset.open === "1" ?
+//         $icon.style.transform = 'rotate(180deg)' :
+//         $icon.style.transform = 'rotate(0)'
 
 
-    if ($header[0].dataset.open === "1" && $headerS[0].dataset.open === "1") {
-        $iconS = $headerS.children(".closeIcon")[0];
-        $contentS = $header.parent().siblings().children(".subsubsectionContent");
 
-        $headerS[0].dataset.open = $headerS[0].dataset.open === "0" ? "1" : "0";
-        $contentS.slideToggle(400);
-        $iconS.style.transform += 'rotate(180deg)';
-    }
+//     $otherSection = $header.parent().siblings().children();
+//     $headerS = $header.parent().siblings().children(".subsubsectionHeader");
 
-    $content.slideToggle(400);
-});
+
+//     if ($header[0].dataset.open === "1" && $headerS[0].dataset.open === "1") {
+//         $iconS = $headerS.children(".closeIcon")[0];
+//         $contentS = $header.parent().siblings().children(".subsubsectionContent");
+
+//         $headerS[0].dataset.open = $headerS[0].dataset.open === "0" ? "1" : "0";
+//         $contentS.slideToggle(400);
+//         $iconS.style.transform += 'rotate(180deg)';
+//     }
+
+//     $content.slideToggle(400);
+// });
 
 function loadSection(e) {
 

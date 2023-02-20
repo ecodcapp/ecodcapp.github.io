@@ -147,7 +147,7 @@ function disableInput(input) {
             const labels = inputs.map(x => document.querySelectorAll(`[for=${x.id}]`)[0]);
             labels.forEach(x => {
                 if (leftOffset != x.offsetLeft) {
-                    x.style.left = `${leftOffset - x.offsetLeft}px`;
+                    x.style.left = `${leftOffset - x.offsetLeft + Math.abs(lastLabel.offsetWidth - x.offsetWidth)}px`;
                 }
 
                 if (topOffset != x.offsetTop) {
