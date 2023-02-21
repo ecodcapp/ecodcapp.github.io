@@ -208,11 +208,12 @@ function setInput(input) {
             // console.log(initialData);
             newCheckboxInput(input, initialData);
 
-            // if (input.dataset.inputtype == "checkboxCol") {
-            //     const checkboxCol = input.children[0].children[1];
-            //     console.log(checkboxCol.style.height);
-            //     // checkboxCol.style.height = checkboxCol.offsetHeight + 'px';
-            // }
+            if (input.dataset.inputtype == "checkboxCol") {
+                const checkboxCol = input.children[0].children[1];
+                checkboxCol.style.height = 'auto';
+                // checkboxCol.dataset.abledHeight = checkboxCol.offsetHeight;
+                // checkboxCol.dataset.disabledHeight = checkboxCol.children[1].offsetHeight;
+            }
 
             break;
 
