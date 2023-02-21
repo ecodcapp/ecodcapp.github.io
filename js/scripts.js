@@ -7,7 +7,7 @@ async function afterLoad() {
     // clearUrlParameters();
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
-    setEventListeners()
+    setEventListeners();
 
 
     // LOAD HARDCODED ECO-DC DB

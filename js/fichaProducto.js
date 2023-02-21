@@ -18,7 +18,7 @@ async function buscarProducto(formAnswers) {
 
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
 
-    console.log(formData);
+    // console.log(formData);
 
     // ------ HASTA AQUÍ SE TIENEN LOS DATOS PARA FILTRAR ------
 
