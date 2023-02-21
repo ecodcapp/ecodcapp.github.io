@@ -110,6 +110,10 @@ function formatResultado(resultado) {
 
     const esquema = document.getElementById('esquema');
     esquema.dataset.esquema = familia?.esquema || 'resources/productos/salta-el-diferencial.webp';
+    if (!familia?.esquema) {
+        esquema.style.display = 'none';
+    }
+
 
     const enlaceWeb = document.getElementById('enlaceWeb');
     enlaceWeb.dataset.enlace = familia?.enlaceWeb || 'https://toscano.es/categoria-producto/vigivolt/energias-renovables/';
