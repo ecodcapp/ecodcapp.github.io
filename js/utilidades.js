@@ -10,8 +10,8 @@ function timeout(ms) {
 
 function pushSearch2History(formData) {
     const url = (new URL(window.location));
-    console.log(window.location.href);
-    console.log(formData)
+    // console.log(window.location.href);
+    // console.log(formData)
     for (const [key, value] of Object.entries(formData)) {
         key === 'potencia' ?
         url.searchParams.set(key, value) :

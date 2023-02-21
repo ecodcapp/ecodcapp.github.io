@@ -153,7 +153,7 @@ function saveInputValue(input) {
 
 function setInput(input) {
 
-    console.log('FUNCTION: --------------- setInput: ', input);
+    // console.log('FUNCTION: --------------- setInput: ', input);
 
     let inputsWithValues = [...input.parentNode.children]
         .filter(x => [...x.classList].includes('inputParent'));
@@ -161,14 +161,14 @@ function setInput(input) {
 
     const selectedInputIndex = inputsWithValues.indexOf(inputsWithValues.filter(x => x.dataset.select)[0]);
     inputsWithValues = inputsWithValues.filter(x => inputsWithValues.indexOf(x) <= selectedInputIndex);
-    console.log(inputsWithValues);
+    // console.log(inputsWithValues);
 
     const formId = input.parentNode.id;
     // console.log(formId);
     let proteccion = { dataset: {} };
     proteccion.dataset.input = formId.split('n')[0] + 'n';
     proteccion.dataset.value = formId.split('n')[1];
-    console.log(proteccion.dataset);
+    // console.log(proteccion.dataset);
 
     let productos = jsonDB.productos;
     // console.log(productos);
@@ -182,8 +182,8 @@ function setInput(input) {
         productos = productos.filter(x => x[key] == value);
     })
 
-    console.log(productos);
-    console.log(input.dataset.input);
+    // console.log(productos);
+    // console.log(input.dataset.input);
 
     let initialData;
     switch (input.dataset.inputtype) {
@@ -205,7 +205,7 @@ function setInput(input) {
         case "checkboxCol":
             // console.log('checkbox');
             initialData = [...new Set(productos.map(x => x[input.dataset.input]))].sort((a, b) => a - b);
-            console.log(initialData);
+            // console.log(initialData);
             newCheckboxInput(input, initialData);
 
             // if (input.dataset.inputtype == "checkboxCol") {
@@ -309,7 +309,7 @@ function newCheckboxInput(inputIn, initialData) {
     const inputMain = inputIn.children[0].children[1];
     inputMain.innerHTML = '';
     let MPPTs = initialData;
-    console.log(initialData);
+    // console.log(initialData);
     // initialData = initialData.map(x => (x.toString()).split(' ').join(''));
     // console.log(initialData);
     for (let i = 0; i < MPPTs.length; i++) {

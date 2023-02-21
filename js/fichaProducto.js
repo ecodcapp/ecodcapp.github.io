@@ -96,49 +96,6 @@ async function buscarProducto(formAnswers) {
 
 }
 
-const formInversor = document.getElementById('formInversor');
-formInversor.addEventListener('submit', buscarProductoPorInversor);
-
-async function buscarProductoPorInversor(e) {
-    e.preventDefault();
-    let data = Object.fromEntries(new FormData(e.target).entries());
-    console.log(data);
-    const Código = JSON.parse(data.modelo).referencia;
-    console.log(Código);
-
-    let resultado = jsonDB.productos.filter(x => x.display.Código == Código);
-
-    if (resultado.length === 0) {
-        let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
-        resultDiv.style.top = 0;
-        resultDiv.style.bottom = 0;
-
-        const firstBlockImg = document.getElementById('firstBlockImg');
-        // console.log(jsonDB.familias.filter(x => x.familia === resultado.familia));
-        let imageSrc = 'resources/productos/salta-el-diferencial.webp';
-        if (firstBlockImg) {
-            firstBlockImg.src = imageSrc;
-        }
-        document.getElementById('secondBlockh1').textContent = 'Producto bajo demanda';
-        let li = document.createElement('li');
-        li.textContent = "Este producto se sirve bajo demanda \n Escríbenos a ventas@toscano.es para más información.";
-        const specList = document.getElementById('secondBlockListItems');
-        specList.innerHTML = '';
-        specList.appendChild(li);
-        document.getElementById('enlaceWeb').style.display = 'none';
-        document.getElementById('esquema').style.display = 'none';
-
-
-        return
-    } //RETURN
-
-    resultado = resultado[0];
-
-    pushSearch2History(JSON.parse(data.modelo));
-    formatResultado(resultado);
-    await timeout(100);
-}
-
 function formatResultado(resultado) {
 
     // console.log(resultado);
@@ -167,11 +124,11 @@ function formatResultado(resultado) {
     specs = Object.fromEntries(specs);
     specsKeys = Object.keys(specs);
     specsValues = Object.values(specs);
-    console.log({specs})
+    // console.log({specs})
 
     const specList = document.getElementById('secondBlockListItems');
     specList.innerHTML = '';
-    console.log(specList);
+    // console.log(specList);
     for (i = 0; i < specsKeys.length; i++) {
         let listItem = document.createElement('li');
         listItem.textContent = `${specsKeys[i]}: `;

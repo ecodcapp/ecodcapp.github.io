@@ -18,7 +18,6 @@ async function afterLoad() {
         .then(response => response.json())
         .then(data => {
             jsonDB = { ...data };
-            setSelect();
         })
         .catch(error => console.log(error));
 
