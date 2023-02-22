@@ -308,7 +308,7 @@ input {
     align-items: center;
     position: relative;
     height: auto;
-    transition: all .3s ease !important;
+    transition: all .2s ease !important;
 }
 
 .inputMain.radio-toolbar {
