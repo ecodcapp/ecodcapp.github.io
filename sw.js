@@ -1,12 +1,17 @@
-const version = 1.2; // to force full upload, change version number here
+const version = 2; // to force full upload, change version number here
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
-  'index.html',
-  'css/style.css',
-  'css/main.css',
-  'css/header.css',
-  'js/scripts.js',
+  // 'index.html',
+  // 'css/style-v2.css',
+  // 'css/main-v2.css',
+  // 'css/header-v2.css',
+  // 'js/scripts-v2.js',
+  // 'js/utilidades-v2.js',
+  // 'js/saberMas-v2.js',
+  // 'js/inputs-v2.js',
+  // 'js/inputControl-v2.js',
+  // 'js/fichaProducto-v2.js',
   'resources/ac_current.svg',
   'resources/acdc_current.svg',
   'resources/arrow_up.svg',
