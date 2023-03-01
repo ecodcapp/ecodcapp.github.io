@@ -1,9 +1,9 @@
 // ----- BÚSQUEDA DE PRODUCTOS ----- //
 
 const forms = Array.from(document.getElementsByClassName('formProduct'));
-forms.forEach(x => x.addEventListener('submit', buscarProducto));
+forms.forEach(x => x.addEventListener('submit', buscarProducto0));
 
-async function buscarProducto(formAnswers) {
+async function buscarProducto0(formAnswers) {
 
     formAnswers.preventDefault();
 
@@ -19,8 +19,13 @@ async function buscarProducto(formAnswers) {
     formData.proteccion = formAnswers.srcElement.id.split('n')[1];
 
     // console.log(formData);
+    buscarProducto1(formData);
 
     // ------ HASTA AQUÍ SE TIENEN LOS DATOS PARA FILTRAR ------
+
+}
+
+async function buscarProducto1(formData) { 
 
     // PUSH SEARCH IN HISTORY AS URL PARAMETERS:
     pushSearch2History(formData);
@@ -58,7 +63,7 @@ async function buscarProducto(formAnswers) {
         } else {
             resultado = resultado.filter(x => x[key] >= value);
             // console.log(resultado);
-            resultado.length > 1 ? resultado = resultado.splice(0,1) : console.log(resultado);
+            resultado.length > 1 ? resultado = resultado.splice(0, 1) : console.log(resultado);
         }
 
         // console.log(resultado);
@@ -98,8 +103,6 @@ async function buscarProducto(formAnswers) {
 
 function formatResultado(resultado) {
 
-    // console.log(JSON.stringify(resultado.display));
-
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
 
     // console.log(jsonDB.familias);
@@ -117,7 +120,17 @@ function formatResultado(resultado) {
     const enlaceWeb = document.getElementById('enlaceWeb');
     enlaceWeb.dataset.enlace = familia?.enlaceWeb || 'https://toscano.es/categoria-producto/vigivolt/energias-renovables/';
 
-    const resultadoDisplay = resultado.display;
+    formatDisplay(resultado.display);
+
+    document.getElementById('enlaceWeb').style.display = 'block';
+    if (!(familia?.esquema)) {
+        esquema.style.display = 'none';
+    }
+}
+
+function formatDisplay(resultadoDisplay) {
+
+    console.log(resultadoDisplay);
 
     document.getElementById('secondBlockh1').textContent = resultadoDisplay.Referencia;
 
@@ -140,12 +153,6 @@ function formatResultado(resultado) {
         listItem.appendChild(listItemValue);
         specList.appendChild(listItem);
     }
-
-    document.getElementById('enlaceWeb').style.display = 'block';
-    if (!(familia?.esquema)) {
-        esquema.style.display = 'none';
-    }
-    // document.getElementById('esquema').style.display = 'block';
 
     const compartir = document.getElementById('compartir');
     compartir.dataset.info = JSON.stringify(resultadoDisplay);

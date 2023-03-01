@@ -5,6 +5,16 @@ let jsonDB = {};
 async function afterLoad() {
 
     // clearUrlParameters();
+    let url = document.location.href;
+    console.log(url);
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    console.log(params);
+    // if (JSON.stringify(params) != '{}') {
+    //     formatResultado(params);
+    // }
+    // formatResultado(resultado);
+    window.history.pushState({}, "", url.split("?")[0]);
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
     setEventListeners();
@@ -18,6 +28,9 @@ async function afterLoad() {
         .then(response => response.json())
         .then(data => {
             jsonDB = { ...data };
+            if (JSON.stringify(params) != '{}') {
+                buscarProducto1(params);
+            }
         })
         .catch(error => console.log(error));
 
