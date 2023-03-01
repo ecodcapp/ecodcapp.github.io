@@ -146,6 +146,10 @@ function formatResultado(resultado) {
         esquema.style.display = 'none';
     }
     // document.getElementById('esquema').style.display = 'block';
+
+    const compartir = document.getElementById('compartir');
+    compartir.dataset.info = JSON.stringify(specs);
+
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
     resultDiv.style.bottom = 0;

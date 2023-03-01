@@ -40,12 +40,14 @@ function clearUrlParameters() {
 }
 
 function shareProduct(e) {
-    console.log(e.currentTarget);
+    const info = JSON.parse(e.currentTarget.dataset.info);
+    console.log(info);
     if (navigator.share) {
+        console.log(window.location.href);
         navigator.share({
-          title: 'web.dev',
-          text: 'Check out web.dev.',
-          url: 'https://web.dev/',
+          title: '¡Mira este producto de Toscano!',
+          text: `Mira el producto de la gama ECO-DC de Toscano con código ${info[Código]}`,
+          url: window.location.href,
         })
           .then(() => console.log('Successful share'))
           .catch((error) => console.log('Error sharing', error));
