@@ -44,7 +44,11 @@ self.addEventListener('fetch', (event) => {
   // console.log('FETCH EVENT IN SW');
   // console.log(event.request.url);
   // console.log(event.request.method);
-  if (event.request.url.search("google-analytics.com") != -1 || event.request.url.search("googletagmanager.com") != -1) {
+  if (
+    event.request.url.search("google-analytics.com") != -1 ||
+    event.request.url.search("googletagmanager.com") != -1 ||
+    event.request.url.search("toscano.es/?") != -1
+  ) {
     // console.log('IGNORE CACHING');
   } else {
     event.respondWith(
@@ -55,14 +59,14 @@ self.addEventListener('fetch', (event) => {
 
             cache.put(event.request, networkResponse.clone());
 
-            const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
+            // const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
             // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
 
-            if (event.request.referrer.includes(stringPattern)) {
-              console.log('>----------- DELETE PROTOCOL -----------<');
-              // console.log(event.request);
-              cache.delete(event.request);
-            }
+            // if (event.request.referrer.includes(stringPattern)) {
+            //   console.log('>----------- DELETE PROTOCOL -----------<');
+            //   // console.log(event.request);
+            //   cache.delete(event.request);
+            // }
 
             return networkResponse;
           });

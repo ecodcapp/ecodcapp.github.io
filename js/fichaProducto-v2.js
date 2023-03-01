@@ -98,7 +98,7 @@ async function buscarProducto(formAnswers) {
 
 function formatResultado(resultado) {
 
-    console.log(JSON.stringify(resultado.display));
+    // console.log(JSON.stringify(resultado.display));
 
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
 
@@ -117,11 +117,11 @@ function formatResultado(resultado) {
     const enlaceWeb = document.getElementById('enlaceWeb');
     enlaceWeb.dataset.enlace = familia?.enlaceWeb || 'https://toscano.es/categoria-producto/vigivolt/energias-renovables/';
 
-    resultado = resultado.display;
+    const resultadoDisplay = resultado.display;
 
-    document.getElementById('secondBlockh1').textContent = resultado.Referencia;
+    document.getElementById('secondBlockh1').textContent = resultadoDisplay.Referencia;
 
-    const specsEntries = Object.entries(resultado);
+    const specsEntries = Object.entries(resultadoDisplay);
     // console.log(specsEntries);
     let specs = specsEntries.filter(x => x[0] !== 'Referencia');
     specs = Object.fromEntries(specs);
@@ -148,7 +148,7 @@ function formatResultado(resultado) {
     // document.getElementById('esquema').style.display = 'block';
 
     const compartir = document.getElementById('compartir');
-    compartir.dataset.info = JSON.stringify(resultado);
+    compartir.dataset.info = JSON.stringify(resultadoDisplay);
 
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
