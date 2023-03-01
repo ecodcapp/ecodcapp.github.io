@@ -41,27 +41,33 @@ self.addEventListener('install', function (event) {
 
 
 self.addEventListener('fetch', (event) => {
-  console.log('FETCH EVENT IN SW');
-  event.respondWith(
-    caches.open(cacheName)
-      .then(async (cache) => {
-        const cachedResponse = await cache.match(event.request);
-        const fetchedResponse = fetch(event.request).then((networkResponse) => {
-          
-          cache.put(event.request, networkResponse.clone());
-          
-          const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
-          // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
+  // console.log('FETCH EVENT IN SW');
+  // console.log(event.request.url);
+  // console.log(event.request.method);
+  if (event.request.url.search("google-analytics.com") != -1 || event.request.url.search("googletagmanager.com") != -1) {
+    // console.log('IGNORE CACHING');
+  } else {
+    event.respondWith(
+      caches.open(cacheName)
+        .then(async (cache) => {
+          const cachedResponse = await cache.match(event.request);
+          const fetchedResponse = fetch(event.request).then((networkResponse) => {
 
-          if (event.request.referrer.includes(stringPattern)) {
-            console.log('>----------- DELETE PROTOCOL -----------<');
-            // console.log(event.request);
-            cache.delete(event.request);
-          }
+            cache.put(event.request, networkResponse.clone());
 
-          return networkResponse;
-        });
+            const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
+            // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
 
-        return cachedResponse || fetchedResponse;
-      }));
+            if (event.request.referrer.includes(stringPattern)) {
+              console.log('>----------- DELETE PROTOCOL -----------<');
+              // console.log(event.request);
+              cache.delete(event.request);
+            }
+
+            return networkResponse;
+          });
+
+          return cachedResponse || fetchedResponse;
+        }));
+  }
 });
