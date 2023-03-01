@@ -46,7 +46,7 @@ function shareProduct(e) {
         console.log(window.location.href);
         navigator.share({
           title: '¡Mira este producto de Toscano!',
-          text: `Mira el producto de la gama ECO-DC de Toscano con código ${info[Código]}`,
+          text: `Mira el producto de la gama ECO-DC de Toscano con código ${info['Código']}`,
           url: window.location.href,
         })
           .then(() => console.log('Successful share'))
