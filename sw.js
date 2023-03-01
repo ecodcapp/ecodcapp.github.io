@@ -12,21 +12,21 @@ const resourcesToPrecache = [
   // 'js/inputs-v2.js',
   // 'js/inputControl-v2.js',
   // 'js/fichaProducto-v2.js',
-  'resources/ac_current.svg',
-  'resources/acdc_current.svg',
-  'resources/arrow_up.svg',
-  'resources/bannerECODC.svg',
-  'resources/dc_current.svg',
-  'resources/toscano-logo-blanco.svg',
-  'resources/icons/maskable_icon_x192.png',
-  'resources/icons/maskable_icon_x384.png',
-  'resources/icons/maskable_icon_x512.png',
-  'resources/icons/maskable_icon.png',
-  'resources/productos/eco-ac.webp',
-  'resources/productos/eco-dc-inv-s.webp',
-  'resources/productos/eco-dc-inv.webp',
-  'resources/productos/eco-dc.webp',
-  'resources/productos/salta-el-diferencial.webp'
+  // 'resources/ac_current.svg',
+  // 'resources/acdc_current.svg',
+  // 'resources/arrow_up.svg',
+  // 'resources/bannerECODC.svg',
+  // 'resources/dc_current.svg',
+  // 'resources/toscano-logo-blanco.svg',
+  // 'resources/icons/maskable_icon_x192.png',
+  // 'resources/icons/maskable_icon_x384.png',
+  // 'resources/icons/maskable_icon_x512.png',
+  // 'resources/icons/maskable_icon.png',
+  // 'resources/productos/eco-ac.webp',
+  // 'resources/productos/eco-dc-inv-s.webp',
+  // 'resources/productos/eco-dc-inv.webp',
+  // 'resources/productos/eco-dc.webp',
+  // 'resources/productos/salta-el-diferencial.webp'
 ];
 
 self.addEventListener('install', function (event) {
@@ -41,15 +41,15 @@ self.addEventListener('install', function (event) {
 
 
 self.addEventListener('fetch', (event) => {
-  // console.log('FETCH EVENT IN SW');
+  console.log('FETCH EVENT IN SW');
   event.respondWith(
     caches.open(cacheName)
       .then(async (cache) => {
         const cachedResponse = await cache.match(event.request);
         const fetchedResponse = fetch(event.request).then((networkResponse) => {
-
+          
           cache.put(event.request, networkResponse.clone());
-
+          
           const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
           // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
 
