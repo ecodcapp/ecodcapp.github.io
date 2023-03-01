@@ -98,7 +98,7 @@ async function buscarProducto(formAnswers) {
 
 function formatResultado(resultado) {
 
-    // console.log(resultado);
+    console.log(JSON.stringify(resultado.display));
 
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
 
@@ -148,7 +148,7 @@ function formatResultado(resultado) {
     // document.getElementById('esquema').style.display = 'block';
 
     const compartir = document.getElementById('compartir');
-    compartir.dataset.info = JSON.stringify(specs);
+    compartir.dataset.info = JSON.stringify(resultado);
 
     let resultDiv = document.getElementById('formResultsDiv'); //JSON.stringify(resultado[0], null, 4);
     resultDiv.style.top = 0;
