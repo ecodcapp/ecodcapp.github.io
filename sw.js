@@ -2,7 +2,7 @@ const version = 2; // to force full upload, change version number here
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
-  // 'index.html',
+  'index.html',
   // 'css/style-v2.css',
   // 'css/main-v2.css',
   // 'css/header-v2.css',
