@@ -751,26 +751,7 @@ button.mostrarEquipo.show {
     -webkit-tap-highlight-color: lightcoral;
 }
 
-#secondBlock span {
-    /* display: block; */
-    margin: .5rem;
-    /* font-size: 1rem; */
-    font-weight: 500;
-    -webkit-touch-callout: unset;
-    /* iOS Safari */
-    -webkit-user-select: text;
-    /* Safari */
-    -khtml-user-select: text;
-    /* Konqueror HTML */
-    -moz-user-select: text;
-    /* Old versions of Firefox */
-    -ms-user-select: text;
-    /* Internet Explorer/Edge */
-    user-select: text;
-    /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-    -webkit-tap-highlight-color: lightcoral;
-}
+
 
 /* ------------------------------------------ */
 
@@ -1069,4 +1050,5 @@ dialog img {
 
 .resultsFooterIcon span {
     font-size: 1.5rem;
+    margin: .2rem;
 }
