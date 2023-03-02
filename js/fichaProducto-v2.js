@@ -25,7 +25,7 @@ async function buscarProducto0(formAnswers) {
 
 }
 
-async function buscarProducto1(formData) { 
+async function buscarProducto1(formData) {
 
     // PUSH SEARCH IN HISTORY AS URL PARAMETERS:
     pushSearch2History(formData);
@@ -122,12 +122,6 @@ function formatResultado(resultado) {
 
     formatDisplay(resultado.display);
 
-    // document.getElementById('enlaceWeb').style.display = 'block';
-    // if (!(familia?.enlaceWeb)) {
-    //     enlaceWeb.style.display = 'hidden';
-    // }
-
-    // esquema.style.display = 'block';
 }
 
 function formatDisplay(resultadoDisplay) {
@@ -149,7 +143,9 @@ function formatDisplay(resultadoDisplay) {
     // console.log(specList);
     for (i = 0; i < specsKeys.length; i++) {
         let listItem = document.createElement('li');
-        listItem.textContent = `${specsKeys[i]}: `;
+        listItem.textContent = specsKeys[i] == 'Proteccion' ?
+        'Protección: ' :
+        `${specsKeys[i]}: `;
         let listItemValue = document.createElement('span');
         listItemValue.textContent = `${specsValues[i]}`;
         listItem.appendChild(listItemValue);
@@ -172,7 +168,7 @@ function showEsquema(e) {
     dialog.id = 'esquemaDialog';
     const esquema = document.createElement('img');
     esquema.id = 'esquemaImg';
-    esquema.src = e.target.dataset.esquema;
+    esquema.src = e.currentTarget.dataset.esquema;
     const esquemaDiv = document.createElement('div');
     esquemaDiv.appendChild(esquema);
 
@@ -244,5 +240,5 @@ function zoomout() {
 const enlaceWeb = document.getElementById('enlaceWeb');
 enlaceWeb.addEventListener('click', takeMe2Toscano);
 function takeMe2Toscano(e) {
-    window.open(e.target.dataset.enlace, '_blanck');
+    window.open(e.currentTarget.dataset.enlace, '_blanck');
 }

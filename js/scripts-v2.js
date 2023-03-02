@@ -22,8 +22,8 @@ async function afterLoad() {
 
     // LOAD ECO-DC DB
 
-    // const fetchedURL = 'https://script.google.com/macros/s/AKfycbxkh_dWYR_09WIYlhu8aYWc_kBx_10U2mW7mJJZszi6nS3NeNH9uZhKUtBoT2k2vdai3Q/exec';
-    const fetchedURL = 'https://script.google.com/macros/s/AKfycbyYaGzDFmCoKOu2xIly1851IRe7oW2Cp2PMhliPaDELM-sV0IQOb2SR4Id1XgMjVBP9/exec';
+    // const fetchedURL = 'https://script.google.com/macros/s/AKfycbxbi2UbemnTLLDXLz6x9MOeR0S95SCrL26etvxnEDRAaypGBJx9gd8qDrR8IJknRM4c/exec';
+    const fetchedURL = 'https://script.google.com/macros/s/AKfycbzMw6jBqEDY7BWG89eHctNm2O3K6Yt4q0mLOsuyBtoEol4PFEyvEY-JCw1RXA5V6rai/exec';
     fetch(fetchedURL)
         .then(response => response.json())
         .then(data => {
