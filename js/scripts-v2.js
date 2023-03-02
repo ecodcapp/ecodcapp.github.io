@@ -6,14 +6,17 @@ async function afterLoad() {
 
     // clearUrlParameters();
     let url = document.location.href;
-    // console.log(url);
+    console.log(url.search('https'));
+    if(url.search('https') == -1) {
+        console.log('FORCE HTTPS');
+        // console.log('https://' + url.split('://')[1]);
+        const secureUrl = 'https://' + url.split('://')[1];
+        console.log(secureUrl);
+        window.location.replace(secureUrl);
+    }
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-    // console.log(params);
-    // if (JSON.stringify(params) != '{}') {
-    //     formatResultado(params);
-    // }
-    // formatResultado(resultado);
+    
     window.history.pushState({}, "", url.split("?")[0]);
 
     // LAS SIGUIENTES FUNCIONES TIENEN UNOS 3 SEGUNDOS PARA EJECUTARSE
