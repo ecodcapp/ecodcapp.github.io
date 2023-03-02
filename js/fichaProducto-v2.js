@@ -87,8 +87,8 @@ async function buscarProducto1(formData) {
         const specList = document.getElementById('secondBlockListItems');
         specList.innerHTML = '';
         specList.appendChild(li);
-        document.getElementById('enlaceWeb').style.display = 'none';
-        document.getElementById('esquema').style.display = 'none';
+        document.getElementById('enlaceWeb').style.display = 'hidden';
+        document.getElementById('esquema').style.display = 'hidden';
 
         return
     } //RETURN
@@ -105,7 +105,7 @@ function formatResultado(resultado) {
 
     const familia = jsonDB.familias.filter(x => x.familia === resultado.familia)[0];
 
-    // console.log(jsonDB.familias);
+    console.log(jsonDB.familias);
 
     const firstBlockImg = document.getElementById('firstBlockImg');
     let imageSrc = familia?.imagen || 'resources/productos/salta-el-diferencial.webp';
@@ -114,7 +114,7 @@ function formatResultado(resultado) {
     const esquema = document.getElementById('esquema');
     esquema.dataset.esquema = familia?.esquema || 'resources/productos/salta-el-diferencial.webp';
     if (!(familia?.esquema)) {
-        esquema.style.display = 'none';
+        esquema.style.display = 'hidden';
     }
 
     const enlaceWeb = document.getElementById('enlaceWeb');
@@ -122,15 +122,17 @@ function formatResultado(resultado) {
 
     formatDisplay(resultado.display);
 
-    document.getElementById('enlaceWeb').style.display = 'block';
-    if (!(familia?.esquema)) {
-        esquema.style.display = 'none';
-    }
+    // document.getElementById('enlaceWeb').style.display = 'block';
+    // if (!(familia?.enlaceWeb)) {
+    //     enlaceWeb.style.display = 'hidden';
+    // }
+
+    // esquema.style.display = 'block';
 }
 
 function formatDisplay(resultadoDisplay) {
 
-    console.log(resultadoDisplay);
+    // console.log(resultadoDisplay);
 
     document.getElementById('secondBlockh1').textContent = resultadoDisplay.Referencia;
 

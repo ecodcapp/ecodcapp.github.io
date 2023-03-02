@@ -6,10 +6,10 @@ async function afterLoad() {
 
     // clearUrlParameters();
     let url = document.location.href;
-    console.log(url);
+    // console.log(url);
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-    console.log(params);
+    // console.log(params);
     // if (JSON.stringify(params) != '{}') {
     //     formatResultado(params);
     // }
@@ -20,7 +20,7 @@ async function afterLoad() {
     setEventListeners();
 
 
-    // LOAD HARDCODED ECO-DC DB
+    // LOAD ECO-DC DB
 
     // const fetchedURL = 'https://script.google.com/macros/s/AKfycbxkh_dWYR_09WIYlhu8aYWc_kBx_10U2mW7mJJZszi6nS3NeNH9uZhKUtBoT2k2vdai3Q/exec';
     const fetchedURL = 'https://script.google.com/macros/s/AKfycbyYaGzDFmCoKOu2xIly1851IRe7oW2Cp2PMhliPaDELM-sV0IQOb2SR4Id1XgMjVBP9/exec';

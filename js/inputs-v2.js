@@ -178,7 +178,7 @@ function disableInput(input) {
             const potDisplay = input.children[0].children[1].children[0];
             potDisplay.classList.add('disabled');
             const leftDisplacement = potDisplay.parentElement.offsetLeft;
-            console.log(leftDisplacement);
+            // console.log(leftDisplacement);
             potDisplay.style.left = potDisplay.parentElement.offsetWidth - potDisplay.offsetWidth + 'px';
             break;
 
