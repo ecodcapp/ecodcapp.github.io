@@ -6,14 +6,11 @@ async function afterLoad() {
 
     // clearUrlParameters();
     let url = document.location.href;
-    console.log(url.search('https'));
     if(url.search('https') == -1) {
         console.log('FORCE HTTPS');
-        // console.log('https://' + url.split('://')[1]);
         const secureUrl = 'https://' + url.split('://')[1];
-        console.log(secureUrl);
-        window.location.replace(secureUrl);
-    }
+        // window.location.replace(secureUrl); // DESCOMENTAR ANTES DE HECER PUSH
+    };
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
     

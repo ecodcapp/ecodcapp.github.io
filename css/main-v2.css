@@ -851,24 +851,38 @@ label[for^="mppt"] {
     bottom: 0rem; */
     align-self: auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    /* display: grid;
+    grid-template-columns: 2fr 3fr; */
+    display: flex;
+    flex-direction: row;
     /* border: 1px solid; */
     width: min(calc(100vw - 2rem), 500px);
 }
 
 .footerL {
     border-right: 1px solid var(--headerBG);
-    ;
     text-align: right;
+    vertical-align: middle;
     padding: .2rem .5rem;
 }
 
+/* .footerR {
+    width: fit-content;
+} */
+
 .footerR ul li {
-    display: block;
-    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left !important;
     padding: .2rem .5rem;
 }
+
+.footerR ul li span {
+    /* text-align: center; */
+    vertical-align: middle;
+    color: var(--headerBG);
+}
+
 
 #formWrap {
     margin-top: .3rem;
