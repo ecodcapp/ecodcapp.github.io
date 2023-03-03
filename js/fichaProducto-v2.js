@@ -27,6 +27,14 @@ async function buscarProducto0(formAnswers) {
 
 async function buscarProducto1(formData) {
 
+    // console.log(formData);
+
+    if ('share' in formData) {
+        delete formData.share;
+    }
+
+    // console.log(formData);
+
     // PUSH SEARCH IN HISTORY AS URL PARAMETERS:
     pushSearch2History(formData);
 
