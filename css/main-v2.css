@@ -1046,6 +1046,15 @@ dialog img {
     cursor: pointer;
 }
 
+#esquemaDialog::before {
+    content: 'Próximamente';
+    font-family: var(--headerTitle);
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
 .lastInput {
     border-bottom: 1px solid red !important;
 }
