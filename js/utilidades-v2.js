@@ -44,7 +44,7 @@ function shareProduct(e) {
           title: '¡Mira este producto de Toscano!',
           text: `Mira el producto de la gama ECO-DC de Toscano con referencia ${info['Referencia']} (código ${info['Código']}):
           `,
-          url: window.location.href,
+          url: window.location.href + '&share=true',
         })
           .then(() => console.log('Successful share'))
           .catch((error) => console.log('Error sharing', error));
