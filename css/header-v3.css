@@ -1,0 +1,128 @@
+header {
+    background-color: var(--headerBG);
+    color: var(--header);
+    height: 1.9rem;
+    width: 100vw;
+    padding: .3rem 0rem;
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    /* border: 1px solid yellow; */
+}
+
+.logo {
+    font-family: var(--headerTitle);
+    font-size: 1.6rem;
+    padding-left: .6rem;
+}
+
+#logoToscano {
+    font-family: var(--standard);
+}
+
+header > nav {
+    font-size: var(--stdSize);
+    display: flex;
+    flex-direction: horizonal;
+}
+
+#saberMasBtn {
+    border: 1px solid hsl(360, 78%, 70%);
+    border-radius: .5rem;
+    margin-right:.3rem;
+    height: 1.8rem;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.saberMas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 .35rem 0 .3rem;
+    /* border: 1px solid hsl(360, 78%, 70%); */
+    border-radius: .3rem;
+    transition: .5s;
+    cursor: pointer;
+    position: relative;
+}
+
+/* saberMasClose */
+
+#saberMasBtn:active {
+    background-color: hsl(360, 78%, 70%);
+    border: 1px solid white;
+}
+
+.saberMas div+div {
+    margin-left: 0.5rem;
+}
+
+#saberMasOpenIcon {
+    transform: translateY(.15rem);
+}
+
+#saberMasCloseIcon {
+    transform: translateY(.15rem) rotate(0);
+}
+
+/* --------------------------------------- */
+
+#saberMasContenido {
+    background-color: var(--headerBG2);
+    color: white;
+    /* border-bottom: 1px solid var(--darkRed); */
+    margin-top: 2.5rem;
+    padding: 1rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -100vh;
+    z-index: 9;
+    height: calc(100vh - 4.5rem);
+    transition: .5s;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+#saberMasContenido>div {
+    background-color: white;
+    color: darkslategrey;
+    border: 1px solid var(--headerBG);
+    border-radius: 1rem;
+    position: relative;
+    width: min(100%, 600px);
+    margin: 0;
+} 
+
+#saberMasContenido>div+div {
+    margin-top: 1rem;
+}
+
+#saberMasContenido h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.saberMasHeader {
+    /* border-bottom: 1px solid; */
+    margin: 0rem 0 1rem;
+    padding: 1rem 1rem 0;
+    position: relative;
+    cursor: pointer;
+}
+.saberMasContent {
+    display: none;
+    margin: 1rem;
+    /* padding-top: 1rem; */
+    /* border-top: 1px solid; */
+}
