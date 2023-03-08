@@ -1,4 +1,4 @@
-const version = 2; // to force full upload, change version number here
+const version = 3; // to force full upload, change version number here
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
