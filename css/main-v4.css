@@ -751,6 +751,24 @@ button.mostrarEquipo.show {
     -webkit-tap-highlight-color: lightcoral;
 }
 
+#secondBlock li,
+#secondBlock li span {
+    -webkit-touch-callout: unset;
+    /* iOS Safari */
+    -webkit-user-select: text;
+    /* Safari */
+    -khtml-user-select: text;
+    /* Konqueror HTML */
+    -moz-user-select: text;
+    /* Old versions of Firefox */
+    -ms-user-select: text;
+    /* Internet Explorer/Edge */
+    user-select: text;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    -webkit-tap-highlight-color: lightcoral;
+}
+
 
 
 /* ------------------------------------------ */
