@@ -9,7 +9,7 @@ async function afterLoad() {
     if(url.search('https') == -1) {
         console.log('FORCE HTTPS');
         const secureUrl = 'https://' + url.split('://')[1];
-        // window.location.replace(secureUrl); // DESCOMENTAR ANTES DE HECER PUSH
+        window.location.replace(secureUrl); // DESCOMENTAR ANTES DE HECER PUSH
     };
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
