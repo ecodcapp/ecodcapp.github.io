@@ -9,7 +9,7 @@ async function afterLoad() {
     if(url.search('https') == -1) {
         console.log('FORCE HTTPS');
         const secureUrl = 'https://' + url.split('://')[1];
-        window.location.replace(secureUrl); // DESCOMENTAR ANTES DE HECER PUSH
+        // window.location.replace(secureUrl); // DESCOMENTAR ANTES DE HECER PUSH
     };
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
@@ -22,7 +22,7 @@ async function afterLoad() {
 
     // LOAD ECO-DC DB
 
-    const fetchedURL = 'https://script.google.com/macros/s/AKfycbycP3fKw-dX6QPife3Zk9wSHQ_8goE9CZ_bllTcwFAdkyakUkZUpFkLrh8qZEV5zNb1/exec';
+    const fetchedURL = 'https://script.google.com/macros/s/AKfycbzx8jkhMx_UPFrGgmggTbbIGr3HVIKA6zXrejL1P6wqDbRAjVXjb7B49lwh5DD4sTHj/exec';
     fetch(fetchedURL)
         .then(response => response.json())
         .then(data => {

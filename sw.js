@@ -1,32 +1,33 @@
-const version = 3; // to force full upload, change version number here
+const version = '3'; // to force full upload, change version number here
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
   'index.html',
-  // 'css/style-v2.css',
-  // 'css/main-v2.css',
-  // 'css/header-v2.css',
-  // 'js/scripts-v2.js',
-  // 'js/utilidades-v2.js',
-  // 'js/saberMas-v2.js',
-  // 'js/inputs-v2.js',
-  // 'js/inputControl-v2.js',
-  // 'js/fichaProducto-v2.js',
-  // 'resources/ac_current.svg',
-  // 'resources/acdc_current.svg',
-  // 'resources/arrow_up.svg',
-  // 'resources/bannerECODC.svg',
-  // 'resources/dc_current.svg',
-  // 'resources/toscano-logo-blanco.svg',
-  // 'resources/icons/maskable_icon_x192.png',
-  // 'resources/icons/maskable_icon_x384.png',
-  // 'resources/icons/maskable_icon_x512.png',
-  // 'resources/icons/maskable_icon.png',
-  // 'resources/productos/eco-ac.webp',
-  // 'resources/productos/eco-dc-inv-s.webp',
-  // 'resources/productos/eco-dc-inv.webp',
-  // 'resources/productos/eco-dc.webp',
-  // 'resources/productos/salta-el-diferencial.webp'
+  'css/style-v3.css',
+  'css/main-v3.css',
+  'css/header-v3.css',
+  'js/scripts-v3.js',
+  'js/utilidades-v3.js',
+  'js/saberMas-v3.js',
+  'js/inputs-v3.js',
+  'js/inputControl-v3.js',
+  'js/fichaProducto-v3.js',
+  'resources/ac_current.svg',
+  'resources/acdc_current.svg',
+  'resources/arrow_up.svg',
+  'resources/bannerECODC.svg',
+  'resources/dc_current.svg',
+  'resources/toscano-logo-blanco.svg',
+  'resources/icons/maskable_icon_x192.png',
+  'resources/icons/maskable_icon_x384.png',
+  'resources/icons/maskable_icon_x512.png',
+  'resources/icons/maskable_icon.png',
+  'resources/productos/eco-ac.webp',
+  'resources/productos/eco-dc-inv-s.webp',
+  'resources/productos/eco-dc-inv.webp',
+  'resources/productos/eco-dc.webp',
+  'resources/productos/salta-el-diferencial.webp',
+  'resources/esquemas/ESQUEMA-ECO-AC.png',
 ];
 
 self.addEventListener('install', function (event) {
@@ -47,7 +48,8 @@ self.addEventListener('fetch', (event) => {
   if (
     event.request.url.search("google-analytics.com") != -1 ||
     event.request.url.search("googletagmanager.com") != -1 ||
-    event.request.url.search("toscano.es/?") != -1
+    event.request.url.search("toscano.es/?") != -1 ||
+    event.request.url.search("5501/?") != -1
   ) {
     // console.log('IGNORE CACHING');
   } else {
