@@ -9,9 +9,10 @@
     --stdSize: 0.97rem;
 
     /* COLORS */
-    --headerBG: hsl(0, 78%, 53%);
-    /* --headerBG: hsl(12, 100%, 64%); */
-    --headerBG2: hsla(360, 78%, 53%, .80);
+    /* --headerBG: hsl(0, 78%, 53%); */
+    --headerBG: hsl(12, 100%, 64%);
+    /* --headerBG2: hsla(360, 78%, 53%, .80); */
+    --headerBG2: hsla(12, 100%, 64%, .65);
     --header: hsl(0, 100%, 100%);
     --darkRed: hsl(0, 100%, 30%);
 }

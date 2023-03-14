@@ -239,7 +239,7 @@ input {
     /* display: flex; */
     /* flex-direction: row; */
     /* align-items: stretch; */
-    border: 1px solid hsla(0, 79%, 72%, .1);
+    border: 1px solid var(--headerBG);
     padding: .5rem;
     border-radius: .5rem;
     box-shadow: 0 0px 3px hsla(0, 79%, 72%, .3);
@@ -273,7 +273,7 @@ input {
 }
 
 .inputParent[data-select="1"] {
-    border: 1px solid lightcoral;
+    border: 1px solid var(--headerBG2);
     box-shadow: 0 3px 6px hsla(0, 79%, 72%, .5);
 }
 
@@ -506,8 +506,8 @@ input.disabled[name="stringsMPPT"] {
 }
 
 .btn:disabled {
-    background-color: hsl(0, 100%, 85%);
-    border-color: hsl(0, 100%, 85%);
+    background-color: hsl(12, 100%, 85%);
+    border-color: hsl(12, 100%, 85%);
     box-shadow: 0 0px 1px lightcoral;
 }
 
@@ -1039,7 +1039,7 @@ dialog img {
 
 #zooms>div {
     display: grid;
-    border: 1px solid lightcoral;
+    border: 1px solid var(--headerBG);
     border-radius: .5rem;
     padding: .4rem;
     margin: .3rem;

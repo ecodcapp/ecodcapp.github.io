@@ -34,6 +34,7 @@ header > nav {
 
 #saberMasBtn {
     border: 1px solid hsl(360, 78%, 70%);
+    border: 1px solid hsl(12, 100%, 80%);
     border-radius: .5rem;
     margin-right:.3rem;
     height: 1.8rem;
@@ -98,7 +99,7 @@ header > nav {
 #saberMasContenido>div {
     background-color: white;
     color: darkslategrey;
-    border: 1px solid var(--headerBG);
+    border: 2px solid var(--headerBG);
     border-radius: 1rem;
     position: relative;
     width: min(100%, 600px);

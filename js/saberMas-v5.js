@@ -14,7 +14,7 @@ async function openSaberMas(e) {
     saberMasContenido.style.top = 0;
     // saberMasContenido.scrollBy()
 
-    saberMasBtn.style.backgroundColor = 'lightcoral';
+    saberMasBtn.style.backgroundColor = 'hsl(12, 100%, 75%)';
     saberMasBtn.style.borderColor = 'white';
 
     saberMasOpen.style.transform = 'translateY(-1.8rem)';
@@ -47,7 +47,7 @@ function closeSaberMas(e) {
     saberMasContenido.style.top = '-110vh';
 
     saberMasBtn.style.backgroundColor = 'var(--headerBG)';
-    saberMasBtn.style.borderColor = 'lightcoral';
+    saberMasBtn.style.borderColor = 'hsl(12, 100%, 80%)';
 
     saberMasOpen.style.transform = 'translateY(0)';
     saberMasClose.style.transform = 'translateY(0)';
