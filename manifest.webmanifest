@@ -4,8 +4,8 @@
   "description": "Asistente de selección de productos de la gama ECO-DC de Toscano. \n Introduce las características de tu instalación, y nosotros te ayudaremos a encontrar el producto que más se ajuste a tus necesidades.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#E52A2A",
-  "background_color": "#E52A2A",
+  "theme_color": "#ff6c47",
+  "background_color": "#ff6c47",
   "orientation": "portrait",
   "lang": "es",
   "icons": [
