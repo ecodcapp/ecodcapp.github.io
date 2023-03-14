@@ -49,7 +49,8 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    width: min(calc(100vw - 2rem), 500px)
+    width: min(calc(100vw - 2rem), 500px);
+    overflow-y: scroll;
 }
 
 .subsubsection {
@@ -299,6 +300,7 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* overflow-y: scroll; */
 }
 
 .inputMain {
