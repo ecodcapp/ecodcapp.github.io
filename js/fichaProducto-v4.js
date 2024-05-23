@@ -59,23 +59,23 @@ async function buscarProducto1(formData) {
     // console.log(keys, values);
 
     // FILTRAR BASE DE DATOS DE PRODUCTOS
-
+    // filter every key except 'potencia':
     for (let i = 0; i < keys.length; i++) {
-        // console.log('ITERATION: ' + (i+1))
         const key = keys[i];
         const value = values[i];
-        // console.log(key + ': ' + value);
-
         if (key != 'potencia') {
             resultado = resultado.filter(x => x[key] == value);
-        } else {
-            resultado = resultado.filter(x => x[key] >= value);
-            // console.log(resultado);
-            resultado.length > 1 ? resultado = resultado.splice(0, 1) : console.log(resultado);
         }
-
-        // console.log(resultado);
     }
+    console.log(resultado);
+    // filter 'potencia' key by first ordering the array by increasing 'potencia' value and then taking the first element that is greater or equal to the 'potencia' value:
+    if (keys.includes('potencia')) {
+        resultado = resultado.sort((a, b) => a.potencia - b.potencia);
+        console.log('Potencia: ' + values[keys.indexOf('potencia')])
+        resultado = resultado.filter(x => x.potencia >= values[keys.indexOf('potencia')]);
+        resultado.length > 1 ? resultado = resultado.splice(0, 1) : console.log(resultado);
+    }
+    console.log(resultado);
 
 
     if (resultado.length === 0) {
