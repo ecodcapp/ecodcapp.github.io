@@ -1,4 +1,4 @@
-const version = '5'; // to force full upload, change version number here
+const version = '6'; // to force full upload, change version number here
 
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
@@ -11,7 +11,7 @@ const resourcesToPrecache = [
   'js/saberMas-v4.js',
   'js/inputs-v4.js',
   'js/inputControl-v4.js',
-  'js/fichaProducto-v4.js',
+  'js/fichaProducto-v5.js',
   'resources/ac_current.svg',
   'resources/acdc_current.svg',
   'resources/arrow_up.svg',
@@ -30,50 +30,62 @@ const resourcesToPrecache = [
   'resources/esquemas/ESQUEMA-ECO-AC.png',
 ];
 
-self.addEventListener('install', function (event) {
+self.addEventListener('install', event => {
   console.log('Service worker install event');
   event.waitUntil(
     caches.open(cacheName)
-      .then(function (cache) {
-        return cache.addAll(resourcesToPrecache);
-      })
+      .then(cache => cache.addAll(resourcesToPrecache))
+      .catch(error => console.error('Failed to cache resources:', error))
   );
 });
 
+const ignoreCachingPatterns = [
+  "google-analytics.com",
+  "googletagmanager.com",
+  "toscano.es/?",
+  "5501/?"
+];
 
-self.addEventListener('fetch', (event) => {
-  // console.log('FETCH EVENT IN SW');
-  // console.log(event.request.url);
-  // console.log(event.request.method);
-  if (
-    event.request.url.search("google-analytics.com") != -1 ||
-    event.request.url.search("googletagmanager.com") != -1 ||
-    event.request.url.search("toscano.es/?") != -1 ||
-    event.request.url.search("5501/?") != -1
-  ) {
+function shouldIgnoreRequest(url) {
+  return ignoreCachingPatterns.some(pattern => url.includes(pattern));
+}
+
+self.addEventListener('fetch', event => {
+  if (shouldIgnoreRequest(event.request.url)) {
     // console.log('IGNORE CACHING');
   } else {
     event.respondWith(
       caches.open(cacheName)
-        .then(async (cache) => {
+        .then(async cache => {
           const cachedResponse = await cache.match(event.request);
-          const fetchedResponse = fetch(event.request).then((networkResponse) => {
-
+          const fetchedResponse = fetch(event.request).then(networkResponse => {
             cache.put(event.request, networkResponse.clone());
-
-            // const stringPattern = 'TEST=DELETE'; // COMENTAR ESTA LÍNEA
-            // const stringPattern = 'toscano.es/?'; // DESCOMENTAR ESTA LÍNEA
-
-            // if (event.request.referrer.includes(stringPattern)) {
-            //   console.log('>----------- DELETE PROTOCOL -----------<');
-            //   // console.log(event.request);
-            //   cache.delete(event.request);
-            // }
-
             return networkResponse;
+          }).catch(error => {
+            console.error('Fetch failed:', error);
+            throw error;
           });
 
           return cachedResponse || fetchedResponse;
-        }));
+        }).catch(error => {
+          console.error('Cache open failed:', error);
+          throw error;
+        })
+    );
   }
+});
+
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [cacheName];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (!cacheWhitelist.includes(cache)) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
+  );
 });
